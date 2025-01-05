@@ -1,0 +1,7 @@
+struct SelfReflection:
+    fn reflect(tags: List[Tag]) -> String:
+        """
+        Analyze tags and return a self-reflection string.
+        """
+        pass
+    

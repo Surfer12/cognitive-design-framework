@@ -1,0 +1,4 @@
+     struct MetaLearningModule:
+         fn analyze_tags(tags: List[Tag]) -> List[String]:
+             """Analyze tags and return a list of suggested adaptations
+             pass.""" 
