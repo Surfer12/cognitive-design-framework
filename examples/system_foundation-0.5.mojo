@@ -16,7 +16,7 @@ enum ExceptionType:
 struct DiagnosticLogger:
     log_level: LogLevel
     trace_history: List[TraceEvent]
-    
+
     fn log_exception(
         exception: SystemException,
         context: ExecutionContext
@@ -30,9 +30,9 @@ struct DiagnosticLogger:
             context=context,
             system_state=capture_system_state()
         )
-        
+
         self.trace_history.append(trace_event)
-        
+
         if self.should_handle_immediately(exception):
             self.trigger_exception_handling(trace_event)
 
@@ -40,7 +40,7 @@ struct SystemStateManager:
     current_state: SystemState
     state_history: List[StateTransition]
     validation_rules: List[ValidationRule]
-    
+
     fn validate_state_transition(
         proposed_state: SystemState
     ) raises StateTransitionException:
@@ -57,7 +57,7 @@ struct TestHarness:
     conversation_corpus: List[ConversationSegment]
     test_scenarios: List[TestScenario]
     validation_metrics: List[ValidationMetric]
-    
+
     fn execute_test_suite(
         test_configuration: TestConfiguration
     ) -> TestResults:
@@ -65,7 +65,7 @@ struct TestHarness:
         Execute comprehensive test suite using conversation history
         """
         let results = TestResults()
-        
+
         for scenario in self.test_scenarios:
             try:
                 let scenario_result = self.execute_scenario(
@@ -75,7 +75,7 @@ struct TestHarness:
                 results.add_scenario_result(scenario_result)
             catch Exception as e:
                 self.handle_test_failure(e, scenario)
-        
+
         return results
 
     fn execute_scenario(
@@ -86,7 +86,7 @@ struct TestHarness:
         Execute individual test scenario with error handling
         """
         let context = self.prepare_test_context(scenario)
-        
+
         try:
             let result = scenario.execute(corpus)
             self.validate_scenario_result(result)
@@ -101,7 +101,7 @@ struct IterativeDevelopmentManager:
     development_phase: DevelopmentPhase
     iteration_history: List[DevelopmentIteration]
     metrics: PerformanceMetrics
-    
+
     fn progress_iteration(
         current_metrics: PerformanceMetrics
     ) raises DevelopmentException:
@@ -110,7 +110,7 @@ struct IterativeDevelopmentManager:
         """
         if self.should_progress_phase(current_metrics):
             self.transition_development_phase()
-        
+
         self.update_iteration_history(
             DevelopmentIteration(
                 phase=self.development_phase,
