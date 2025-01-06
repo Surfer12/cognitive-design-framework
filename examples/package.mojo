@@ -16,4 +16,4 @@ fn get_version() -> String:
 
 fn get_package_info() -> String:
     """Return formatted package information."""
-    return f"{PACKAGE_NAME} v{VERSION}\n{DESCRIPTION}" 
+    return f"{PACKAGE_NAME} v{VERSION}\n{DESCRIPTION}"
