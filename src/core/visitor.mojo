@@ -21,8 +21,10 @@ struct ProcessingContext:
     fn __init__(inout self):
         """Initialize processing context."""
         self.feedback = ""
-        self.errors = Python.list()
-        self.state = Python.dict()
+        var errors_list = Python.list()
+        var state_dict = Python.dict()
+        self.errors = errors_list
+        self.state = state_dict
 
     fn add_feedback(inout self, message: String):
         """Add feedback message."""
@@ -30,6 +32,8 @@ struct ProcessingContext:
 
     fn add_error(inout self, error: String):
         """Add error message."""
+        if not isinstance(self.errors, PythonObject):
+            self.errors = Python.list()
         self.errors.append(error)
 
     fn get_errors(self) -> String:
@@ -41,6 +45,8 @@ struct ProcessingContext:
 
     fn set_state(inout self, key: String, value: String):
         """Set state value."""
+        if not isinstance(self.state, PythonObject):
+            self.state = Python.dict()
         self.state[key] = value
 
     fn get_state(self, key: String) -> String:
