@@ -1,0 +1,45 @@
+# Mojo and Python Integration Ruleset
+
+## Guiding Principles
+1. **Prefer Pure Mojo**: Always attempt to implement functionality natively in Mojo first.
+2. **Minimal Python Dependency**: Use Python integration only when absolutely necessary.
+3. **Custom Module Strategy**: For complex integrations, create custom Mojo modules.
+
+## Python Integration Guidelines
+### When to Use Python Integration
+- Native Mojo implementation is not feasible
+- Performance is not critically impacted
+- No native Mojo libraries exist for the functionality
+
+### Recommended Practices
+1. **Wrapper Modules**
+   - Create thin Mojo wrapper modules around Python functionality
+   - Minimize direct Python calls in main application code
+   - Handle type conversions and error management in wrappers
+
+2. **Error Handling**
+   - Always use `raises` for methods interacting with Python
+   - Implement comprehensive error catching and logging
+   - Provide meaningful error messages
+
+3. **Type Conversion**
+   - Explicitly convert types between Mojo and Python
+   - Use `str()`, `int()`, etc., for type conversions
+   - Avoid implicit type assumptions
+
+4. **Performance Considerations**
+   - Benchmark Python vs. Mojo implementations
+   - Prefer Mojo implementations for performance-critical paths
+   - Use Python for rapid prototyping and complex library integrations
+
+## Custom Module Creation Strategy
+1. **Identify Integration Points**
+   - Analyze Python module functionality
+   - Design Mojo-native interfaces
+
+2. **Create Wrapper Structs**
+   - Encapsulate Python module functionality
+   - Provide Mojo-idiomatic method signatures
+   - Handle low-level Python interactions
+
+3. **Example Custom Module Pattern**
