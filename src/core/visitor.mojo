@@ -9,6 +9,10 @@ struct Visitor:
         """Visit a tag element."""
         pass
 
+    fn process(self, element: PythonObject) raises:
+        """Default processing method for a tag element."""
+        self.visit(element)
+
 
 struct ProcessingContext:
     """Context for processing operations."""

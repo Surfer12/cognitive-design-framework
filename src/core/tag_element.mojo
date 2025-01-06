@@ -38,6 +38,15 @@ struct TagElement:
         """Return the entire metadata dictionary."""
         return self._metadata
 
+    fn to_python_object(self) raises -> PythonObject:
+        """Convert TagElement to a PythonObject."""
+        var py_dict = Python.dict()
+        py_dict["name"] = self.name
+        py_dict["content"] = self.content
+        py_dict["metadata"] = self._metadata
+        return py_dict
+
     fn accept(self, visitor: PythonObject) raises:
         """Accept a visitor for processing."""
-        visitor.visit(self)
+        var py_obj = self.to_python_object()
+        visitor.visit(py_obj)
