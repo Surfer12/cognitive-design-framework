@@ -43,3 +43,31 @@
    - Handle low-level Python interactions
 
 3. **Example Custom Module Pattern**
+mojo
+from python import Python
+struct CustomPythonWrapper:
+var module: PythonObject
+fn init(inout self) raises:
+self.module = Python.import_module("target_module")
+fn method_name(self, arg1: Type1, arg2: Type2) -> ReturnType:
+# Convert Mojo types to Python
+# Call Python method
+# Convert result back to Mojo type
+
+
+
+## Linter and Compatibility Considerations
+1. **Explicit Type Handling**
+   - Use `var` for Python-interop variables
+   - Explicitly convert types
+   - Handle potential raising contexts
+
+2. **Avoid Complex Python Interactions**
+   - Minimize nested Python method calls
+   - Break complex operations into simpler steps
+   - Use temporary variables for clarity
+
+## Continuous Improvement
+- Regularly review and update integration strategies
+- Monitor Mojo language developments
+- Contribute to Mojo's Python integration improvements
