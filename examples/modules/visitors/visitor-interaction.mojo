@@ -1,59 +1,53 @@
-trait VisitorCoordinator:
+struct VisitorCoordinator:
     pass
     """Coordinates interaction between multiple visitors."""
     var visitors: Vector[TagVisitor]
     var shared_context: SharedContext
     
-    fn coordinate_visit(inout self) -> None raises:
-    pass
-    pass
-    pass
+    fn coordinate_visit(inout self) raises:
+
     # Sequential or parallel visitor execution
     for visitor in self.visitors:
-    pass
+
     visitor.set_shared_context(self.shared_context)
     element.accept(visitor)
     self.shared_context.update_from_visitor(visitor)
 
 struct SharedContext:
     pass
-    pass
+
     """Maintains state shared between multiple visitors."""
     var validation_state: ValidationState
     var parsing_state: ParsingState
     var transformation_state: TransformationState
     
-    fn update_from_visitor(inout self) -> None raises:
-    pass
-    pass
-    pass
+    fn update_from_visitor(inout self) raises:
+
     match typeof(visitor):
-    pass
+
     case ValidationVisitor:
-    pass
+
     self.validation_state = visitor.get_validation_state()
     case ParsingVisitor:
-    pass
+
     self.parsing_state = visitor.get_parsing_state()
     case TransformationVisitor:
-    pass
+
     self.transformation_state = visitor.get_transformation_state()
 
 trait CompositionalVisitor(TagVisitor):
-    pass
+
     """A visitor that can compose operations from other visitors."""
     var sub_visitors: Vector[TagVisitor]
     
-    fn visit_tag(inout self) -> None raises:
-    pass
-    pass
-    pass
+    fn visit_tag(inout self) raises:
+
     # Pre-processing
     self.before_sub_visitors(tag)
         
     # Execute sub-visitors
     for visitor in self.sub_visitors:
-    pass
+
     tag.accept(visitor)
     self.process_sub_visitor_result(visitor)
         
@@ -62,34 +56,30 @@ trait CompositionalVisitor(TagVisitor):
 
 struct VisitorPipeline:
     pass
-    pass
+
     """Defines a sequential pipeline of visitors."""
     var stages: Vector[TagVisitor]
     var pipeline_context: PipelineContext
     
-    fn process(inout self) -> None raises:
-    pass
-    pass
-    pass
+    fn process(inout self) raises:
+
     for stage in self.stages:
-    pass
+
     stage.set_pipeline_context(self.pipeline_context)
     element.accept(stage)
     self.pipeline_context.update_stage_complete(stage)
 
 struct InteractiveVisitor:
     pass
-    pass
+
     """A visitor that can dynamically interact with other visitors."""
     var coordinator: VisitorCoordinator
     
-    fn visit_tag(inout self) -> None raises:
-    pass
-    pass
-    pass
+    fn visit_tag(inout self) raises:
+
     # Check if we need other visitors
     if self.requires_validation(tag):
-    pass
+
     var validator = ValidationVisitor()
     self.coordinator.add_visitor(validator)
     tag.accept(validator)
@@ -101,12 +91,10 @@ struct InteractiveVisitor:
 # Example Usage
 struct TagProcessor:
     pass
-    pass
+
     """Demonstrates complex visitor interactions."""
-    fn process_complex_tag(inout self) -> None raises:
-    pass
-    pass
-    pass
+    fn process_complex_tag(inout self) raises:
+
     # Create shared context
     var shared_ctx = SharedContext()
     # Create coordinator

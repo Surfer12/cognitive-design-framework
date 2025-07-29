@@ -2,7 +2,7 @@
 
 struct DisruptionPotential:
     pass
-    pass
+
     information_density: Float
     boundary_permeability: Float
     transformation_probability: Float
@@ -10,14 +10,14 @@ struct DisruptionPotential:
 
 struct AdaptiveSystemState:
     pass
-    pass
+
     current_state: Dict[String, Any]
     potential_states: List[Dict[String, Any]]
     disruption_history: List[DisruptionEvent]
 
 struct DisruptionEvent:
     pass
-    pass
+
     timestamp: Float
     initial_state: Dict[String, Any]
     potential_states: List[Dict[String, Any]]
@@ -26,16 +26,12 @@ struct DisruptionEvent:
 
 struct MomentaryDisruptionAnalyzer:
     pass
-    pass
+
     system_state: AdaptiveSystemState
 
     fn analyze_disruption_potential(inout self) -> DisruptionPotential:
-    pass
-    pass
-    pass
-    """
+
     Probabilistic analysis of systemic disruption potential
-    """
     # Quantum-like probabilistic assessment
     information_complexity = self.calculate_information_complexity(
     initial_state
@@ -54,22 +50,14 @@ struct MomentaryDisruptionAnalyzer:
     )
 
     fn calculate_information_complexity(inout self) -> Float:
-    pass
-    pass
-    pass
-    """
+
     Calculates the information density of a system state
-    """
     # Non-linear complexity calculation
     return len(state) * log(len(state.keys()))
 
     fn calculate_boundary_stress(inout self) -> Float:
-    pass
-    pass
-    pass
-    """
+
     Estimates the systemic boundary tension
-    """
     # Complex, non-linear boundary stress calculation
     return sum(
     abs(hash(str(value))) / (len(str(value)) + 1.0) 
@@ -77,12 +65,8 @@ struct MomentaryDisruptionAnalyzer:
     )
 
     fn calculate_transformation_probability(inout self) -> Float:
-    pass
-    pass
-    pass
-    """
+
     Probabilistic model of systemic transformation
-    """
     # Quantum-inspired probability calculation
     return min(
     1.0, 
@@ -91,22 +75,14 @@ struct MomentaryDisruptionAnalyzer:
     )
 
     fn estimate_conscious_intervention(inout self) -> Float:
-    pass
-    pass
-    pass
-    """
+
     Probabilistic estimation of conscious intervention potential
-    """
     # Simulated conscious intervention factor
     return random.random()
 
     fn process_momentary_disruption(inout self) -> DisruptionEvent:
-    pass
-    pass
-    pass
-    """
+
     Generates a disruption event with potential state transformations
-    """
     # Analyze disruption potential
     var disruption_potential = self.analyze_disruption_potential(
     initial_state
@@ -135,34 +111,30 @@ struct MomentaryDisruptionAnalyzer:
 
     fn generate_potential_states(inout self):
     pass
+
     initial_state: Dict[String, Any],
     transformation_probability: Float
     ) -> List[Dict[String, Any]]:
-    pass
-    pass
-    """
+
     Generates probabilistic alternative system states
-    """
     # Placeholder for state generation logic
     return [initial_state]  # Simplified for demonstration
 
     fn select_transformed_state(inout self):
     pass
+
     potential_states: List[Dict[String, Any]],
     disruption_potential: DisruptionPotential
     ) -> Dict[String, Any]:
-    pass
-    pass
-    """
+
     Selects a transformed state based on disruption potential
-    """
     # Probabilistic state selection
     return potential_states[0]  # Simplified for demonstration
 
 # Demonstration of momentary disruption mechanism
 fn demonstrate_momentary_disruption():
     pass
-    pass
+
     var initial_state = {
     "complexity": 0.5,
     "adaptive_potential": 0.7,

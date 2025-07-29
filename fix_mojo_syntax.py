@@ -1,109 +1,34 @@
 #!/usr/bin/env python3
-"""
-Script to fix common Mojo syntax issues in the cognitive design framework.
-"""
+"""Fix common Mojo syntax errors that prevent formatting."""
 
 import os
 import re
-import glob
+from pathlib import Path
 
 def fix_mojo_file(filepath):
-    """Fix common syntax issues in a single Mojo file."""
+    """Fix common syntax errors in a Mojo file."""
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
+        with open(filepath, 'r') as f:
             content = f.read()
         
         original_content = content
         
-        # Fix 1: Add missing return type and colon to __init__ methods
-        content = re.sub(
-            r'fn __init__\(inout self\)\s*$',
-            r'fn __init__(inout self):',
-            content,
-            flags=re.MULTILINE
-        )
+        # Fix common patterns
+        content = re.sub(r'from python import alias (\w+) = 0', r'from python import \1', content)
+        content = re.sub(r'alias pass = 0', '', content)
+        content = re.sub(r'^\s*pass\s*$', '', content, flags=re.MULTILINE)
+        content = re.sub(r'let (\w+) = ([^-\n]+) - ([^\n]+)', r'var \1 = \2 - \3', content)
+        content = re.sub(r'from \.(\w+) import alias (\w+) = 0', r'from .\1 import \2', content)
+        content = re.sub(r'from (\w+) import alias (\w+) = 0', r'from \1 import \2', content)
         
-        # Fix 2: Add missing return type to __init__ methods that raise
-        content = re.sub(
-            r'fn __init__\(\) -> None raises:\s*$',
-            r'fn __init__(inout self) raises:',
-            content,
-            flags=re.MULTILINE
-        )
+        # Remove empty lines created by removing pass statements
+        content = re.sub(r'\n\s*\n\s*\n', '\n\n', content)
         
-        # Fix 3: Fix incomplete function signatures (missing colon)
-        content = re.sub(
-            r'fn (\w+)\([^)]*\)\s*$',
-            lambda m: f"{m.group(0)}:" if not m.group(0).endswith(':') else m.group(0),
-            content,
-            flags=re.MULTILINE
-        )
-        
-        # Fix 4: Fix visitor function signatures
-        content = re.sub(
-            r'fn visit_tag_element\(\)\s*$',
-            r'fn visit_tag_element(inout self, element: TagElement):',
-            content,
-            flags=re.MULTILINE
-        )
-        
-        # Fix 5: Fix accept method signatures
-        content = re.sub(
-            r'fn accept\(inout self, \)\s*$',
-            r'fn accept(inout self, visitor: Visitor):',
-            content,
-            flags=re.MULTILINE
-        )
-        
-        # Fix 6: Fix main function signatures
-        content = re.sub(
-            r'fn main\(\)\s*$',
-            r'fn main():',
-            content,
-            flags=re.MULTILINE
-        )
-        
-        # Fix 7: Fix enum declarations
-        content = re.sub(
-            r'enum (\w+):\s*$',
-            r'enum \1:',
-            content,
-            flags=re.MULTILINE
-        )
-        
-        # Fix 8: Fix let declarations (remove type annotations that cause issues)
-        content = re.sub(
-            r'let (\w+): String = ',
-            r'alias \1 = ',
-            content
-        )
-        
-        # Fix 9: Fix function return type declarations
-        content = re.sub(
-            r'fn __init__\(inout self\) -> Self\s*$',
-            r'fn __init__(inout self):',
-            content,
-            flags=re.MULTILINE
-        )
-        
-        # Fix 10: Add missing colons to function definitions
-        lines = content.split('\n')
-        fixed_lines = []
-        
-        for line in lines:
-            # Check if it's a function definition missing a colon
-            if re.match(r'\s*fn \w+\([^)]*\)\s*$', line) and not line.endswith(':'):
-                line = line.rstrip() + ':'
-            fixed_lines.append(line)
-        
-        content = '\n'.join(fixed_lines)
-        
-        # Only write if content changed
         if content != original_content:
-            with open(filepath, 'w', encoding='utf-8') as f:
+            with open(filepath, 'w') as f:
                 f.write(content)
+            print(f"Fixed: {filepath}")
             return True
-        
         return False
         
     except Exception as e:
@@ -111,26 +36,15 @@ def fix_mojo_file(filepath):
         return False
 
 def main():
-    """Fix all Mojo files in the project."""
-    project_root = "/Users/ryan_david_oates/cognitive-design-framework"
-    
-    # Find all .mojo files
-    mojo_files = []
-    for root, dirs, files in os.walk(project_root):
-        for file in files:
-            if file.endswith('.mojo'):
-                mojo_files.append(os.path.join(root, file))
-    
-    print(f"Found {len(mojo_files)} Mojo files to process...")
-    
+    """Fix all .mojo files in the project."""
+    project_root = Path(__file__).parent
     fixed_count = 0
-    for filepath in mojo_files:
-        if fix_mojo_file(filepath):
-            print(f"Fixed: {filepath}")
+    
+    for mojo_file in project_root.rglob("*.mojo"):
+        if fix_mojo_file(mojo_file):
             fixed_count += 1
     
-    print(f"\nFixed {fixed_count} files out of {len(mojo_files)} total files.")
-    print("Run 'pixi run format' again to see if issues are resolved.")
+    print(f"Fixed {fixed_count} files")
 
 if __name__ == "__main__":
     main()

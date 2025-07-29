@@ -1,62 +1,33 @@
-# Cognitive bridge implementation
-from python import Python
+# Cognitive bridge from python import Python
 from .tag_element import TagElement
 from .visitor import Visitor, ProcessingContext
-
-
-struct CognitiveBridge:
-    pass
-    pass
-    """Main bridge implementation for cognitive processing."""
+struct CognitiveBridge:"""Main bridge implementation for cognitive processing."""
 
     var context: ProcessingContext
-    var visitors: PythonObject  # Python list for visitors
-
-    fn __init__(inout self) raises:
-    pass
-    pass
-    pass
-    """Initialize the cognitive bridge."""
+    var visitors: PythonObject  # Python list for     fn __init__(inout self) raises:"""Initialize the cognitive bridge.""" = Python.none()
     self.context = ProcessingContext()
     self.visitors = Python.list()
 
-    fn add_visitor(inout self) -> None raises:
-    pass
-    pass
-    pass
-    """Add a visitor to the processing pipeline."""
+    fn add_visitor(inout self) raises:"""Add a visitor to the processing pipeline."""
     self.visitors.append(visitor)
 
-    fn process_input(inout self) -> None raises:
-    pass
-    pass
-    pass
-    """Process user input through the visitor pipeline."""
+    fn process_input(inout self) raises:"""Process user input through the visitor pipeline."""
     var element = TagElement("user_input", input)
 
-    # Process through all visitors
-    try:
-    pass
+    # Process through all     try:
+
     for visitor in self.visitors:
-    pass
+
     visitor.visit(element)
     except:
-    pass
+
     self.context.add_error("Error processing input: " + input)
 
-    fn get_feedback(inout self) -> String raises:
-    pass
-    pass
-    pass
-    """Get accumulated feedback."""
+    fn get_feedback(inout self) -> String raises:"""Get accumulated feedback."""
     if len(self.context.get_errors()) > 0:
-    pass
+
     return "Errors:\n" + self.context.get_errors()
     return "Feedback:\n" + self.context.feedback
 
-    fn cleanup(inout self) -> None raises:
-    pass
-    pass
-    pass
-    """Cleanup resources."""
+    fn cleanup(inout self) raises:"""Cleanup resources."""
     self.visitors.clear()

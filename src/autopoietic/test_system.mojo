@@ -2,11 +2,9 @@
 from python import Python
 from .system import AutopoieticSystem, ConsciousVisitor, SystemState
 
-
 fn main():
     pass
-    pass
-    pass
+
     # Create an autopoietic system with 0.8 boundary permeability
     var system = AutopoieticSystem(0.8)
 
@@ -27,7 +25,7 @@ fn main():
     # Print insights
     print("Observation insights:")
     for insight in visitor.insights:
-    pass
+
     print(" - Depth:", insight["depth"])
     print("   Insight value:", insight["insight_value"])
 

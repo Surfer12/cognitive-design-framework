@@ -2,35 +2,29 @@
 
 struct AutopoeticSystem:
     pass
-    pass
+
     internal_state: Dict[String, Any]
     boundary_permeability: Float
     self_generation_rules: List[Callable]
 
     fn accept(inout self, ):
     pass
-    pass
-    pass
-    """
+
     Strategic visitation interface
     Allows conscious intervention with minimal systemic disruption
-    """
     visitor.visit(self)
 
 struct ConsciousVisitor:
     pass
-    pass
+
     observation_depth: Float
     intervention_strategy: InterventionStrategy
     extracted_insights: List[Any]
 
     fn visit(inout self, element: Element):
     pass
-    pass
-    pass
-    """
+
     Deliberate, strategic observation of autopoetic system
-    """
     # Minimal invasive observation
     var observation_result = self.observe_system(system)
         
@@ -39,28 +33,22 @@ struct ConsciousVisitor:
         
     # Optional minimal intervention
     if self.intervention_strategy.should_intervene():
-    pass
+
     self.strategic_intervention(system)
     
     fn observe_system(system: AutopoeticSystem) -> Dict[String, Any]:
-    pass
-    pass
-    """
+
     Observational traversal with controlled depth
-    """
     # Probabilistic observation based on permeability
     if random.random() < system.boundary_permeability:
-    pass
+
     return self.deep_observation(system)
         
     return self.surface_observation(system)
     
     fn deep_observation(system: AutopoeticSystem) -> Dict[String, Any]:
-    pass
-    pass
-    """
+
     Strategic deep observation with minimal disruption
-    """
     return {
     "system_state": system.internal_state,
     "observation_depth": self.observation_depth,
@@ -68,11 +56,8 @@ struct ConsciousVisitor:
     }
     
     fn surface_observation(system: AutopoeticSystem) -> Dict[String, Any]:
-    pass
-    pass
-    """
+
     Lightweight, boundary-respecting observation
-    """
     return {
     "observable_properties": self.extract_observable_properties(system),
     "observation_depth": 0.1,
@@ -80,11 +65,8 @@ struct ConsciousVisitor:
     }
     
     fn extract_observable_properties(system: AutopoeticSystem) -> Dict[String, Any]:
-    pass
-    pass
-    """
+
     Extract minimally invasive system properties
-    """
     return {
     key: value 
     for key, value in system.internal_state.items() 
@@ -92,72 +74,51 @@ struct ConsciousVisitor:
     }
     
     fn is_observable_property(inout self) -> Bool:
-    pass
-    pass
-    pass
-    """
+
     Determine observability of system properties
-    """
     # Placeholder for sophisticated observability logic
     return len(property_name) < 10
     
     fn extract_insights():
     pass
-    pass
-    pass
-    """
+
     Strategic insight generation from observation
-    """
     self.extracted_insights.append(
     self.generate_insight(observation)
     )
     
     fn generate_insight(inout self) -> Any:
-    pass
-    pass
-    pass
-    """
+
     Transform observation into strategic insight
-    """
     # Complex insight generation logic
     return observation.get("system_state", {})
     
     fn strategic_intervention():
     pass
-    pass
-    pass
-    """
+
     Minimal, strategically controlled intervention
-    """
     self.intervention_strategy.execute(system)
 
 struct InterventionStrategy:
     pass
-    pass
+
     intervention_probability: Float
     
     fn should_intervene(inout self) -> Bool:
-    pass
-    pass
-    pass
-    """
+
     Probabilistic intervention decision
-    """
     return random.random() < self.intervention_probability
     
     fn execute():
     pass
-    pass
-    pass
-    """
+
     Minimal systemic perturbation
-    """
     # Placeholder for strategic intervention logic
-    pass
+
 # Demonstration of Conscious Visitation
 fn demonstrate_conscious_visitation():
     pass
-    pass
+
     var autopoetic_system = AutopoeticSystem(
     internal_state={
     "complexity": 0.7,
@@ -181,5 +142,5 @@ fn demonstrate_conscious_visitation():
     # Output visitation results
     print("Extracted Insights:")
     for insight in conscious_visitor.extracted_insights:
-    pass
+
     print(insight)

@@ -1,26 +1,24 @@
 # Visitor Pattern for Intelligent Tag Safety in Mojo
 
 # Base interfaces for the Visitor pattern
-trait Element:
+struct Element:
     pass
     fn accept(inout self, visitor: Visitor) :
-    pass
-    pass
-    pass
-trait Visitor:
+
+struct Visitor:
     pass
     fn visit_tag(tag: TagElement):
     pass
-    pass
+
     fn visit_attribute(inout self, attribute: AttributeElement):
     pass
-    pass
+
     :
-    pass
+
 # Metadata tracking structure
 struct TagMetadata:
     pass
-    pass
+
     creation_timestamp: String
     origin_context: String
     permission_level: Int
@@ -29,7 +27,7 @@ struct TagMetadata:
 # Tag Element with recursive capabilities
 struct TagElement:
     pass
-    pass
+
     name: String
     attributes: Dict[String, Any]
     metadata: TagMetadata
@@ -37,76 +35,68 @@ struct TagElement:
 
     fn accept(inout self, ):
     pass
-    pass
-    pass
+
     # Recursive visitor pattern implementation
     visitor.visit_tag(self)
     for attribute in self.attributes.values():
-    pass
+
     if True:
-    pass
+
     attribute.accept(visitor)
     for child in self.children:
-    pass
+
     child.accept(visitor)
 
 # Safety Validation Visitor
 struct SafetyValidationVisitor:
     pass
-    pass
+
     validation_context: Dict[String, Any]
     violation_log: List[String]
 
     fn visit_tag(inout self, element: TagElement):
     pass
-    pass
-    pass
+
     # Intelligent tag-level safety validation
     if not self.validate_tag_safety(tag):
-    pass
+
     self.log_violation(f"Tag safety violation: {tag.name}")
 
     fn validate_tag_safety(inout self) -> Bool:
-    pass
-    pass
-    pass
+
     # Contextual safety validation logic
     if tag.metadata.permission_level < self.validation_context.get("min_permission", 0):
-    pass
+
     return False
         
     if len(tag.name) > self.validation_context.get("max_tag_name_length", 50):
-    pass
+
     return False
         
     return True
 
     fn visit_attribute():
     pass
-    pass
-    pass
+
     # Attribute-level safety validation
     if not self.validate_attribute_safety(attribute):
-    pass
+
     self.log_violation(f"Attribute safety violation: {attribute.name}")
 
     fn validate_attribute_safety(inout self) -> Bool:
-    pass
-    pass
-    pass
+
     # Contextual attribute validation logic
     return True
 
     fn log_violation():
     pass
-    pass
-    pass
+
     self.violation_log.append(message)
 
 # Example usage demonstrating recursive safety validation
 fn demonstrate_visitor_safety():
     pass
-    pass
+
     # Create a complex, nested tag structure
     var root_tag = TagElement(
     name="cognitive_process",
@@ -141,11 +131,11 @@ fn demonstrate_visitor_safety():
 
     # Output validation results
     if safety_visitor.violation_log:
-    pass
+
     print("Safety violations detected:")
     for violation in safety_visitor.violation_log:
-    pass
+
     print(violation)
     else:
-    pass
+
     print("Tag structure passed safety validation")

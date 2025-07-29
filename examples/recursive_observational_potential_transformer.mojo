@@ -2,7 +2,7 @@
 
 struct ObservationalPotential:
     pass
-    pass
+
     transformation_depth: Float
     extraction_complexity: Float
     systemic_understanding_level: Float
@@ -10,13 +10,15 @@ struct ObservationalPotential:
 
 struct VisitationContext:
     pass
-    pass
+
     entry_timestamp: Float
     interaction_mode: InteractionMode
     extraction_strategies: List[ExtractionStrategy]
 
-enum InteractionMode:
-    pass
+@value
+
+struct InteractionMode:
+    NONE = 0
     NONE = 0
     DYNAMIC
     NON_DYNAMIC
@@ -24,23 +26,19 @@ enum InteractionMode:
 
 struct ExtractionStrategy:
     pass
-    pass
+
     observation_probability: Float
     information_density: Float
 
 struct RecursiveObservationalPotentialTransformer:
     pass
-    pass
+
     potential: ObservationalPotential
     visitation_history: List[VisitationContext]
 
     fn transform_observational_potential(inout self) -> ObservationalPotential:
-    pass
-    pass
-    pass
-    """
+
     Recursively redefine observational potential
-    """
     # Compute transformation based on interaction dynamics
     var transformation_factor = self.compute_transformation_factor(
     visitation_context
@@ -59,14 +57,10 @@ struct RecursiveObservationalPotentialTransformer:
     return self.potential
 
     fn compute_transformation_factor(inout self) -> Float:
-    pass
-    pass
-    pass
-    """
+
     Calculate recursive transformation potential
-    """
     var interaction_complexity = match visitation_context.interaction_mode:
-    pass
+
     InteractionMode.DYNAMIC => 1.5
     InteractionMode.NON_DYNAMIC => 1.0
     InteractionMode.ADAPTIVE => 2.0
@@ -78,12 +72,8 @@ struct RecursiveObservationalPotentialTransformer:
     return interaction_complexity * extraction_diversity
 
     fn strategic_visitation(inout self) -> VisitationContext:
-    pass
-    pass
-    pass
-    """
+
     Execute strategic system visitation
-    """
     var extraction_strategies = [
     ExtractionStrategy(
     observation_probability=0.7,
@@ -100,7 +90,7 @@ struct RecursiveObservationalPotentialTransformer:
 # Demonstration of ROPT Framework
 fn demonstrate_recursive_potential_transformation():
     pass
-    pass
+
     var ropt_transformer = RecursiveObservationalPotentialTransformer(
     potential=ObservationalPotential(
     transformation_depth=0.0,
@@ -125,7 +115,7 @@ fn demonstrate_recursive_potential_transformation():
     ]
 
     for mode in visitation_modes:
-    pass
+
     var visitation_context = ropt_transformer.strategic_visitation(
     autopoetic_system, 
     mode

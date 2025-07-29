@@ -2,7 +2,7 @@
 
 struct VisitationBoundary:
     pass
-    pass
+
     depth_threshold: Float
     complexity_threshold: Float
     transformation_potential: Float
@@ -10,45 +10,39 @@ struct VisitationBoundary:
 
 struct ObservationalThreshold:
     pass
-    pass
+
     base_threshold: Float
     dynamic_modifier: Float
     context_sensitivity: Float
     
     fn calculate_effective_threshold(inout self) -> Float:
-    pass
-    pass
-    pass
+
     return self.base_threshold * (
     1 + self.dynamic_modifier * current_state.complexity
     )
 
 struct TransformationTrigger:
     pass
-    pass
+
     potential_threshold: Float
     engagement_requirement: Float
     nested_tag_probability: Float
 
 struct BoundaryManager:
     pass
-    pass
+
     current_boundary: VisitationBoundary
     transformation_history: List[TransformationEvent]
     
     fn evaluate_boundary_transformation(inout self) -> TransformationDecision:
-    pass
-    pass
-    pass
-    """
+
     Determine boundary transformation based on observational potential
-    """
     var effective_threshold = self.calculate_transformation_threshold(
     current_state
     )
         
     if observational_potential > effective_threshold:
-    pass
+
     return self.generate_transformation_decision(
     current_state,
     observational_potential
@@ -60,12 +54,8 @@ struct BoundaryManager:
     )
     
     fn calculate_transformation_threshold(inout self) -> Float:
-    pass
-    pass
-    pass
-    """
+
     Dynamic threshold calculation based on system state
-    """
     return (
     self.current_boundary.depth_threshold * 
     current_state.complexity +
@@ -74,41 +64,33 @@ struct BoundaryManager:
 
 struct VisitorEngagementManager:
     pass
-    pass
+
     fn determine_engagement_strategy(inout self) -> EngagementStrategy:
-    pass
-    pass
-    pass
-    """
+
     Determine visitor engagement based on transformation decision
-    """
     if transformation_decision.should_transform:
-    pass
+
     if self.should_nest_tag(
     transformation_decision,
     current_boundary
     ):
-    pass
+
     return EngagementStrategy.NEST_TAG
     elif self.should_extend_visit(
     transformation_decision,
     current_boundary
     ):
-    pass
+
     return EngagementStrategy.EXTEND_VISIT
     else:
-    pass
+
     return EngagementStrategy.DISENGAGE
                 
     return EngagementStrategy.MAINTAIN_CURRENT
 
     fn should_nest_tag(inout self) -> Bool:
-    pass
-    pass
-    pass
-    """
+
     Determine if nested tag addition is appropriate
-    """
     return (
     transformation_decision.potential > 
     current_boundary.transformation_potential and
@@ -116,25 +98,23 @@ struct VisitorEngagementManager:
     )
     
     fn check_call_stack_compatibility(inout self) -> Bool:
-    pass
-    pass
-    pass
-    """
+
     Verify call stack frame compatibility for nested tags
-    """
     # Implementation of call stack analysis
     return True  # Placeholder
 
 struct TransformationDecision:
     pass
-    pass
+
     should_transform: Bool
     transformation_type: Optional[TransformationType]
     potential: Float
     suggested_engagement: EngagementStrategy
 
-enum EngagementStrategy:
-    pass
+@value
+
+struct EngagementStrategy:
+    NONE = 0
     NONE = 0
     MAINTAIN_CURRENT
     EXTEND_VISIT
@@ -144,7 +124,7 @@ enum EngagementStrategy:
 # Example usage
 fn demonstrate_boundary_system():
     pass
-    pass
+
     var boundary_manager = BoundaryManager(
     current_boundary=VisitationBoundary(
     depth_threshold=0.7,
@@ -171,7 +151,7 @@ fn demonstrate_boundary_system():
     )
     
     match engagement_strategy:
-    pass
+
     EngagementStrategy.NEST_TAG => 
     print("Nesting new tag based on call stack context")
     EngagementStrategy.EXTEND_VISIT => 

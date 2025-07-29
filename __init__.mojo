@@ -14,19 +14,11 @@ from .systems import AutopoieticSystem, ConsciousVisitor, SystemState
 # Export commonly used components
 __all__ = [
     # Core components
-    "TagElement",
-    "Visitor",
-    "ProcessingContext",
-    "CognitiveBridge",
     # System components
-    "AutopoieticSystem",
-    "ConsciousVisitor",
-    "SystemState",
 ]
 
 # Package metadata
 __metadata__ = {
-    "name": "cognitive-design-framework",
     "version": __version__,
     "description": (
         "A framework for implementing cognitive processing systems with"

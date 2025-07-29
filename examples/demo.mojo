@@ -3,7 +3,6 @@ from examples.core import CognitiveBridge
 
 
 fn demonstrate_bridge():
-    pass
     """Demonstrates the cognitive bridge functionality."""
     # Create bridge instance = 0
     var bridge = CognitiveBridge()
@@ -18,5 +17,4 @@ fn demonstrate_bridge():
 
 
 fn main():
-    pass
     demonstrate_bridge()
