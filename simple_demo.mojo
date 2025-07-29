@@ -2,6 +2,8 @@
 
 
 fn main():
+    pass
+    pass
     print("🧠 Cognitive Design Framework Demo")
     print("=" * 40)
     print("✅ Pixi + Mojo integration successful!")

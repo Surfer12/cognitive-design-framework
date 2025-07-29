@@ -2,19 +2,27 @@
 
 
 struct SimpleBridge:
+    pass
+    pass
     var name: String
 
-    fn __init__(inoutself):
-        pass
-        self.name = "Cognitive Bridge"
+    fn __init__(inout self):
+    pass
+    pass
+    pass
+    self.name = "Cognitive Bridge"
 
     fn process():
-        pass
-        print("Processing: " + input)
-        print("Bridge: " + self.name)
+    pass
+    pass
+    pass
+    print("Processing: " + input)
+    print("Bridge: " + self.name)
 
 
 fn main():
+    pass
+    pass
     print("🧠 Minimal Cognitive Framework Demo")
     print("=" * 40)
 

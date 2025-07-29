@@ -4,7 +4,9 @@ from .system import AutopoieticSystem, ConsciousVisitor, SystemState
 
 
 fn main():
-        pass
+    pass
+    pass
+    pass
     # Create an autopoietic system with 0.8 boundary permeability
     var system = AutopoieticSystem(0.8)
 
@@ -25,8 +27,9 @@ fn main():
     # Print insights
     print("Observation insights:")
     for insight in visitor.insights:
-        print(" - Depth:", insight["depth"])
-        print("   Insight value:", insight["insight_value"])
+    pass
+    print(" - Depth:", insight["depth"])
+    print("   Insight value:", insight["insight_value"])
 
     # Test system state
     system.internal_state.set_value("test_key", "test_value")

@@ -4,113 +4,155 @@ Safe file system operations with explicit path handling.
 """
 
 from python import Python
-import os.path as os_path
+import os.path
 import os
 
 struct FilePath:
+    pass
+    pass
     """
     Safe file path representation with explicit absolute/relative handling.
     """
     var _path: String
     var _is_absolute: Bool
 
-    fn __init__(inout self):        pass
-        """
-        Create a FilePath, automatically detecting absolute/relative paths.
+    fn __init__(inout self):
+    pass
+    pass
+    pass
+    """
+    Create a FilePath, automatically detecting absolute/relative paths.
 
-        Args:
-            path: File system path
-        """
-        var is_absolute = path.startswith("/") or path.contains(":")
-        return Self {
-            _path: os_path.abspath(path),
-            _is_absolute: is_absolute
-        }
+    Args:
+    pass
+    path: File system path
+    """
+    var is_absolute = path.startswith("/") or path.contains(":")
+    return Self {
+    _path: os_path.abspath(path),
+    _is_absolute: is_absolute
+    }
 
-    fn absolute(inout self) -> String:        pass
-        """Return the absolute path."""
-        return self._path
+    fn absolute(inout self) -> String:
+    pass
+    pass
+    pass
+    """Return the absolute path."""
+    return self._path
 
-    fn join(inout self) -> String:        pass
-        """
-        Safely join path components.
+    fn join(inout self) -> String:
+    pass
+    pass
+    pass
+    """
+    Safely join path components.
 
-        Args:
-            components: Path segments to join
+    Args:
+    pass
+    components: Path segments to join
 
-        Returns:
-            Fully resolved path
-        """
-        var full_path = self._path
-        for component in components:
-            full_path = os_path.join(full_path, component)
-        return full_path
+    Returns:
+    pass
+    Fully resolved path
+    """
+    var full_path = self._path
+    for component in components:
+    pass
+    full_path = os_path.join(full_path, component)
+    return full_path
 
-    fn exists(inout self) -> Bool:        pass
-        """Check if path exists."""
-        return os_path.exists(self._path)
+    fn exists(inout self) -> Bool:
+    pass
+    pass
+    pass
+    """Check if path exists."""
+    return os_path.exists(self._path)
 
-    fn is_file(inout self) -> Bool:        pass
-        """Check if path is a file."""
-        return os_path.isfile(self._path)
+    fn is_file(inout self) -> Bool:
+    pass
+    pass
+    pass
+    """Check if path is a file."""
+    return os_path.isfile(self._path)
 
-    fn is_directory(inout self) -> Bool:        pass
-        """Check if path is a directory."""
-        return os_path.isdir(self._path)
+    fn is_directory(inout self) -> Bool:
+    pass
+    pass
+    pass
+    """Check if path is a directory."""
+    return os_path.isdir(self._path)
 
 
 struct FileTraversal:
+    pass
+    pass
     """
     Provides safe, explicit directory traversal capabilities.
     """
 
     fn walk(base_path: FilePath) -> List[FilePath]:
-        """
-        Recursively walk a directory and return all file paths.
+    pass
+    pass
+    """
+    Recursively walk a directory and return all file paths.
 
-        Args:
-            base_path: Starting directory path
+    Args:
+    pass
+    base_path: Starting directory path
 
-        Returns:
-            List of discovered file paths
-        """
-        var discovered_files = List[FilePath]()
+    Returns:
+    pass
+    List of discovered file paths
+    """
+    var discovered_files = List[FilePath]()
 
-        # Use Python's os.walk for initial implementation
-        for root, _, files in os.walk(base_path.absolute()):
-            for file in files:
-                discovered_files.append(
-                    FilePath(os_path.join(root, file))
-                )
+    # Use Python's os.walk for initial implementation
+    for root, _, files in os.walk(base_path.absolute()):
+    pass
+    for file in files:
+    pass
+    discovered_files.append(
+    FilePath(os_path.join(root, file))
+    )
 
-        return discovered_files
+    return discovered_files
 
 
 struct FileOperations:
+    pass
+    pass
     """
     Comprehensive file reading and writing utilities.
     """
 
-    fn read_binary(inout self) -> Bytes:        pass
-        """
-        Read entire file as binary data.
+    fn read_binary(inout self) -> Bytes:
+    pass
+    pass
+    pass
+    """
+    Read entire file data.
 
-        Args:
-            path: File path to read
+    Args:
+    pass
+    path: File path to read
 
-        Returns:
-            Raw byte content
-        """
-        # Placeholder for native implementation
-        pass
+    Returns:
+    pass
+    Raw byte content
+    """
+    # Placeholder for native implementation
+    pass
     fn write_binary():
-        pass
-        """
-        Write binary content to file.
+    pass
+    pass
+    pass
+    """
+    Write binary content to file.
 
-        Args:
-            path: Destination file path
-            content: Byte content to write
-        """
-        # Placeholder for native implementation
-        pass
+    Args:
+    pass
+    path: Destination file path
+    content: Byte content to write
+    """
+    # Placeholder for native implementation
+    pass

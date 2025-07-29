@@ -10,6 +10,7 @@ from ..systems.autopoietic.system import AutopoieticSystem, ConsciousVisitor
 
 # Re-export with deprecation warnings
 def _warn_deprecated(old_path: String, new_path: String):
+    pass
     """Show deprecation warning."""
     print("DeprecationWarning: Import from " + old_path + " is deprecated.")
     print("Use " + new_path + " instead.")
