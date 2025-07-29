@@ -9,7 +9,7 @@ struct TagElement:
     var content: String
     var _metadata: PythonObject  # Using Python dict for flexible metadata
 
-    fn __init__(inout self, name: String, content: String) raises:
+    fn __init__(inoutself, name: String, content: String):
         """Initialize a new tag element."""
         self.name = name
         self.content = content
@@ -21,7 +21,7 @@ struct TagElement:
         metadata_dict["permission_level"] = 0
         self._metadata = metadata_dict
 
-    fn add_metadata(inout self, key: String, value: String) raises:
+    fn add_metadata(inoutself, key: String, value: String):
         """Add metadata to the tag."""
         if not Python.type(self._metadata) is Python.type(Python.dict()):
             self._metadata = Python.dict()
@@ -38,7 +38,7 @@ struct TagElement:
         """Return the entire metadata dictionary."""
         return self._metadata
 
-    fn to_python_object(self) raises -> PythonObject:
+    fn to_python_object(self) -> PythonObject:
         """Convert TagElement to a PythonObject."""
         var py_dict = Python.dict()
         py_dict["name"] = self.name
@@ -46,7 +46,7 @@ struct TagElement:
         py_dict["metadata"] = self._metadata
         return py_dict
 
-    fn accept(self, visitor: PythonObject) raises:
+    fn accept(inoutself, visitor: PythonObject):
         """Accept a visitor for processing."""
         var py_obj = self.to_python_object()
         visitor.visit(py_obj)

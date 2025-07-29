@@ -7,7 +7,9 @@ struct TagElement:
     var name: String
     var content: String
 
-    fn __init__(inout self, name: String, content: String):
+    fn __init__(inout self)
+        pass
+        pass
         self.name = name
         self.content = content
 
@@ -18,14 +20,20 @@ struct ProcessingContext:
     var feedback: String
     var validation_errors: String
 
-    fn __init__(inout self):
+    fn __init__(inout self)
+        pass
+        pass
         self.feedback = ""
         self.validation_errors = ""
 
-    fn add_feedback(inout self, message: String):
+    fn add_feedback()
+        pass
+        pass
         self.feedback = self.feedback + message + "\n"
 
-    fn add_error(inout self, error: String):
+    fn add_error()
+        pass
+        pass
         self.validation_errors = self.validation_errors + error + "\n"
 
 
@@ -36,14 +44,23 @@ struct CognitiveBridge:
 
     var context: ProcessingContext
 
-    fn __init__(inout self):
+    fn __init__(inout self)
+        pass
+        pass
         self.context = ProcessingContext()
 
-    fn process_input(inout self, input: String) -> None:
+    fn process_input() -> None 
+        pass
+        pass
+        pass
+        pass
+        pass
         var element = TagElement("user_input", input)
         self.validate_and_process(element)
 
-    fn validate_and_process(inout self, element: TagElement):
+    fn validate_and_process()
+        pass
+        pass
         # Validation
         if len(element.content) == 0:
             self.context.add_error("Empty content not allowed")
@@ -53,7 +70,12 @@ struct CognitiveBridge:
         self.context.add_feedback("Processing: " + element.name)
         self.context.add_feedback("Content: " + element.content)
 
-    fn get_feedback(self) -> String:
+    fn get_feedback() -> String 
+        pass
+        pass
+        pass
+        pass
+        pass
         if len(self.context.validation_errors) > 0:
             return "Errors:\n" + self.context.validation_errors
         return "Feedback:\n" + self.context.feedback

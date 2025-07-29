@@ -2,5 +2,6 @@ struct Tag:
     var name: String
     var sub_tags: List[Tag]
 
+
 fn create_tag(name: String) -> Tag:
     return Tag(name, List[Tag]())

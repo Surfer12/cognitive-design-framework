@@ -1,23 +1,25 @@
 # file_system.mojo
 """
-Mojo Native File System Utilities
-
-Provides low-level, performant file system operations with explicit type management.
+Safe file system operations with explicit path handling.
 """
 
-from sys import path as sys_path
-from os import path as os_path
-
+from python import Python
+import os.path as os_path
+import os
 
 struct FilePath:
     """
-    A strongly-typed, immutable file path representation.
-    Provides safe path manipulation and validation.
+    Safe file path representation with explicit absolute/relative handling.
     """
     var _path: String
     var _is_absolute: Bool
 
-    fn __init__(path: String) -> Self:
+    fn __init__(inout self) -> Self 
+        pass
+        pass
+        pass
+        pass
+        pass
         """
         Create a FilePath, automatically detecting absolute/relative paths.
 
@@ -30,11 +32,21 @@ struct FilePath:
             _is_absolute: is_absolute
         }
 
-    fn absolute(self) -> String:
+    fn absolute() -> String 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Return the absolute path."""
         return self._path
 
-    fn join(self, *components: String) -> String:
+    fn join() -> String 
+        pass
+        pass
+        pass
+        pass
+        pass
         """
         Safely join path components.
 
@@ -49,15 +61,30 @@ struct FilePath:
             full_path = os_path.join(full_path, component)
         return full_path
 
-    fn exists(self) -> Bool:
+    fn exists() -> Bool 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Check if path exists."""
         return os_path.exists(self._path)
 
-    fn is_file(self) -> Bool:
+    fn is_file() -> Bool 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Check if path is a file."""
         return os_path.isfile(self._path)
 
-    fn is_directory(self) -> Bool:
+    fn is_directory() -> Bool 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Check if path is a directory."""
         return os_path.isdir(self._path)
 
@@ -94,7 +121,12 @@ struct FileOperations:
     Comprehensive file reading and writing utilities.
     """
 
-    fn read_binary(path: FilePath) -> Bytes:
+    fn read_binary() -> Bytes 
+        pass
+        pass
+        pass
+        pass
+        pass
         """
         Read entire file as binary data.
 
@@ -106,8 +138,9 @@ struct FileOperations:
         """
         # Placeholder for native implementation
         pass
-
-    fn write_binary(path: FilePath, content: Bytes):
+    fn write_binary()
+        pass
+        pass
         """
         Write binary content to file.
 

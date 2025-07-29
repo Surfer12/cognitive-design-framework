@@ -11,9 +11,12 @@ struct ObservationalThreshold:
     dynamic_modifier: Float
     context_sensitivity: Float
     
-    fn calculate_effective_threshold(
-        current_state: SystemState
-    ) -> Float:
+    fn calculate_effective_threshold(inout self, threshold: Float) -> Float 
+        pass
+        pass
+        pass
+        pass
+        pass
         return self.base_threshold * (
             1 + self.dynamic_modifier * current_state.complexity
         )
@@ -27,10 +30,12 @@ struct BoundaryManager:
     current_boundary: VisitationBoundary
     transformation_history: List[TransformationEvent]
     
-    fn evaluate_boundary_transformation(
-        current_state: SystemState,
-        observational_potential: Float
-    ) -> TransformationDecision:
+    fn evaluate_boundary_transformation() -> TransformationDecision 
+        pass
+        pass
+        pass
+        pass
+        pass
         """
         Determine boundary transformation based on observational potential
         """
@@ -49,9 +54,12 @@ struct BoundaryManager:
             transformation_type=None
         )
     
-    fn calculate_transformation_threshold(
-        current_state: SystemState
-    ) -> Float:
+    fn calculate_transformation_threshold() -> Float 
+        pass
+        pass
+        pass
+        pass
+        pass
         """
         Dynamic threshold calculation based on system state
         """
@@ -62,10 +70,12 @@ struct BoundaryManager:
         )
 
 struct VisitorEngagementManager:
-    fn determine_engagement_strategy(
-        transformation_decision: TransformationDecision,
-        current_boundary: VisitationBoundary
-    ) -> EngagementStrategy:
+    fn determine_engagement_strategy() -> EngagementStrategy 
+        pass
+        pass
+        pass
+        pass
+        pass
         """
         Determine visitor engagement based on transformation decision
         """
@@ -85,10 +95,12 @@ struct VisitorEngagementManager:
                 
         return EngagementStrategy.MAINTAIN_CURRENT
 
-    fn should_nest_tag(
-        transformation_decision: TransformationDecision,
-        current_boundary: VisitationBoundary
-    ) -> Bool:
+    fn should_nest_tag() -> Bool 
+        pass
+        pass
+        pass
+        pass
+        pass
         """
         Determine if nested tag addition is appropriate
         """
@@ -98,7 +110,12 @@ struct VisitorEngagementManager:
             self.check_call_stack_compatibility()
         )
     
-    fn check_call_stack_compatibility() -> Bool:
+    fn check_call_stack_compatibility() -> Bool 
+        pass
+        pass
+        pass
+        pass
+        pass
         """
         Verify call stack frame compatibility for nested tags
         """
@@ -112,6 +129,8 @@ struct TransformationDecision:
     suggested_engagement: EngagementStrategy
 
 enum EngagementStrategy:
+        pass
+        pass
     MAINTAIN_CURRENT
     EXTEND_VISIT
     NEST_TAG
@@ -130,12 +149,10 @@ fn demonstrate_boundary_system():
     )
     
     let engagement_manager = VisitorEngagementManager()
-    
     let current_state = SystemState(
         complexity=0.75,
         potential=0.85
     )
-    
     let transformation_decision = boundary_manager.evaluate_boundary_transformation(
         current_state,
         observational_potential=0.9

@@ -1,5 +1,6 @@
 # Core tag element implementation
 from python import Python
+from .visitor import Visitor
 
 
 struct TagElement:
@@ -9,7 +10,7 @@ struct TagElement:
     var content: String
     var metadata: PythonObject  # Using Python dict for flexible metadata
 
-    fn __init__(inout self, name: String, content: String):
+    fn __init__(inoutself, name: String, content: String):
         """Initialize a new tag element."""
         self.name = name
         self.content = content
@@ -18,7 +19,7 @@ struct TagElement:
         self.metadata["creation_time"] = Python.import_module("time").time()
         self.metadata["permission_level"] = 0
 
-    fn add_metadata(inout self, key: String, value: String):
+    fn add_metadata(inoutself, key: String, value: String):
         """Add metadata to the tag."""
         self.metadata[key] = value
 
@@ -29,6 +30,6 @@ struct TagElement:
         except:
             return ""
 
-    fn accept(self, visitor: Visitor) raises:
+    fn accept(inoutself, visitor: Visitor):
         """Accept a visitor for processing."""
         visitor.visit(self)

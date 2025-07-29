@@ -1,12 +1,32 @@
 [project]
 authors = ["Ryan Oates <ryanoatsie@outlook.com>"]
 channels = ["conda-forge", "https://conda.modular.com/max"]
-description = "Add a short description here"
+description = "Cognitive Design Framework - A framework for implementing cognitive processing systems with autopoietic capabilities"
 name = "cognitive-design-framework"
 platforms = ["osx-arm64"]
 version = "0.1.0"
 
 [tasks]
+# Run the main demo
+demo = "mojo run basic_demo.mojo"
+
+# Run tests
+test = "mojo test"
+
+# Development tasks
+dev = "mojo run basic_demo.mojo"
+build = "mojo build"
+format = "mojo format ."
+check = "mojo check ."
+
+# Interactive shell
+shell = "mojo"
+
+# Show project info
+info = "pixi info"
+
+# List available tasks
+tasks = "pixi task list"
 
 [dependencies]
-max = ">=24.6.0,<25"
+max = ">=25.4.0,<26"

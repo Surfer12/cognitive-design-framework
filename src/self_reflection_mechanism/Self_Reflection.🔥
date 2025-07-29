@@ -4,4 +4,3 @@ struct SelfReflection:
         Analyze tags and return a self-reflection string.
         """
         pass
-    

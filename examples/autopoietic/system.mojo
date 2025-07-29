@@ -6,21 +6,32 @@ struct SystemState:
     """Immutable system state snapshot."""
     var state: PythonObject  # Python dict for thread-safe state storage
 
-    fn __init__(inout self):
+    fn __init__(inout self)
+        pass
+        pass
         self.state = Python.dict()
 
-    fn __init__(inout self, existing_state: PythonObject):
+    fn __init__(inout self)
+        pass
+        pass
         """Initialize with existing state."""
         self.state = Python.dict(existing_state)  # Create a copy
 
-    fn get_value(self, key: String) -> String:
+    fn get_value() -> String 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Get state value with optional default."""
         try:
             return str(self.state.get(key, ""))
         except:
             return ""
 
-    fn set_value(inout self, key: String, value: String):
+    fn set_value()
+        pass
+        pass
         """Set state value."""
         self.state[key] = value
 
@@ -31,28 +42,41 @@ struct AutopoieticSystem:
     var self_generation_rules: PythonObject  # Python list for rules
     var observation_depth: Int
 
-    fn __init__(inout self, permeability: Float64):
+    fn __init__(inout self)
+        pass
+        pass
         """Initialize autopoietic system."""
         self.internal_state = SystemState()
         self.boundary_permeability = permeability
         self.self_generation_rules = Python.list()
         self.observation_depth = 0
 
-    fn accept(inout self, visitor: ConsciousVisitor) raises:
+    fn accept(inout self, inout self, visitor: ConsciousVisitor) 
+        pass
+        pass
         """Accept a conscious visitor if permitted."""
         if self.can_accept_visitor():
             visitor.visit(self)
 
-    fn can_accept_visitor(self) -> Bool:
+    fn can_accept_visitor() -> Bool 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Check if visitor can be accepted based on permeability."""
-        let random = Python.import_module("random")
-        return random.random() < self.boundary_permeability
+        let random_module = Python.import_module("random")
+        return random_module.random() < self.boundary_permeability
 
-    fn add_rule(inout self, rule: String):
+    fn add_rule()
+        pass
+        pass
         """Add a self-generation rule."""
         self.self_generation_rules.append(rule)
 
-    fn evolve(inout self):
+    fn evolve()
+        pass
+        pass
         """Evolve the system state based on rules."""
         # Capture current state
         var current = SystemState(self.internal_state.state)
@@ -62,9 +86,10 @@ struct AutopoieticSystem:
             try:
                 self.apply_rule(rule, current)
             except:
-                pass
-
-    fn apply_rule(inout self, rule: String, state: SystemState):
+        pass
+    fn apply_rule()
+        pass
+        pass
         """Apply a single rule to the system state."""
         # Here we could use Python's eval or a custom rule engine
         # For now, we'll just store the rule application as metadata
@@ -75,24 +100,35 @@ struct ConsciousVisitor:
     var observation_depth: Float64
     var insights: PythonObject  # Python list for insights
 
-    fn __init__(inout self, depth: Float64):
+    fn __init__(inout self)
+        pass
+        pass
         """Initialize conscious visitor."""
         self.observation_depth = depth
         self.insights = Python.list()
 
-    fn visit(inout self, system: AutopoieticSystem) raises:
+    fn visit(inout self, system: AutopoieticSystem) 
+        pass
+        pass
         """Visit and observe the autopoietic system."""
         let result = self.observe_system(system)
         self.process_observation(result)
 
-    fn observe_system(self, system: AutopoieticSystem) -> ObservationResult:
+    fn observe_system() -> ObservationResult 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Perform system observation."""
         return ObservationResult(
             system.internal_state,
             self.observation_depth
         )
 
-    fn process_observation(inout self, result: ObservationResult):
+    fn process_observation()
+        pass
+        pass
         """Process and store observation results."""
         self.insights.append({
             "depth": result.depth,
@@ -104,16 +140,28 @@ struct ObservationResult:
     var state: SystemState
     var depth: Float64
 
-    fn __init__(inout self, state: SystemState, depth: Float64):
+    fn __init__(inout self)
+        pass
+        pass
         """Initialize observation result."""
         self.state = state
         self.depth = depth
 
-    fn get_insight_value(self) -> Float64:
+    fn get_insight_value() -> Float64 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Calculate insight value based on observation depth and state complexity."""
         return self.depth * self.calculate_complexity()
 
-    fn calculate_complexity(self) -> Float64:
+    fn calculate_complexity() -> Float64 
+        pass
+        pass
+        pass
+        pass
+        pass
         """Calculate state complexity."""
         # For now, return a simple complexity measure
         try:

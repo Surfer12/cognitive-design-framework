@@ -3,7 +3,9 @@ from python import Python
 from .system import AutopoieticSystem, ConsciousVisitor, SystemState
 
 
-fn main() raises:
+fn main()
+        pass
+        pass
     # Create an autopoietic system with 0.8 boundary permeability
     var system = AutopoieticSystem(0.8)
 
