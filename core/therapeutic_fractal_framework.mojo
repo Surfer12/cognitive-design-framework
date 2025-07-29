@@ -19,14 +19,20 @@ from collections import Optional
 # Data modelling helpers
 # ---------------------------------------------------------------
 
-struct MemoryEntry:
 
+struct MemoryEntry:
     var time: Float64
     var vector: PythonObject  # numpy array
     var energy: Float64
     var alpha: Float64
 
-    fn __init__(inout self, time: Float64, vector: PythonObject, energy: Float64, alpha: Float64):
+    fn __init__(
+        inoutself,
+        time: Float64,
+        vector: PythonObject,
+        energy: Float64,
+        alpha: Float64,
+    ):
         self.time = time
         self.vector = vector
         self.energy = energy
@@ -45,10 +51,12 @@ struct MemoryEntry:
 # Metric helpers
 # ---------------------------------------------------------------
 
+
 def _content_distance(m1: MemoryEntry, m2: MemoryEntry) -> Float64:
     """Euclidean distance between memory embeddings."""
     var diff = m1.vector - m2.vector
     return Float64(np.linalg.norm(diff))
+
 
 def _cross_modal_interference(
     m1: MemoryEntry,
@@ -59,7 +67,7 @@ def _cross_modal_interference(
     """Numerically integrate  S₁·N₂ − S₂·N₁  on a uniform grid."""
     var range_start: Float64
     var range_end: Float64
-    
+
     if t_range:
         range_start = t_range.value[0]
         range_end = t_range.value[1]
@@ -69,13 +77,16 @@ def _cross_modal_interference(
 
     var ts = np.linspace(range_start, range_end, steps)
     var vals = List[Float64]()
-    
+
     for i in range(steps):
         var t = Float64(ts[i])
-        var val = m1.symbolic_signal(t) * m2.neural_signal(t) - m2.symbolic_signal(t) * m1.neural_signal(t)
+        var val = m1.symbolic_signal(t) * m2.neural_signal(
+            t
+        ) - m2.symbolic_signal(t) * m1.neural_signal(t)
         vals.append(val)
-    
+
     return Float64(np.trapz(vals, ts))
+
 
 def cognitive_memory_distance(
     m1: MemoryEntry,
@@ -102,9 +113,11 @@ def cognitive_memory_distance(
         w_t * dt2 + w_c * dc2 + w_e * de2 + w_alpha * da2 + w_cross * cross_val
     )
 
+
 # ---------------------------------------------------------------
 # Emergence functional  E[Ψ]
 # ---------------------------------------------------------------
+
 
 def emergence_functional(
     psi: PythonObject,  # numpy array
@@ -129,17 +142,21 @@ def emergence_functional(
     var total = Float64(np.sum(integrand) * d_t * d_m * d_s)
     return total
 
+
 # ---------------------------------------------------------------
 # Topological coherence stubs
 # ---------------------------------------------------------------
+
 
 def homotopy_invariant(path1: PythonObject, path2: PythonObject) -> Bool:
     """Very rough check: same endpoints  => treat as homotopic."""
     return Bool(np.allclose(path1[[0, -1]], path2[[0, -1]]))
 
+
 def is_covering_space(alpha_path: PythonObject) -> Bool:
     """Placeholder covering-space verification for alpha(t) trajectories."""
     return Bool(np.all((alpha_path > 0.0) & (alpha_path < 1.0)))
+
 
 # ---------------------------------------------------------------
 # Public API symbols
@@ -147,8 +164,8 @@ def is_covering_space(alpha_path: PythonObject) -> Bool:
 
 __all__ = (
     "MemoryEntry",
-    "cognitive_memory_distance", 
+    "cognitive_memory_distance",
     "emergence_functional",
     "homotopy_invariant",
-    "is_covering_space"
+    "is_covering_space",
 )
