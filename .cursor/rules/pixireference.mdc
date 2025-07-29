@@ -1,0 +1,89 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+Below is a **single-page reference document** for the `pixi.toml` structure used in the **cognitive-design-framework** repository.  
+Copy-paste it into `docs/PIXI_TOML_REFERENCE.md` (or keep it open in a split pane) and you’ll never have to guess a task or dependency again.
+
+---
+
+# `pixi.toml` Quick-Reference  
+**Project:** `cognitive-design-framework`  
+**Purpose:** One-stop cheat-sheet for every Pixi task, dependency, and extension point.
+
+---
+
+## 1  Project Block
+```toml
+[project]
+name        = "cognitive-design-framework"
+version     = "0.1.0"
+description = "Cognitive Design Framework - A framework for implementing cognitive processing systems with autopoietic capabilities"
+authors     = ["Ryan Oates <ryanoatsie@outlook.com>"]
+channels    = ["conda-forge", "https://conda.modular.com/max"]
+platforms   = ["osx-arm64"]
+```
+
+---
+
+## 2  Dependencies
+| Name     | Range            | What it gives you |
+|----------|------------------|-------------------|
+| `max`    | `>=25.4.0,<26`   | Mojo compiler & std-lib |
+| `modular`| `>=25.4.0,<26`   | Modular CLI tools |
+
+---
+
+## 3  Tasks (run with `pixi run <task>`)
+| Task        | Command / Script                          | Typical use |
+|-------------|-------------------------------------------|-------------|
+| `demo`      | `mojo run basic_demo.mojo`                | Quick smoke-test |
+| `bootstrap` | `python bootstrap.py`                     | Heal empty `.mojo` stubs |
+| `test`      | `mojo test`                               | Run unit tests |
+| `dev`       | `mojo run basic_demo.mojo`                | Iterative dev loop |
+| `build`     | `mojo build`                              | Compile to binary |
+| `format`    | `mojo format .`                           | Auto-format all `.mojo` |
+| `check`     | `mojo check .`                            | Static analysis |
+| `shell`     | `mojo`                                    | Interactive REPL |
+| `info`      | `pixi info`                               | Show env details |
+| `tasks`     | `pixi task list`                          | List all tasks |
+
+---
+
+## 4  Adding New Tasks (copy-paste template)
+```toml
+[tasks.my_new_task]
+cmd         = "mojo run path/to/new_demo.mojo"
+description = "One-line explanation of what this does"
+```
+
+---
+
+## 5  Adding New Dependencies
+```toml
+[dependencies]
+numpy = ">=1.24"
+```
+
+---
+
+## 6  Environment Variables (optional)
+```toml
+[env]
+MOJO_LOG_LEVEL = "debug"
+```
+
+---
+
+## 7  One-Command Cheat-Sheet
+```bash
+pixi run bootstrap   # fix stubs
+pixi run format      # auto-format
+pixi run test        # run tests
+pixi run demo        # quick demo
+```
+
+---
+
+**End of reference.**

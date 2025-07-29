@@ -1,32 +1,53 @@
 [project]
 authors = ["Ryan Oates <ryanoatsie@outlook.com>"]
-channels = ["conda-forge", "https://conda.modular.com/max"]
-description = "Cognitive Design Framework - A framework for implementing cognitive processing systems with autopoietic capabilities"
+channels = [
+    "conda-forge",
+    "https://conda.modular.com/max"
+]
+description = """
+Cognitive Design Framework - A framework for implementing cognitive processing systems with autopoietic capabilities
+"""
 name = "cognitive-design-framework"
 platforms = ["osx-arm64"]
 version = "0.1.0"
 
 [tasks]
 # Run the main demo
-demo = "mojo run basic_demo.mojo"
+[tasks.demo]
+cmd = "mojo run basic_demo.mojo"
+
+[tasks.bootstrap]
+cmd = "python bootstrap.py"
+description = "Heal empty .mojo stubs so formatter can run"
 
 # Run tests
-test = "mojo test"
+[tasks.test]
+cmd = "mojo test"
 
 # Development tasks
-dev = "mojo run basic_demo.mojo"
-build = "mojo build"
-format = "mojo format ."
-check = "mojo check ."
+[tasks.dev]
+cmd = "mojo run basic_demo.mojo"
+
+[tasks.build]
+cmd = "mojo build"
+
+[tasks.format]
+cmd = "mojo format ."
+
+[tasks.check]
+cmd = "mojo check ."
 
 # Interactive shell
-shell = "mojo"
+[tasks.shell]
+cmd = "mojo"
 
 # Show project info
-info = "pixi info"
+[tasks.info]
+cmd = "pixi info"
 
 # List available tasks
-tasks = "pixi task list"
+[tasks.tasks]
+cmd = "pixi task list"
 
 [dependencies]
 max = ">=25.4.0,<26"
