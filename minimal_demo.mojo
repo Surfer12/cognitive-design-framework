@@ -1,28 +1,15 @@
-# Minimal Cognitive Framework Demo
+"""Minimal framework demo"""
 
-struct SimpleBridge:
-    pass
+from python import Python
 
-    var name: String = ""
 
-    fn __init__(inout self):
-    pass
+struct MinimalBridge:
+    var name: String
 
-    self.name = "Cognitive Bridge"
+    fn __init__(inoutself):
+        self.name = "Cognitive Bridge"
 
-    fn process():
-    pass
-
-    print("Processing: " + input)
-    print("Bridge: " + self.name)
 
 fn main():
-    pass
-
-    print("🧠 Minimal Cognitive Framework Demo")
-    print("=" * 40)
-
-    var bridge = SimpleBridge()
-    bridge.process("Hello cognitive world!")
-
-    print("✅ Demo completed!")
+    var bridge = MinimalBridge()
+    print("Minimal demo:", bridge.name)

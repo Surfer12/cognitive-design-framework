@@ -18,36 +18,17 @@ from python import numpy as np
 # ---------------------------------------------------------------
 
 struct MemoryEntry:
-    """A minimal abstraction of a memory trace for experimentation."""
 
-    var time: Float64 = 0.0
-    var _vector: np.ndarray  # latent embedding (NumPy)
-    var energy: Float64 = 0.0
-    var alpha: Float64  # symbolic / neural allocation coefficient in [0, 1] = 0.0
-    var symbolic_signal  # Python callable   S(t)
-    var neural_signal  # Python callable   N(t)
+    var time: Float64
+    var _vector: np
+    var energy: Float64
+    var alpha: Float64
 
-    fn __init__(
-        self,
-        time: Float64,
-        content_vector,
-        energy: Float64,
-        alpha: Float64,
-        symbolic_signal,
-        neural_signal,
-    ):
-        self.time = time
-        self._vector = np.asarray(content_vector, dtype=np.float64)
-        self.energy = energy
-        self.alpha = alpha
-        self.symbolic_signal = symbolic_signal
-        self.neural_signal = neural_signal
-
-    @property
-    fn vector(self) -> np.ndarray:
-        ### Return the latent representation as a NumPy array (read-only view).
-        return self._vector
-
+    fn __init__(inout self):
+    fn __init__(inout self):
+        pass  # Initialize _vector
+        self.energy = 0
+        self.alpha = 0
 # ---------------------------------------------------------------
 # Metric helpers
 # ---------------------------------------------------------------

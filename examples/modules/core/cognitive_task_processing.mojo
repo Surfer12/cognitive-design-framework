@@ -23,7 +23,7 @@ fn process_complex_data[T: AnyType](input: T, complexity: Float64) -> T:
     return processed_input
 
 fn main():
-    pass
+fn main():
 
     # Example usage with different input types and complexities
     var numeric_data = [1.0, 2.0, 3.0, 4.0, 5.0]
