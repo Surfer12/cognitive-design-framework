@@ -30,3 +30,4 @@ tasks = "pixi task list"
 
 [dependencies]
 max = ">=25.4.0,<26"
+modular = ">=25.4.0,<26"
