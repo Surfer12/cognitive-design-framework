@@ -5,10 +5,9 @@ struct HardwareProfile:
     var supports_vectorization: Bool
     var max_parallel_threads: Int
 
-    fn __init__(inout self)
+    fn __init__(inout self):
         pass
-        pass
-        let system_info = info()
+        var system_info = info()
         self.total_cores = system_info.cpu_count()
         self.supports_vectorization = True  # Assume SIMD support
         self.max_parallel_threads = self.total_cores * 2
@@ -18,14 +17,13 @@ struct PerformanceOptimizationSystem:
     var computational_efficiency: Float64
     var performance_history: List[Float64]
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inout self):
         pass
         self.hardware_capabilities = HardwareProfile()
         self.computational_efficiency = 0.0
         self.performance_history = List[Float64]()
 
-    fn optimize_computational_strategy[T: AnyType](
+    fn optimize_computational_strategy[T: AnyType](:
         inout self, 
         computation: T, 
         complexity: Float64
@@ -59,12 +57,7 @@ struct PerformanceOptimizationSystem:
         # Would use thread pool or task-based parallelism
         return computation
 
-    fn analyze_performance_trend() -> Float64 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn analyze_performance_trend(inout self) -> Float64:        pass
         """
         Compute performance efficiency trend.
         """
@@ -77,8 +70,7 @@ struct PerformanceOptimizationSystem:
 
         return total_complexity / len(self.performance_history)
 
-    fn reset_performance_tracking()
-        pass
+    fn reset_performance_tracking():
         pass
         """
         Reset performance tracking for new computational cycles.

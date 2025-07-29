@@ -8,8 +8,7 @@ struct FeedbackContext:
 struct AdaptiveFeedbackVisitor:
     context: FeedbackContext
     
-    fn visit_tag(inout self, element: TagElement)
-        pass
+    fn visit_tag(inout self, element: TagElement):
         pass
         """
         Adaptive feedback mechanism with multi-layer validation
@@ -23,8 +22,7 @@ struct AdaptiveFeedbackVisitor:
         # Error correction and pattern learning
         self.learn_from_corrections(tag)
     
-    fn predict_potential_errors()
-        pass
+    fn predict_potential_errors():
         pass
         """
         Predictive error detection based on historical patterns
@@ -35,12 +33,7 @@ struct AdaptiveFeedbackVisitor:
             # Proactive correction mechanism
             self.preemptive_correction(tag)
     
-    fn calculate_error_likelihood() -> Float 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn calculate_error_likelihood(inout self) -> Float:        pass
         """
         Probabilistic error prediction
         """
@@ -54,8 +47,7 @@ struct AdaptiveFeedbackVisitor:
         
         return base_likelihood
     
-    fn preemptive_correction()
-        pass
+    fn preemptive_correction():
         pass
         """
         Instantaneous correction mechanism
@@ -69,8 +61,7 @@ struct AdaptiveFeedbackVisitor:
             self.context.correction_patterns.get(tag.name, 0.0) + 0.01
         )
     
-    fn optimize_validation_process()
-        pass
+    fn optimize_validation_process():
         pass
         """
         Computational overhead mitigation
@@ -86,8 +77,7 @@ struct AdaptiveFeedbackVisitor:
             # Full comprehensive validation
             self.comprehensive_validation(tag)
     
-    fn learn_from_corrections()
-        pass
+    fn learn_from_corrections():
         pass
         """
         Adaptive learning mechanism
@@ -99,15 +89,15 @@ struct AdaptiveFeedbackVisitor:
 
 # Example usage demonstrating adaptive feedback
 fn demonstrate_adaptive_feedback():
-    let initial_context = FeedbackContext(
+    var initial_context = FeedbackContext(
         error_history=List[String](),
         correction_patterns=Dict[String, Float64](),
         computational_overhead=0.0
     )
     
-    let feedback_visitor = AdaptiveFeedbackVisitor(context=initial_context)
+    var feedback_visitor = AdaptiveFeedbackVisitor(context=initial_context)
     # Simulate tag processing with adaptive feedback
-    let sample_tags = [
+    var sample_tags = [
         TagElement(name="complex_linguistic_structure"),
         TagElement(name="potential_error_tag")
     ]

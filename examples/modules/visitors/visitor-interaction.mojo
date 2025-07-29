@@ -3,7 +3,7 @@ trait VisitorCoordinator:
     var visitors: Vector[TagVisitor]
     var shared_context: SharedContext
     
-    fn coordinate_visit(element: TagElement) -> None:
+    fn coordinate_visit(inout self) -> None raises:        pass
         # Sequential or parallel visitor execution
         for visitor in self.visitors:
             visitor.set_shared_context(self.shared_context)
@@ -16,7 +16,7 @@ struct SharedContext:
     var parsing_state: ParsingState
     var transformation_state: TransformationState
     
-    fn update_from_visitor(visitor: TagVisitor) -> None:
+    fn update_from_visitor(inout self) -> None raises:        pass
         match typeof(visitor):
             case ValidationVisitor:
                 self.validation_state = visitor.get_validation_state()
@@ -29,7 +29,7 @@ trait CompositionalVisitor(TagVisitor):
     """A visitor that can compose operations from other visitors."""
     var sub_visitors: Vector[TagVisitor]
     
-    fn visit_tag(self, tag: TagInstance) -> None:
+    fn visit_tag(inout self) -> None raises:        pass
         # Pre-processing
         self.before_sub_visitors(tag)
         
@@ -46,7 +46,7 @@ struct VisitorPipeline:
     var stages: Vector[TagVisitor]
     var pipeline_context: PipelineContext
     
-    fn process(element: TagElement) -> None:
+    fn process(inout self) -> None raises:        pass
         for stage in self.stages:
             stage.set_pipeline_context(self.pipeline_context)
             element.accept(stage)
@@ -56,10 +56,10 @@ struct InteractiveVisitor(TagVisitor):
     """A visitor that can dynamically interact with other visitors."""
     var coordinator: VisitorCoordinator
     
-    fn visit_tag(self, tag: TagInstance) -> None:
+    fn visit_tag(inout self) -> None raises:        pass
         # Check if we need other visitors
         if self.requires_validation(tag):
-            let validator = ValidationVisitor()
+            var validator = ValidationVisitor()
             self.coordinator.add_visitor(validator)
             tag.accept(validator)
             self.process_validation_result(validator)
@@ -70,18 +70,18 @@ struct InteractiveVisitor(TagVisitor):
 # Example Usage
 struct TagProcessor:
     """Demonstrates complex visitor interactions."""
-    fn process_complex_tag(root: TagInstance) -> None:
+    fn process_complex_tag(inout self) -> None raises:        pass
         # Create shared context
-        let shared_ctx = SharedContext()
+        var shared_ctx = SharedContext()
         # Create coordinator
-        let coordinator = VisitorCoordinator([
+        var coordinator = VisitorCoordinator([
             ValidationVisitor(),
             ParsingVisitor(),
             TransformationVisitor()
         ], shared_ctx)
         
         # Create pipeline
-        let pipeline = VisitorPipeline([
+        var pipeline = VisitorPipeline([
             PreProcessingVisitor(),
             MainProcessingVisitor(),
             PostProcessingVisitor()
@@ -94,7 +94,7 @@ struct TagProcessor:
         pipeline.process(root)
         
         # Use composite visitor
-        let composite = CompositionalVisitor([
+        var composite = CompositionalVisitor([
             AttributeVisitor(),
             ContentVisitor(),
             StructureVisitor()

@@ -7,8 +7,7 @@ struct TagElement:
     var name: String
     var content: String
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         self.name = name
         self.content = content
@@ -20,35 +19,24 @@ struct ProcessingContext:
     var feedback: String
     var errors: String
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         self.feedback = ""
         self.errors = ""
 
-    fn add_feedback()
-        pass
+    fn add_feedback():
         pass
         self.feedback = self.feedback + message + "\n"
 
-    fn add_error()
-        pass
+    fn add_error():
         pass
         self.errors = self.errors + error + "\n"
 
-    fn get_feedback() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_feedback(inoutself) -> String:
         pass
         return self.feedback
 
-    fn get_errors() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_errors(inoutself) -> String:
         pass
         return self.errors
 
@@ -58,14 +46,12 @@ struct CognitiveBridge:
 
     var context: ProcessingContext
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         """Initialize the cognitive bridge."""
         self.context = ProcessingContext()
 
-    fn process_input()
-        pass
+    fn process_input():
         pass
         """Process user input through the visitor pipeline."""
         var element = TagElement("user_input", input)
@@ -78,11 +64,7 @@ struct CognitiveBridge:
             self.context.add_feedback("Input length: " + str(len(input)))
             self.context.add_feedback("Cognitive framework analyzing...")
 
-    fn get_feedback() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_feedback(inoutself) -> String:
         pass
         """Get accumulated feedback."""
         if len(self.context.get_errors()) > 0:

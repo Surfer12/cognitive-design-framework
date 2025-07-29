@@ -9,19 +9,22 @@ struct CognitiveElement:
     var content: String
     var consciousness_level: Float64
 
-    fn __init__(inout self, name: String, content: String) -> None:
+    fn __init__(inout self) raises:
+        pass
         """Initialize cognitive element with name and content."""
         self.name = name
         self.content = content
         self.consciousness_level = 0.0
 
-    fn set_consciousness_level(inout self, level: Float64) -> None:
+    fn set_consciousness_level(inout self) -> None raises:
+        pass
         """Set the consciousness level of this element."""
         if level >= 0.0 and level <= 1.0:
             self.consciousness_level = level
 
 
-fn calculate_consciousness_score(content: String) -> Float64:
+fn calculate_consciousness_score(inout self) -> Float64 raises:
+        pass
     """Calculate consciousness score based on content analysis."""
     var score = 0.0
 
@@ -52,7 +55,8 @@ fn calculate_consciousness_score(content: String) -> Float64:
     return min(score, 1.0)
 
 
-fn demonstrate_consciousness_framework() -> None:
+fn demonstrate_consciousness_framework(inout self) -> None raises:
+        pass
     """Demonstrate the consciousness framework."""
 
     print("🧠 Basic Cognitive Framework Demo")
@@ -121,7 +125,8 @@ fn demonstrate_consciousness_framework() -> None:
         print("-" * 40)
 
 
-fn demonstrate_fractal_communication() -> None:
+fn demonstrate_fractal_communication(inout self) -> None raises:
+        pass
     """Demonstrate fractal communication framework."""
 
     print("\n🔄 Fractal Communication Framework Demo")
@@ -164,7 +169,8 @@ fn demonstrate_fractal_communication() -> None:
     print("=" * 50)
 
 
-fn demonstrate_therapeutic_anchors() -> None:
+fn demonstrate_therapeutic_anchors(inout self) -> None raises:
+        pass
     """Demonstrate therapeutic anchors for cognitive safety."""
 
     print("\n🛡️ Therapeutic Anchors Demo")
@@ -211,7 +217,8 @@ fn demonstrate_therapeutic_anchors() -> None:
     print("=" * 50)
 
 
-fn main() -> None:
+fn main(inout self) -> None raises:
+        pass
     """Main demo function."""
 
     # Run consciousness framework demo

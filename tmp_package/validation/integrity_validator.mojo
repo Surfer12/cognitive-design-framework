@@ -13,12 +13,7 @@ Key Features:
 from python import Python, PythonObject
 
 
-fn calculate_file_hash(file_path: String) -> String 
-        pass
-        pass
-        pass
-        pass
-        pass
+fn calculate_file_hash(inout self) -> String:        pass
     """
     Calculate hash of a file using specified algorithm.
 
@@ -64,14 +59,13 @@ struct IntegrityValidator:
     var ignore_patterns: PythonObject
     var validation_results: PythonObject
 
-    fn __init__(inout self, 
+    fn __init__(inout self,:
         inoutself,
         original_dir: String,
         target_dir: String,
         hash_algorithm: String = "sha256",
         ignore_patterns: PythonObject = None,
-    ) 
-        pass
+    ) :
         pass
         """
         Initialize IntegrityValidator.
@@ -104,12 +98,7 @@ struct IntegrityValidator:
         self.validation_results["missing_files"] = Python.list()
         self.validation_results["extra_files"] = Python.list()
 
-    fn _should_ignore() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn _should_ignore(inout self) -> Bool:        pass
         """
         Check if a file or directory should be ignored.
 
@@ -124,7 +113,7 @@ struct IntegrityValidator:
                 return True
         return False
 
-    fn validate(inoutself) -> PythonObject:
+    fn validate(inout self) -> PythonObject raises:        pass
         """
         Validate files between original and target directories.
 
@@ -202,7 +191,7 @@ struct IntegrityValidator:
 
         return self.validation_results
 
-    fn generate_report(self, output_format: String = "text") -> String:
+    fn generate_report(inout self) -> String raises:        pass
         """
         Generate a validation report.
 
@@ -260,8 +249,7 @@ struct IntegrityValidator:
         return "\n".join(report_lines)
 
 
-fn main()
-        pass
+fn main():
         pass
     """
     Command-line interface for file validation.
@@ -302,7 +290,6 @@ fn main()
 
 
 # Allow the script to be run directly
-fn __main__()
-        pass
+fn __main__():
         pass
     main()

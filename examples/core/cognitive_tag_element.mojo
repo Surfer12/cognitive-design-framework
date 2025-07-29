@@ -12,8 +12,7 @@ struct CognitiveTagElement(TagElement):
     var meta_awareness: Bool
     var therapeutic_anchors: PythonObject
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inout self):
         pass
         """Initialize cognitive tag element."""
         # Call parent constructor
@@ -32,8 +31,7 @@ struct CognitiveTagElement(TagElement):
         # Initialize therapeutic anchors
         self._initialize_therapeutic_anchors()
 
-    fn _initialize_therapeutic_anchors()
-        pass
+    fn _initialize_therapeutic_anchors():
         pass
         """Initialize therapeutic anchors for cognitive safety."""
         self.therapeutic_anchors["safety_anchor"] = "cognitive_safety_check"
@@ -42,57 +40,42 @@ struct CognitiveTagElement(TagElement):
         self.therapeutic_anchors["transformation_anchor"] = "adaptive_learning"
         self.therapeutic_anchors["meta_awareness_anchor"] = "self_reflection"
 
-    fn set_consciousness_level(inout self, level: Float64)
-        pass
+    fn set_consciousness_level(inout self, level: Float64):
         pass
         """Set the consciousness level (0.0 to 1.0)."""
         if level >= 0.0 and level <= 1.0:
             self.consciousness_level = level
             self.metadata["consciousness_level"] = str(level)
 
-    fn get_consciousness_level() -> Float64 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn get_consciousness_level(inout self) -> Float64:        pass
         """Get current consciousness level."""
         return self.consciousness_level
 
-    fn increment_processing_depth()
-        pass
+    fn increment_processing_depth():
         pass
         """Increment processing depth for recursive operations."""
         self.processing_depth += 1
         self.metadata["processing_depth"] = str(self.processing_depth)
 
-    fn enable_meta_awareness()
-        pass
+    fn enable_meta_awareness():
         pass
         """Enable meta-awareness for self-reflection."""
         self.meta_awareness = True
         self.metadata["meta_awareness"] = "enabled"
 
-    fn add_therapeutic_anchor()
-        pass
+    fn add_therapeutic_anchor():
         pass
         """Add a therapeutic anchor for cognitive safety."""
         self.therapeutic_anchors[anchor_name] = anchor_function
 
-    fn get_therapeutic_anchor() -> String 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn get_therapeutic_anchor(inout self) -> String:        pass
         """Get therapeutic anchor function name."""
         try:
             return str(self.therapeutic_anchors.get(anchor_name, ""))
         except:
             return ""
 
-    fn accept(inout self, self, visitor: Visitor) 
-        pass
+    fn accept(inout self, self, visitor: Visitor) :
         pass
         """Accept a visitor with cognitive processing."""
         # Apply therapeutic anchors before processing
@@ -104,8 +87,7 @@ struct CognitiveTagElement(TagElement):
         # Call parent accept method
         visitor.visit(self)
 
-    fn _apply_therapeutic_anchors()
-        pass
+    fn _apply_therapeutic_anchors():
         pass
         """Apply therapeutic anchors for cognitive safety."""
         # Safety check

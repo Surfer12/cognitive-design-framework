@@ -1,7 +1,7 @@
 # Core Element Interface
 trait TagElement:
     """Base interface for all visitable elements in our tag system."""
-    fn accept(inout self, visitor: TagVisitor) -> None
+    fn accept(inout self, visitor: TagVisitor):
 
 # Concrete Elements
 struct TagInstance(TagElement):
@@ -10,7 +10,7 @@ struct TagInstance(TagElement):
     var attributes: Vector[TagAttribute]
     var children: Vector[TagInstance]
     
-    fn accept(inout self, self, visitor: TagVisitor) -> None:
+    fn accept(inout self) -> None raises:        pass
         """
         The key method that enables the visitor pattern.
         Instead of the element knowing how to process itself,
@@ -27,7 +27,7 @@ struct TagAttribute(TagElement):
     var name: String
     var value: String
     
-    fn accept(inout self, self, visitor: TagVisitor) -> None:
+    fn accept(inout self) -> None raises:        pass
         visitor.visit_attribute(self)
 
 # Visitor Interface
@@ -36,8 +36,8 @@ trait TagVisitor:
     Defines the interface for all operations we might want to perform
     on our tag elements.
     """
-    fn visit_tag(tag: TagInstance) -> None
-    fn visit_attribute(attr: TagAttribute) -> None
+    fn visit_tag(tag: TagInstance) -> None:
+    fn visit_attribute(attr: TagAttribute) -> None:
 
 # Concrete Visitors
 struct ValidationVisitor(TagVisitor):
@@ -48,7 +48,7 @@ struct ValidationVisitor(TagVisitor):
     """
     var context: ValidationContext
     
-    fn visit_tag(self, tag: TagInstance) -> None:
+    fn visit_tag(inout self) -> None raises:        pass
         # Push current tag to context
         self.context.push_tag(tag)
         
@@ -58,7 +58,7 @@ struct ValidationVisitor(TagVisitor):
         # Context is automatically maintained as we traverse
         self.context.pop_tag()
     
-    fn visit_attribute(self, attr: TagAttribute) -> None:
+    fn visit_attribute(inout self) -> None raises:        pass
         # Validation logic specific to attributes
         self.validate_attribute_value(attr)
 
@@ -69,23 +69,22 @@ struct ParsingVisitor(TagVisitor):
     """
     var parser_context: ParserContext
     
-    fn visit_tag(self, tag: TagInstance) -> None:
+    fn visit_tag(inout self) -> None raises:        pass
         # Parsing logic for tags
         self.parser_context.begin_tag(tag)
         # ... parsing operations ...
         self.parser_context.end_tag()
     
-    fn visit_attribute(self, attr: TagAttribute) -> None:
+    fn visit_attribute(inout self) -> None raises:        pass
         # Parsing logic for attributes
         self.parse_attribute_value(attr)
 
 # Usage Example
-fn process_tag_structure()
-        pass
+fn process_tag_structure():
         pass
     # Create different visitors for different operations
-    let validator = ValidationVisitor(ValidationContext())
-    let parser = ParsingVisitor(ParserContext())
+    var validator = ValidationVisitor(ValidationContext())
+    var parser = ParsingVisitor(ParserContext())
     
     # The same tag structure can be processed differently
     # by different visitors without changing the tag structure

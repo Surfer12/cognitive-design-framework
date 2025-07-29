@@ -12,8 +12,7 @@ struct CognitiveElement:
     var meta_awareness: Bool
     var metadata: PythonObject
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         """Initialize cognitive element."""
         self.name = name
@@ -24,39 +23,31 @@ struct CognitiveElement:
         self.metadata = Python.dict()
         self.metadata["creation_time"] = Python.import_module("time").time()
 
-    fn set_consciousness_level(inout self, level: Float64)
-        pass
+    fn set_consciousness_level(inoutself, level: Float64):
         pass
         """Set consciousness level (0.0 to 1.0)."""
         if level >= 0.0 and level <= 1.0:
             self.consciousness_level = level
             self.metadata["consciousness_level"] = str(level)
 
-    fn increment_processing_depth()
-        pass
+    fn increment_processing_depth():
         pass
         """Increment processing depth."""
         self.processing_depth += 1
         self.metadata["processing_depth"] = str(self.processing_depth)
 
-    fn enable_meta_awareness()
-        pass
+    fn enable_meta_awareness():
         pass
         """Enable meta-awareness."""
         self.meta_awareness = True
         self.metadata["meta_awareness"] = "enabled"
 
-    fn add_metadata()
-        pass
+    fn add_metadata():
         pass
         """Add metadata."""
         self.metadata[key] = value
 
-    fn get_metadata() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_metadata(inoutself) -> String:
         pass
         """Get metadata value."""
         try:
@@ -68,8 +59,7 @@ struct CognitiveElement:
 struct MetaCognitiveProcessor:
     """Meta-cognitive processor implementing consciousness framework."""
 
-    fn process_element()
-        pass
+    fn process_element():
         pass
         """Process element with consciousness framework Ψ(x)."""
 
@@ -124,11 +114,7 @@ struct MetaCognitiveProcessor:
         element.add_metadata("neural_score", str(neural_score))
         element.add_metadata("consciousness_score", str(consciousness_score))
 
-    fn _calculate_symbolic_component() -> Float64 
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_symbolic_component(inoutself) -> Float64:
         pass
         """Calculate symbolic component S(x)."""
         var score = 0.0
@@ -151,11 +137,7 @@ struct MetaCognitiveProcessor:
 
         return min(score, 1.0)
 
-    fn _calculate_neural_component() -> Float64 
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_neural_component(inoutself) -> Float64:
         pass
         """Calculate neural component N(x)."""
         var score = 0.0
@@ -183,11 +165,7 @@ struct MetaCognitiveProcessor:
 
         return min(score, 1.0)
 
-    fn _calculate_cognitive_penalty() -> Float64 
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_cognitive_penalty(inoutself) -> Float64:
         pass
         """Calculate cognitive plausibility penalty."""
         var penalty = 0.0
@@ -202,11 +180,7 @@ struct MetaCognitiveProcessor:
 
         return min(penalty, 1.0)
 
-    fn _calculate_efficiency_penalty() -> Float64 
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_efficiency_penalty(inoutself) -> Float64:
         pass
         """Calculate computational efficiency penalty."""
         var penalty = 0.0
@@ -225,8 +199,7 @@ struct MetaCognitiveProcessor:
 struct TherapeuticProcessor:
     """Therapeutic processor for cognitive safety."""
 
-    fn process_element()
-        pass
+    fn process_element():
         pass
         """Apply therapeutic anchors."""
 

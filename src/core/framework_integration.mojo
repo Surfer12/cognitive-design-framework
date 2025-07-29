@@ -14,15 +14,14 @@ struct IntelligentCognitiveFramework:
     var memory_safety: MemorySafetySystem
     var interface_bridging: InterfaceBridgingSystem
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inout self):
         pass
         self.cognitive_adaptation = CognitiveAdaptationSystem()
         self.performance_optimization = PerformanceOptimizationSystem()
         self.memory_safety = MemorySafetySystem()
         self.interface_bridging = InterfaceBridgingSystem()
 
-    fn process_cognitive_task[
+    fn process_cognitive_task[:
         T: AnyType
     ](inoutself, input: T, complexity: Float64) -> T:
         """
@@ -42,8 +41,7 @@ struct IntelligentCognitiveFramework:
 
         return optimized_input
 
-    fn reset_framework()
-        pass
+    fn reset_framework():
         pass
         """
         Reset all subsystems for a new learning cycle.
@@ -52,12 +50,7 @@ struct IntelligentCognitiveFramework:
         self.performance_optimization.reset_performance_tracking()
         self.memory_safety.reset_safety_tracking()
 
-    fn analyze_framework_performance() -> PerformanceMetrics 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn analyze_framework_performance(inout self) -> PerformanceMetrics:        pass
         """
         Generate a comprehensive performance analysis.
         """

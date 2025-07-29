@@ -26,12 +26,7 @@ struct FileIntegrityValidator:
     var ignore_patterns: List[String]
     var validation_results: Dict[String, Int]
 
-    fn __init__(inout self) -> Self 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn __init__(inout self):        pass
         """
         Initialize the validator with source and target paths.
 
@@ -52,12 +47,7 @@ struct FileIntegrityValidator:
         self.validation_results["mismatched_files"] = 0
         self.validation_results["missing_files"] = 0
 
-    fn _should_ignore() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn _should_ignore(inout self) -> Bool:        pass
         """
         Determine if a file should be ignored based on patterns.
 
@@ -72,12 +62,7 @@ struct FileIntegrityValidator:
                 return True
         return False
 
-    fn _calculate_simple_hash() -> String 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_simple_hash(inout self) -> String:        pass
         """
         Calculate a simple hash for file comparison.
 
@@ -134,12 +119,7 @@ struct FileIntegrityValidator:
 
         return self.validation_results
 
-    fn generate_report() -> String 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn generate_report(inout self) -> String:        pass
         """
         Generate a simple validation report.
 

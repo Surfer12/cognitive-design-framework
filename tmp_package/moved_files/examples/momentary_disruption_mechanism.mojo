@@ -21,12 +21,7 @@ struct DisruptionEvent:
 struct MomentaryDisruptionAnalyzer:
     system_state: AdaptiveSystemState
 
-    fn analyze_disruption_potential(inout self, context: Context) -> DisruptionPotential 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn analyze_disruption_potential(inout self) -> DisruptionPotential:        pass
         """
         Probabilistic analysis of systemic disruption potential
         """
@@ -47,24 +42,14 @@ struct MomentaryDisruptionAnalyzer:
             conscious_intervention_factor=self.estimate_conscious_intervention()
         )
 
-    fn calculate_information_complexity() -> Float 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn calculate_information_complexity(inout self) -> Float:        pass
         """
         Calculates the information density of a system state
         """
         # Non-linear complexity calculation
         return len(state) * log(len(state.keys()))
 
-    fn calculate_boundary_stress() -> Float 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn calculate_boundary_stress(inout self) -> Float:        pass
         """
         Estimates the systemic boundary tension
         """
@@ -74,12 +59,7 @@ struct MomentaryDisruptionAnalyzer:
             for value in state.values()
         )
 
-    fn calculate_transformation_probability() -> Float 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn calculate_transformation_probability(inout self) -> Float:        pass
         """
         Probabilistic model of systemic transformation
         """
@@ -90,40 +70,30 @@ struct MomentaryDisruptionAnalyzer:
             (information_complexity + boundary_stress + 1.0)
         )
 
-    fn estimate_conscious_intervention() -> Float 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn estimate_conscious_intervention(inout self) -> Float:        pass
         """
         Probabilistic estimation of conscious intervention potential
         """
         # Simulated conscious intervention factor
         return random.random()
 
-    fn process_momentary_disruption() -> DisruptionEvent 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn process_momentary_disruption(inout self) -> DisruptionEvent:        pass
         """
         Generates a disruption event with potential state transformations
         """
         # Analyze disruption potential
-        let disruption_potential = self.analyze_disruption_potential(
+        var disruption_potential = self.analyze_disruption_potential(
             initial_state
         )
         
         # Generate potential states
-        let potential_states = self.generate_potential_states(
+        var potential_states = self.generate_potential_states(
             initial_state, 
             disruption_potential.transformation_probability
         )
         
         # Select transformed state
-        let selected_state = self.select_transformed_state(
+        var selected_state = self.select_transformed_state(
             potential_states, 
             disruption_potential
         )
@@ -137,7 +107,7 @@ struct MomentaryDisruptionAnalyzer:
             conscious_intervention_level=disruption_potential.conscious_intervention_factor
         )
 
-    fn generate_potential_states(
+    fn generate_potential_states(:
         initial_state: Dict[String, Any],
         transformation_probability: Float
     ) -> List[Dict[String, Any]]:
@@ -147,7 +117,7 @@ struct MomentaryDisruptionAnalyzer:
         # Placeholder for state generation logic
         return [initial_state]  # Simplified for demonstration
 
-    fn select_transformed_state(
+    fn select_transformed_state(:
         potential_states: List[Dict[String, Any]],
         disruption_potential: DisruptionPotential
     ) -> Dict[String, Any]:
@@ -159,13 +129,13 @@ struct MomentaryDisruptionAnalyzer:
 
 # Demonstration of momentary disruption mechanism
 fn demonstrate_momentary_disruption():
-    let initial_state = {
+    var initial_state = {
         "complexity": 0.5,
         "adaptive_potential": 0.7,
         "system_boundary": 0.3
     }
     
-    let disruption_analyzer = MomentaryDisruptionAnalyzer(
+    var disruption_analyzer = MomentaryDisruptionAnalyzer(
         system_state=AdaptiveSystemState(
             current_state=initial_state,
             potential_states=[],
@@ -173,7 +143,7 @@ fn demonstrate_momentary_disruption():
         )
     )
     
-    let disruption_event = disruption_analyzer.process_momentary_disruption(
+    var disruption_event = disruption_analyzer.process_momentary_disruption(
         initial_state
     )
     

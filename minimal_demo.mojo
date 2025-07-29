@@ -4,13 +4,11 @@
 struct SimpleBridge:
     var name: String
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         self.name = "Cognitive Bridge"
 
-    fn process()
-        pass
+    fn process():
         pass
         print("Processing: " + input)
         print("Bridge: " + self.name)

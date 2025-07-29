@@ -1,11 +1,7 @@
 # Minimal Cognitive Framework Demo
 
 
-fn calculate_consciousness_score(content: String) -> Float64 
-        pass
-        pass
-        pass
-        pass
+fn calculate_consciousness_score(inout self) -> Float64:
         pass
     """Calculate consciousness score based on content analysis."""
     var score = 0.0

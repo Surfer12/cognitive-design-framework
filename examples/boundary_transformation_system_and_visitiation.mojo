@@ -11,12 +11,7 @@ struct ObservationalThreshold:
     dynamic_modifier: Float
     context_sensitivity: Float
     
-    fn calculate_effective_threshold(inout self, threshold: Float) -> Float 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn calculate_effective_threshold(inout self) -> Float:        pass
         return self.base_threshold * (
             1 + self.dynamic_modifier * current_state.complexity
         )
@@ -30,16 +25,11 @@ struct BoundaryManager:
     current_boundary: VisitationBoundary
     transformation_history: List[TransformationEvent]
     
-    fn evaluate_boundary_transformation() -> TransformationDecision 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn evaluate_boundary_transformation(inout self) -> TransformationDecision:        pass
         """
         Determine boundary transformation based on observational potential
         """
-        let effective_threshold = self.calculate_transformation_threshold(
+        var effective_threshold = self.calculate_transformation_threshold(
             current_state
         )
         
@@ -54,12 +44,7 @@ struct BoundaryManager:
             transformation_type=None
         )
     
-    fn calculate_transformation_threshold() -> Float 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn calculate_transformation_threshold(inout self) -> Float:        pass
         """
         Dynamic threshold calculation based on system state
         """
@@ -70,12 +55,7 @@ struct BoundaryManager:
         )
 
 struct VisitorEngagementManager:
-    fn determine_engagement_strategy() -> EngagementStrategy 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn determine_engagement_strategy(inout self) -> EngagementStrategy:        pass
         """
         Determine visitor engagement based on transformation decision
         """
@@ -95,12 +75,7 @@ struct VisitorEngagementManager:
                 
         return EngagementStrategy.MAINTAIN_CURRENT
 
-    fn should_nest_tag() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn should_nest_tag(inout self) -> Bool:        pass
         """
         Determine if nested tag addition is appropriate
         """
@@ -110,12 +85,7 @@ struct VisitorEngagementManager:
             self.check_call_stack_compatibility()
         )
     
-    fn check_call_stack_compatibility() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn check_call_stack_compatibility(inout self) -> Bool:        pass
         """
         Verify call stack frame compatibility for nested tags
         """
@@ -128,9 +98,8 @@ struct TransformationDecision:
     potential: Float
     suggested_engagement: EngagementStrategy
 
-enum EngagementStrategy:
-        pass
-        pass
+@value
+struct EngagementStrategy:        pass
     MAINTAIN_CURRENT
     EXTEND_VISIT
     NEST_TAG
@@ -138,7 +107,7 @@ enum EngagementStrategy:
 
 # Example usage
 fn demonstrate_boundary_system():
-    let boundary_manager = BoundaryManager(
+    var boundary_manager = BoundaryManager(
         current_boundary=VisitationBoundary(
             depth_threshold=0.7,
             complexity_threshold=0.5,
@@ -148,17 +117,17 @@ fn demonstrate_boundary_system():
         transformation_history=[]
     )
     
-    let engagement_manager = VisitorEngagementManager()
-    let current_state = SystemState(
+    var engagement_manager = VisitorEngagementManager()
+    var current_state = SystemState(
         complexity=0.75,
         potential=0.85
     )
-    let transformation_decision = boundary_manager.evaluate_boundary_transformation(
+    var transformation_decision = boundary_manager.evaluate_boundary_transformation(
         current_state,
         observational_potential=0.9
     )
     
-    let engagement_strategy = engagement_manager.determine_engagement_strategy(
+    var engagement_strategy = engagement_manager.determine_engagement_strategy(
         transformation_decision,
         boundary_manager.current_boundary
     )

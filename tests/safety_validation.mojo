@@ -2,8 +2,7 @@ struct MemorySafetySystem:
     var risk_tolerance: Float64
     var adaptive_validation: Bool
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         self.risk_tolerance = 0.2
         self.adaptive_validation = True
@@ -15,8 +14,7 @@ struct MemorySafetySystem:
         # Basic risk mitigation placeholder
         return input
 
-    fn reset_safety_tracking()
-        pass
+    fn reset_safety_tracking():
         pass
         """
         Reset safety tracking for new computational cycles.

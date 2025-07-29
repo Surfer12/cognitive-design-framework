@@ -14,39 +14,24 @@ struct FilePath:
     var _path: String
     var _is_absolute: Bool
 
-    fn __init__(inout self) -> Self 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn __init__(inout self):        pass
         """
         Create a FilePath, automatically detecting absolute/relative paths.
 
         Args:
             path: File system path
         """
-        let is_absolute = path.startswith("/") or path.contains(":")
+        var is_absolute = path.startswith("/") or path.contains(":")
         return Self {
             _path: os_path.abspath(path),
             _is_absolute: is_absolute
         }
 
-    fn absolute() -> String 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn absolute(inout self) -> String:        pass
         """Return the absolute path."""
         return self._path
 
-    fn join() -> String 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn join(inout self) -> String:        pass
         """
         Safely join path components.
 
@@ -61,30 +46,15 @@ struct FilePath:
             full_path = os_path.join(full_path, component)
         return full_path
 
-    fn exists() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn exists(inout self) -> Bool:        pass
         """Check if path exists."""
         return os_path.exists(self._path)
 
-    fn is_file() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn is_file(inout self) -> Bool:        pass
         """Check if path is a file."""
         return os_path.isfile(self._path)
 
-    fn is_directory() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn is_directory(inout self) -> Bool:        pass
         """Check if path is a directory."""
         return os_path.isdir(self._path)
 
@@ -121,12 +91,7 @@ struct FileOperations:
     Comprehensive file reading and writing utilities.
     """
 
-    fn read_binary() -> Bytes 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn read_binary(inout self) -> Bytes:        pass
         """
         Read entire file as binary data.
 
@@ -138,8 +103,7 @@ struct FileOperations:
         """
         # Placeholder for native implementation
         pass
-    fn write_binary()
-        pass
+    fn write_binary():
         pass
         """
         Write binary content to file.

@@ -6,9 +6,8 @@ struct SystemException:
     context: Dict[String, Any]
     stack_trace: List[String]
 
-enum ExceptionType:
-        pass
-        pass
+@value
+struct ExceptionType:        pass
     VISITOR_VIOLATION
     BOUNDARY_BREACH
     TRANSFORMATION_FAILURE
@@ -19,13 +18,12 @@ struct DiagnosticLogger:
     log_level: LogLevel
     trace_history: List[TraceEvent]
 
-    fn log_exception()
-        pass
+    fn log_exception():
         pass
         """
         Sophisticated exception logging with context preservation
         """
-        let trace_event = TraceEvent(
+        var trace_event = TraceEvent(
             timestamp=get_current_timestamp(),
             exception=exception,
             context=context,
@@ -42,7 +40,7 @@ struct SystemStateManager:
     state_history: List[StateTransition]
     validation_rules: List[ValidationRule]
 
-    fn validate_state_transition(
+    fn validate_state_transition(:
         proposed_state: SystemState
     ) raises StateTransitionException:
         """
@@ -59,19 +57,14 @@ struct TestHarness:
     test_scenarios: List[TestScenario]
     validation_metrics: List[ValidationMetric]
 
-    fn execute_test_suite() -> TestResults 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn execute_test_suite(inout self) -> TestResults:        pass
         """
         Execute comprehensive test suite using conversation history
         """
-        let results = TestResults()
+        var results = TestResults()
         for scenario in self.test_scenarios:
             try:
-                let scenario_result = self.execute_scenario(
+                var scenario_result = self.execute_scenario(
                     scenario,
                     self.conversation_corpus
                 )
@@ -81,19 +74,14 @@ struct TestHarness:
 
         return results
 
-    fn execute_scenario() -> ScenarioResult 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn execute_scenario(inout self) -> ScenarioResult:        pass
         """
         Execute individual test scenario with error handling
         """
-        let context = self.prepare_test_context(scenario)
+        var context = self.prepare_test_context(scenario)
 
         try:
-            let result = scenario.execute(corpus)
+            var result = scenario.execute(corpus)
             self.validate_scenario_result(result)
             return result
         catch Exception as e:
@@ -107,7 +95,7 @@ struct IterativeDevelopmentManager:
     iteration_history: List[DevelopmentIteration]
     metrics: PerformanceMetrics
 
-    fn progress_iteration(
+    fn progress_iteration(:
         current_metrics: PerformanceMetrics
     ) raises DevelopmentException:
         """

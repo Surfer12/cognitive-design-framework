@@ -10,8 +10,7 @@ struct MojoError(Exception):
     var message: String
     var code: Int
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         self.message = message
         self.code = code
@@ -22,14 +21,13 @@ struct FileSystemError(MojoError):
 
     var path: String
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         super(message, code)
         self.path = path
 
 
-fn safe_operation[
+fn safe_operation[:
     T: AnyType
 ](operation: fn () -> T, error_handler: fn (MojoError) -> T) -> T:
     """

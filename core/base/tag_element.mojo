@@ -13,8 +13,7 @@ struct TagElement:
     var children: List[TagElement]
     var metadata: Map[String, String]
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         self.id = id
         self.name = name
@@ -22,42 +21,33 @@ struct TagElement:
         self.children = List[TagElement]()
         self.metadata = Map[String, String]()
 
-    fn add_child()
-        pass
+    fn add_child():
         pass
         """Add a child tag element."""
         self.children.append(child)
 
-    fn set_metadata()
-        pass
+    fn set_metadata():
         pass
         """Set metadata key-value pair."""
         self.metadata[key] = value
 
-    fn get_metadata() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_metadata(inoutself) -> String:
         pass
         """Get metadata value by key."""
         if self.metadata.contains(key):
             return self.metadata[key]
         return ""
 
-    fn accept(inout self, )
-        pass
+    fn accept(
+        inoutself,
+    ):
         pass
         """Accept a visitor for processing."""
         visitor.visit_tag_element(self)
         for child in self.children:
             child.accept(visitor)
 
-    fn to_string() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn to_string(inoutself) -> String:
         pass
         """Convert tag element to string representation."""
         var result = f"TagElement(id={self.id}, name={self.name})"

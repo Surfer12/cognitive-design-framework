@@ -11,18 +11,16 @@ struct MetaCognitiveVisitor(Visitor):
     var context: ProcessingContext
     var reflection_level: Int64
     
-    fn __init__(inout self)
-        pass
+    fn __init__(inout self):
         pass
         """Initialize meta-cognitive visitor."""
         self.context = context
         self.reflection_level = 0
     
-    fn visit(inout self, element: TagElement) 
-        pass
+    fn visit(inout self, element: TagElement) :
         pass
         """Visit element with meta-cognitive processing."""
-        if element isa CognitiveTagElement:
+        if isinstance(element, CognitiveTagElement):
             var cognitive_element = element as CognitiveTagElement
             
             # Enable meta-awareness
@@ -37,8 +35,7 @@ struct MetaCognitiveVisitor(Visitor):
             # Handle regular tag elements
             self.context.add_feedback("Standard processing applied")
     
-    fn _apply_consciousness_framework()
-        pass
+    fn _apply_consciousness_framework():
         pass
         """Apply the consciousness framework Ψ(x) = ∫[α(t)S(x) + (1-α(t))N(x)] × exp(-[λ₁R_cognitive + λ₂R_efficiency]) × P(H|E,β) dt."""
         
@@ -84,12 +81,7 @@ struct MetaCognitiveVisitor(Visitor):
         self.context.set_state("symbolic_score", str(symbolic_score))
         self.context.set_state("neural_score", str(neural_score))
     
-    fn _calculate_symbolic_component() -> Float64 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_symbolic_component(inout self) -> Float64:        pass
         """Calculate symbolic component S(x) based on structured analysis."""
         var score = 0.0
         
@@ -111,12 +103,7 @@ struct MetaCognitiveVisitor(Visitor):
         
         return min(score, 1.0)
     
-    fn _calculate_neural_component() -> Float64 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_neural_component(inout self) -> Float64:        pass
         """Calculate neural component N(x) based on pattern recognition."""
         var score = 0.0
         
@@ -143,12 +130,7 @@ struct MetaCognitiveVisitor(Visitor):
         
         return min(score, 1.0)
     
-    fn _calculate_cognitive_penalty() -> Float64 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_cognitive_penalty(inout self) -> Float64:        pass
         """Calculate cognitive plausibility penalty."""
         var penalty = 0.0
         
@@ -166,12 +148,7 @@ struct MetaCognitiveVisitor(Visitor):
         
         return min(penalty, 1.0)
     
-    fn _calculate_efficiency_penalty() -> Float64 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn _calculate_efficiency_penalty(inout self) -> Float64:        pass
         """Calculate computational efficiency penalty."""
         var penalty = 0.0
         
@@ -191,17 +168,15 @@ struct TherapeuticVisitor(Visitor):
     
     var context: ProcessingContext
     
-    fn __init__(inout self)
-        pass
+    fn __init__(inout self):
         pass
         """Initialize therapeutic visitor."""
         self.context = context
     
-    fn visit(inout self, element: TagElement) 
-        pass
+    fn visit(inout self, element: TagElement) :
         pass
         """Visit element with therapeutic processing."""
-        if element isa CognitiveTagElement:
+        if isinstance(element, CognitiveTagElement):
             var cognitive_element = element as CognitiveTagElement
             
             # Apply safety anchor
@@ -223,40 +198,35 @@ struct TherapeuticVisitor(Visitor):
         else:
             self.context.add_feedback("Standard therapeutic processing")
     
-    fn _apply_safety_anchor()
-        pass
+    fn _apply_safety_anchor():
         pass
         """Apply safety anchor for cognitive protection."""
         if element.consciousness_level > 0.9:
             element.add_metadata("safety_warning", "high_consciousness_detected")
             self.context.add_feedback("Safety anchor: High consciousness level detected")
     
-    fn _apply_curiosity_anchor()
-        pass
+    fn _apply_curiosity_anchor():
         pass
         """Apply curiosity anchor for exploration boundaries."""
         if element.processing_depth > 8:
             element.add_metadata("curiosity_boundary", "max_exploration_reached")
             self.context.add_feedback("Curiosity anchor: Exploration boundary reached")
     
-    fn _apply_integration_anchor()
-        pass
+    fn _apply_integration_anchor():
         pass
         """Apply integration anchor for pattern synthesis."""
         if len(element.metadata) > 15:
             element.add_metadata("integration_needed", "pattern_synthesis_required")
             self.context.add_feedback("Integration anchor: Pattern synthesis needed")
     
-    fn _apply_transformation_anchor()
-        pass
+    fn _apply_transformation_anchor():
         pass
         """Apply transformation anchor for adaptive learning."""
         if element.consciousness_level > 0.7 and element.processing_depth > 5:
             element.add_metadata("transformation_ready", "adaptive_learning_triggered")
             self.context.add_feedback("Transformation anchor: Adaptive learning triggered")
     
-    fn _apply_meta_awareness_anchor()
-        pass
+    fn _apply_meta_awareness_anchor():
         pass
         """Apply meta-awareness anchor for self-reflection."""
         if element.consciousness_level > 0.6:

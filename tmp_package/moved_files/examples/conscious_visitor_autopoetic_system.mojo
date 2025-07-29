@@ -5,8 +5,7 @@ struct AutopoeticSystem:
     boundary_permeability: Float
     self_generation_rules: List[Callable]
 
-    fn accept(inout self, )
-        pass
+    fn accept(inout self, ):
         pass
         """
         Strategic visitation interface
@@ -19,14 +18,13 @@ struct ConsciousVisitor:
     intervention_strategy: InterventionStrategy
     extracted_insights: List[Any]
 
-    fn visit(inout self, element: Element)
-        pass
+    fn visit(inout self, element: Element):
         pass
         """
         Deliberate, strategic observation of autopoetic system
         """
         # Minimal invasive observation
-        let observation_result = self.observe_system(system)
+        var observation_result = self.observe_system(system)
         
         # Strategic insight extraction
         self.extract_insights(observation_result)
@@ -75,20 +73,14 @@ struct ConsciousVisitor:
             if self.is_observable_property(key)
         }
     
-    fn is_observable_property() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn is_observable_property(inout self) -> Bool:        pass
         """
         Determine observability of system properties
         """
         # Placeholder for sophisticated observability logic
         return len(property_name) < 10
     
-    fn extract_insights()
-        pass
+    fn extract_insights():
         pass
         """
         Strategic insight generation from observation
@@ -97,20 +89,14 @@ struct ConsciousVisitor:
             self.generate_insight(observation)
         )
     
-    fn generate_insight() -> Any 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn generate_insight(inout self) -> Any:        pass
         """
         Transform observation into strategic insight
         """
         # Complex insight generation logic
         return observation.get("system_state", {})
     
-    fn strategic_intervention()
-        pass
+    fn strategic_intervention():
         pass
         """
         Minimal, strategically controlled intervention
@@ -120,19 +106,13 @@ struct ConsciousVisitor:
 struct InterventionStrategy:
     intervention_probability: Float
     
-    fn should_intervene() -> Bool 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn should_intervene(inout self) -> Bool:        pass
         """
         Probabilistic intervention decision
         """
         return random.random() < self.intervention_probability
     
-    fn execute()
-        pass
+    fn execute():
         pass
         """
         Minimal systemic perturbation
@@ -141,7 +121,7 @@ struct InterventionStrategy:
         pass
 # Demonstration of Conscious Visitation
 fn demonstrate_conscious_visitation():
-    let autopoetic_system = AutopoeticSystem(
+    var autopoetic_system = AutopoeticSystem(
         internal_state={
             "complexity": 0.7,
             "adaptive_potential": 0.6,
@@ -150,7 +130,7 @@ fn demonstrate_conscious_visitation():
         boundary_permeability=0.3,
         self_generation_rules=[]
     )
-    let conscious_visitor = ConsciousVisitor(
+    var conscious_visitor = ConsciousVisitor(
         observation_depth=0.5,
         intervention_strategy=InterventionStrategy(
             intervention_probability=0.1

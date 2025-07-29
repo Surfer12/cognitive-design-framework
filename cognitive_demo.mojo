@@ -9,15 +9,13 @@ struct TagElement:
     var content: String
     var metadata: String
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         self.name = name
         self.content = content
         self.metadata = ""
 
-    fn add_metadata()
-        pass
+    fn add_metadata():
         pass
         self.metadata = self.metadata + key + ":" + value + ";"
 
@@ -30,50 +28,34 @@ struct ProcessingContext:
     var insights: String
     var processing_depth: Int
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         self.feedback = ""
         self.errors = ""
         self.insights = ""
         self.processing_depth = 0
 
-    fn add_feedback()
-        pass
+    fn add_feedback():
         pass
         self.feedback = self.feedback + "📝 " + message + "\n"
 
-    fn add_error()
-        pass
+    fn add_error():
         pass
         self.errors = self.errors + "❌ " + error + "\n"
 
-    fn add_insight()
-        pass
+    fn add_insight():
         pass
         self.insights = self.insights + "💡 " + insight + "\n"
 
-    fn get_feedback() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_feedback(inoutself) -> String:
         pass
         return self.feedback
 
-    fn get_errors() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_errors(inoutself) -> String:
         pass
         return self.errors
 
-    fn get_insights() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_insights(inoutself) -> String:
         pass
         return self.insights
 
@@ -84,15 +66,13 @@ struct CognitiveBridge:
     var context: ProcessingContext
     var processing_level: Int
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inoutself):
         pass
         """Initialize the cognitive bridge."""
         self.context = ProcessingContext()
         self.processing_level = 1
 
-    fn process_input()
-        pass
+    fn process_input():
         pass
         """Process user input through the cognitive pipeline."""
         var element = TagElement("user_input", input)
@@ -111,8 +91,7 @@ struct CognitiveBridge:
         self._generate_insights(element)
         self._apply_cognitive_framework(element)
 
-    fn _analyze_content()
-        pass
+    fn _analyze_content():
         pass
         """Analyze the content for cognitive patterns."""
         self.context.add_feedback("Analyzing content: " + element.name)
@@ -126,8 +105,7 @@ struct CognitiveBridge:
         if element.content.contains("process"):
             self.context.add_insight("Process-oriented input identified")
 
-    fn _generate_insights()
-        pass
+    fn _generate_insights():
         pass
         """Generate cognitive insights from the input."""
         self.context.add_feedback("Generating insights...")
@@ -148,8 +126,7 @@ struct CognitiveBridge:
             "Processing depth: " + str(self.processing_level)
         )
 
-    fn _apply_cognitive_framework()
-        pass
+    fn _apply_cognitive_framework():
         pass
         """Apply the cognitive framework to the element."""
         self.context.add_feedback("Applying cognitive framework...")
@@ -158,11 +135,7 @@ struct CognitiveBridge:
             "Element processed with metadata: " + element.metadata
         )
 
-    fn get_feedback() -> String 
-        pass
-        pass
-        pass
-        pass
+    fn get_feedback(inoutself) -> String:
         pass
         """Get accumulated feedback and insights."""
         var result = ""

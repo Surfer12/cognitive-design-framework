@@ -11,9 +11,8 @@ struct VisitationContext:
     interaction_mode: InteractionMode
     extraction_strategies: List[ExtractionStrategy]
 
-enum InteractionMode:
-        pass
-        pass
+@value
+struct InteractionMode:        pass
     DYNAMIC
     NON_DYNAMIC
     ADAPTIVE
@@ -26,17 +25,12 @@ struct RecursiveObservationalPotentialTransformer:
     potential: ObservationalPotential
     visitation_history: List[VisitationContext]
 
-    fn transform_observational_potential() -> ObservationalPotential 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn transform_observational_potential(inout self) -> ObservationalPotential:        pass
         """
         Recursively redefine observational potential
         """
         # Compute transformation based on interaction dynamics
-        let transformation_factor = self.compute_transformation_factor(
+        var transformation_factor = self.compute_transformation_factor(
             visitation_context
         )
 
@@ -52,36 +46,26 @@ struct RecursiveObservationalPotentialTransformer:
 
         return self.potential
 
-    fn compute_transformation_factor() -> Float 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn compute_transformation_factor(inout self) -> Float:        pass
         """
         Calculate recursive transformation potential
         """
-        let interaction_complexity = match visitation_context.interaction_mode:
+        var interaction_complexity = match visitation_context.interaction_mode:
             InteractionMode.DYNAMIC => 1.5
             InteractionMode.NON_DYNAMIC => 1.0
             InteractionMode.ADAPTIVE => 2.0
 
-        let extraction_diversity = sum(
+        var extraction_diversity = sum(
             strategy.information_density 
             for strategy in visitation_context.extraction_strategies
         )
         return interaction_complexity * extraction_diversity
 
-    fn strategic_visitation() -> VisitationContext 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn strategic_visitation(inout self) -> VisitationContext:        pass
         """
         Execute strategic system visitation
         """
-        let extraction_strategies = [
+        var extraction_strategies = [
             ExtractionStrategy(
                 observation_probability=0.7,
                 information_density=0.6
@@ -96,7 +80,7 @@ struct RecursiveObservationalPotentialTransformer:
 
 # Demonstration of ROPT Framework
 fn demonstrate_recursive_potential_transformation():
-    let ropt_transformer = RecursiveObservationalPotentialTransformer(
+    var ropt_transformer = RecursiveObservationalPotentialTransformer(
         potential=ObservationalPotential(
             transformation_depth=0.0,
             extraction_complexity=1.0,
@@ -106,26 +90,26 @@ fn demonstrate_recursive_potential_transformation():
         visitation_history=[]
     )
 
-    let autopoetic_system = AutopoeticSystem(
+    var autopoetic_system = AutopoeticSystem(
         internal_state={
             "complexity": 0.7,
             "adaptive_potential": 0.6
         }
     )
     # Multiple visitation modes
-    let visitation_modes = [
+    var visitation_modes = [
         InteractionMode.DYNAMIC,
         InteractionMode.NON_DYNAMIC,
         InteractionMode.ADAPTIVE
     ]
 
     for mode in visitation_modes:
-        let visitation_context = ropt_transformer.strategic_visitation(
+        var visitation_context = ropt_transformer.strategic_visitation(
             autopoetic_system, 
             mode
         )
         
-        let transformed_potential = ropt_transformer.transform_observational_potential(
+        var transformed_potential = ropt_transformer.transform_observational_potential(
             visitation_context
         )
 

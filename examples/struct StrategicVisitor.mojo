@@ -2,9 +2,8 @@ struct StrategicVisitor:
     observation_depth: Float
     contextual_mode: ContextualMode  # Strict vs Non-strict
 
-    fn visit(inout self, element: Element)
+    fn visit(inoutself, element: Element):
         pass
-        pass
-        let potential = calculate_observational_potential(system)
-        let boundary = define_visitation_boundary(potential)
+        var potential = calculate_observational_potential(system)
+        var boundary = define_visitation_boundary(potential)
         execute_transformation(boundary)

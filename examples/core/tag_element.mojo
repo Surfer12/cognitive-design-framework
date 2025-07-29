@@ -10,7 +10,8 @@ struct TagElement:
     var content: String
     var metadata: PythonObject  # Using Python dict for flexible metadata
 
-    fn __init__(inoutself, name: String, content: String):
+    fn __init__() raises:
+        pass
         """Initialize a new tag element."""
         self.name = name
         self.content = content
@@ -19,17 +20,19 @@ struct TagElement:
         self.metadata["creation_time"] = Python.import_module("time").time()
         self.metadata["permission_level"] = 0
 
-    fn add_metadata(inoutself, key: String, value: String):
+    fn add_metadata() raises:
+        pass
         """Add metadata to the tag."""
         self.metadata[key] = value
 
-    fn get_metadata(self, key: String) -> String:
+    fn get_metadata(inout self) -> String raises:        pass
         """Get metadata value."""
         try:
             return str(self.metadata.get(key, ""))
         except:
             return ""
 
-    fn accept(inoutself, visitor: Visitor):
+    fn accept() raises:
+        pass
         """Accept a visitor for processing."""
         visitor.visit(self)

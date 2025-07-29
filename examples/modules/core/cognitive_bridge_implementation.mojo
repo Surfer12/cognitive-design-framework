@@ -20,51 +20,31 @@ from examples import (
 struct TagSystem:
     """Tag system for managing cognitive processes."""
 
-    fn __init__(inout self)
-        pass
-        pass
-        pass
-    fn integrate_feedback(self, context: FeedbackContext) -> None:
-        pass
+    fn __init__(inout self):        pass
+    fn integrate_feedback(inout self) -> None raises:        pass
 struct ResponseGenerationVisitor(TagVisitor):
     """Visitor for generating responses."""
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inout self):
         pass
         self.response = ""
 
-    fn visit_tag(self, tag: TagInstance) -> None:
-        pass
-    fn visit_attribute(self, attr: TagAttribute) -> None:
-        pass
-    fn get_generated_response() -> String 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn visit_tag(inout self) -> None raises:        pass
+    fn visit_attribute(inout self) -> None raises:        pass
+    fn get_generated_response(inout self) -> String:        pass
         return self.response
 
 
 struct VisualizationVisitor(TagVisitor):
     """Visitor for creating visualizations."""
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inout self):
         pass
         self.visualization = ""
 
-    fn visit_tag(self, tag: TagInstance) -> None:
-        pass
-    fn visit_attribute(self, attr: TagAttribute) -> None:
-        pass
-    fn get_visualization() -> String 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn visit_tag(inout self) -> None raises:        pass
+    fn visit_attribute(inout self) -> None raises:        pass
+    fn get_visualization(inout self) -> String:        pass
         return self.visualization
 
 
@@ -80,8 +60,7 @@ struct CognitiveBridge:
     var boundary_manager: BoundaryManager
     var access_manager: VisitorAccessManager
 
-    fn __init__(inout self)
-        pass
+    fn __init__(inout self):
         pass
         self.tag_system = TagSystem()
         self.visitor_coordinator = VisitorCoordinator()
@@ -89,7 +68,7 @@ struct CognitiveBridge:
         self.boundary_manager = BoundaryManager()
         self.access_manager = VisitorAccessManager()
 
-    fn process_user_input(self, input: String) -> None:
+    fn process_user_input(inout self) -> None raises:        pass
         """
         Process user input through the cognitive system.
         """
@@ -106,12 +85,7 @@ struct CognitiveBridge:
             finally:
                 self.access_manager.release_read_access()
 
-    fn create_input_tag() -> TagInstance 
-        pass
-        pass
-        pass
-        pass
-        pass
+    fn create_input_tag(inout self) -> TagInstance:        pass
         """
         Convert user input into a tag structure.
         """
@@ -124,7 +98,7 @@ struct CognitiveBridge:
             children=[],
         )
 
-    fn update_feedback_loop(self, tag: TagInstance) -> None:
+    fn update_feedback_loop(inout self) -> None raises:        pass
         """
         Update the feedback system based on processing results.
         """
@@ -132,7 +106,7 @@ struct CognitiveBridge:
         tag.accept(feedback_visitor)
         self.tag_system.integrate_feedback(feedback_visitor.context)
 
-    fn generate_response(self, tag: TagInstance) -> String:
+    fn generate_response(inout self) -> String raises:        pass
         """
         Generate AI response based on processed input.
         """
@@ -140,7 +114,7 @@ struct CognitiveBridge:
         tag.accept(response_visitor)
         return response_visitor.get_generated_response()
 
-    fn visualize_cognitive_process(self, tag: TagInstance) -> String:
+    fn visualize_cognitive_process(inout self) -> String raises:        pass
         """
         Create a visualization of the cognitive process.
         """
@@ -149,8 +123,7 @@ struct CognitiveBridge:
         return visualization_visitor.get_visualization()
 
 
-fn demonstrate_cognitive_bridge()
-        pass
+fn demonstrate_cognitive_bridge():
         pass
     var bridge = CognitiveBridge()
     var input_tag = bridge.create_input_tag(
