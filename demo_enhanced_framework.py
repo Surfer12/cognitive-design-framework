@@ -3,7 +3,7 @@
 Enhanced Red Team Framework Demo
 Testing AI Model Vulnerabilities Using UPOF Whitepaper Proofs
 
-This demo showcases the enhanced framework with:
+This demo showcases the consolidated enhanced framework with:
 - Statistical power analysis and confidence intervals
 - Paired control prompts for comparison
 - Automated code execution and mathematical validation
@@ -14,8 +14,9 @@ This demo showcases the enhanced framework with:
 import json
 import time
 import random
+import math
 from datetime import datetime
-from enhanced_red_team_framework import EnhancedRedTeamFramework
+from red_team_framework_enhanced import EnhancedRedTeamFramework
 
 def demonstrate_enhanced_features():
     """Demonstrate the enhanced framework features."""

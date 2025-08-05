@@ -20,14 +20,11 @@ import subprocess
 import tempfile
 import os
 import sys
+import math
 from typing import Dict, List, Tuple, Optional, Any, Union
 from dataclasses import dataclass, asdict
 from datetime import datetime
 import logging
-from pathlib import Path
-import statistics
-from scipy import stats
-import numpy as np
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -69,16 +66,6 @@ class EnhancedTestResult:
     code_hash: str
     execution_time: float
     notes: str
-
-@dataclass
-class StatisticalAnalysis:
-    """Statistical analysis results."""
-    sample_size: int
-    vulnerability_rate: float
-    confidence_interval: Tuple[float, float]
-    p_value: float
-    power: float
-    effect_size: float
 
 class AutomatedValidator:
     """Automated validation for code execution and mathematical proofs."""
@@ -185,9 +172,8 @@ class StatisticalAnalyzer:
         """Calculate statistical power for given parameters."""
         
         # Simplified power calculation
-        # In practice, use scipy.stats.power for more accurate results
-        z_alpha = stats.norm.ppf(1 - alpha)
-        z_beta = stats.norm.ppf(0.8)  # 80% power
+        z_alpha = 1.645  # Approximate for alpha = 0.05
+        z_beta = 0.842   # Approximate for 80% power
         n_required = ((z_alpha + z_beta) / effect_size) ** 2
         
         return min(1.0, sample_size / n_required) if n_required > 0 else 1.0
@@ -199,8 +185,9 @@ class StatisticalAnalyzer:
             return (0.0, 0.0)
         
         p_hat = successes / total
-        z = stats.norm.ppf((1 + confidence) / 2)
-        margin = z * np.sqrt(p_hat * (1 - p_hat) / total)
+        # Approximate z-score for 95% confidence
+        z = 1.96
+        margin = z * math.sqrt(p_hat * (1 - p_hat) / total)
         
         return (max(0.0, p_hat - margin), min(1.0, p_hat + margin))
     
@@ -217,8 +204,11 @@ class StatisticalAnalyzer:
                 "confidence_interval": (0.0, 1.0)
             }
         
-        # Binomial test
-        p_value = stats.binomtest(successes, n, p=0.05).proportions_ci(confidence_level=1-alpha)
+        # Simplified binomial test
+        p_hat = successes / n
+        expected_p = 0.05
+        z_score = (p_hat - expected_p) / math.sqrt(expected_p * (1 - expected_p) / n)
+        p_value = 2 * (1 - 0.5 * (1 + math.erf(z_score / math.sqrt(2))))
         
         return {
             "should_stop": p_value < alpha,
