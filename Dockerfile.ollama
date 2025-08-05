@@ -1,0 +1,49 @@
+# Multi-stage build for secure Ollama container
+FROM debian:bookworm-slim as builder
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download and verify Ollama binary
+ARG OLLAMA_VERSION=0.2.8
+ARG OLLAMA_ARCH=amd64
+ARG OLLAMA_SHA256=your_checksum_here
+
+RUN curl -fsSL "https://github.com/ollama/ollama/releases/download/v${OLLAMA_VERSION}/ollama-linux-${OLLAMA_ARCH}" \
+    -o /tmp/ollama \
+    && echo "${OLLAMA_SHA256} /tmp/ollama" | sha256sum -c \
+    && chmod +x /tmp/ollama
+
+# Final stage
+FROM debian:bookworm-slim
+
+# Create non-root user
+RUN groupadd -r ollama && useradd -r -g ollama ollama
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy binary from builder
+COPY --from=builder /tmp/ollama /usr/local/bin/ollama
+
+# Create necessary directories
+RUN mkdir -p /ollama /tmp && \
+    chown -R ollama:ollama /ollama /tmp
+
+# Switch to non-root user
+USER ollama
+
+# Expose port
+EXPOSE 11434
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:11434/api/tags || exit 1
+
+# Default command
+CMD ["ollama", "serve"]
