@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  ollama:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        OLLAMA_VER: "0.2.8"
+        OLLAMA_SHA256: "2bfa1e3d5a7c6b4e8f9a3e8c1b2d6f58f4e7c9b1124f6d7e5d3c9a2e1f7b4c2a"
+    image: local/ollama:0.2.8
+    container_name: ollama
+    restart: unless-stopped
+    
+    # Security configuration
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    
+    # Resource limits for M4 Max (48GB system)
+    deploy:
+      resources:
+        limits:
+          memory: 32g
+          cpus: "8.0"
+    
+    # Network configuration
+    ports:
+      - "127.0.0.1:11434:11434"
+    
+    # Volume mounts
+    volumes:
+      # Mount external SSD for model storage (adjust path as needed)
+      - /Volumes/SSD1/ollama_models:/ollama:rw
+      # Optional: Mount a config file
+      # - ./ollama-config.yaml:/etc/ollama/config.yaml:ro
+    
+    # Environment variables
+    environment:
+      - OLLAMA_HOME=/ollama
+      # Uncomment to enable offline mode after models are cached
+      # - OLLAMA_NO_NETWORK=1
+      # Optional: Set specific GPU configuration (not used in Docker on macOS)
+      # - OLLAMA_GPU=metal
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
