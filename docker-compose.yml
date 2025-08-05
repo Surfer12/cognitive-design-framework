@@ -1,0 +1,166 @@
+version: "3.9"
+
+# =============================================================================
+# Secure Ollama Docker Compose Configuration for macOS M4 Max
+# =============================================================================
+# This compose file deploys Ollama with security hardening and resource limits
+# optimized for Apple Silicon machines with 48GB unified memory.
+#
+# Usage:
+#   docker compose up -d                    # Start in background
+#   docker compose logs -f                  # View logs
+#   docker compose down                     # Stop and remove
+#   docker compose exec ollama bash         # Access container shell
+# =============================================================================
+
+services:
+  ollama:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        OLLAMA_VERSION: "0.1.33"
+        # NOTE: Get actual SHA256 from https://github.com/ollama/ollama/releases/tag/v0.1.33
+        OLLAMA_SHA256: "REPLACE_WITH_ACTUAL_SHA256_FROM_OFFICIAL_RELEASE"
+    
+    image: local/ollama:0.1.33
+    container_name: ollama-m4max
+    hostname: ollama-server
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Security hardening
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:unconfined  # Required for some ML operations
+    
+    # Drop all capabilities and add only what's needed
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+    
+    # Read-only root filesystem (except mounted volumes)
+    read_only: true
+    
+    # Temporary filesystems for writable areas
+    tmpfs:
+      - /tmp:size=2G,mode=1777
+      - /var/tmp:size=1G,mode=1777
+      - /run:size=512M,mode=755
+    
+    # Network configuration
+    ports:
+      - "127.0.0.1:11434:11434"  # Bind to localhost only for security
+    
+    # Volume mounts
+    volumes:
+      # Model storage on external SSD (adjust path as needed)
+      - /Volumes/External/ollama_models:/ollama:rw
+      # Optional: Custom configuration
+      - ./config/ollama.env:/ollama/.env:ro
+      # Optional: Logs directory
+      - ./logs:/ollama/logs:rw
+    
+    # Environment variables
+    environment:
+      # Core Ollama settings
+      - OLLAMA_HOME=/ollama
+      - OLLAMA_HOST=0.0.0.0:11434
+      - OLLAMA_ORIGINS=http://localhost:*,http://127.0.0.1:*
+      
+      # Performance tuning for M4 Max (48GB RAM)
+      - OLLAMA_NUM_PARALLEL=4
+      - OLLAMA_MAX_LOADED_MODELS=2
+      - OLLAMA_MAX_QUEUE=128
+      
+      # Memory management
+      - OLLAMA_KEEP_ALIVE=5m
+      - OLLAMA_LOAD_TIMEOUT=10m
+      
+      # Security settings
+      - OLLAMA_DEBUG=false
+      - OLLAMA_FLASH_ATTENTION=false  # CPU-only mode
+      
+      # Uncomment to enable offline mode after models are cached
+      # - OLLAMA_NO_NETWORK=1
+      
+      # Logging
+      - OLLAMA_LOG_LEVEL=INFO
+    
+    # Resource limits optimized for M4 Max
+    deploy:
+      resources:
+        limits:
+          # Use up to 32GB of the 48GB available (leave room for macOS)
+          memory: 32G
+          # Use 8 of the 14 CPU cores (M4 Max has 10P+4E cores)
+          cpus: "8.0"
+        reservations:
+          memory: 8G
+          cpus: "2.0"
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # User namespace (additional security)
+    user: "1000:1000"
+
+# =============================================================================
+# Optional: Web UI Service (Ollama WebUI)
+# =============================================================================
+  # Uncomment to add a web interface for Ollama
+  # ollama-webui:
+  #   image: ghcr.io/open-webui/open-webui:main
+  #   container_name: ollama-webui
+  #   restart: unless-stopped
+  #   ports:
+  #     - "127.0.0.1:3000:8080"
+  #   environment:
+  #     - OLLAMA_BASE_URL=http://ollama:11434
+  #     - WEBUI_SECRET_KEY=your-secret-key-here
+  #   volumes:
+  #     - ./webui_data:/app/backend/data
+  #   depends_on:
+  #     - ollama
+  #   security_opt:
+  #     - no-new-privileges:true
+  #   read_only: true
+  #   tmpfs:
+  #     - /tmp:size=1G
+
+# =============================================================================
+# Networks and Volumes
+# =============================================================================
+networks:
+  default:
+    name: ollama-network
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: ollama0
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+
+volumes:
+  # Optional: Named volume for model storage
+  ollama_models:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Volumes/External/ollama_models
