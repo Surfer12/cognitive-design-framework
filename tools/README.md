@@ -11,9 +11,14 @@ tools/
 ├── discovery/       # Tools for pattern and insight discovery
 │   ├── pattern_detector.mojo
 │   └── insight_generator.mojo
-└── optimization/   # Performance and efficiency optimization tools
-    ├── resource_manager.mojo
-    └── performance_optimizer.mojo
+├── optimization/   # Performance and efficiency optimization tools
+│   ├── resource_manager.mojo
+│   └── performance_optimizer.mojo
+└── gpt_oss/       # GPT-OSS tool implementations
+    ├── browser_tool.py
+    ├── python_tool.py
+    ├── integration_example.py
+    └── requirements.txt
 ```
 
 ## Tool Categories
@@ -39,6 +44,17 @@ tools/
   - Runtime performance analysis
   - Bottleneck identification
   - Adaptive optimization strategies
+
+### GPT-OSS Tools
+- **Browser Tool**
+  - Web search capabilities
+  - Page content retrieval
+  - Content finding and navigation
+
+- **Python Tool**
+  - Safe code execution in containers
+  - Stateful computation support
+  - Mathematical and data processing
 
 ## Usage Examples
 
@@ -76,6 +92,26 @@ resource_manager.optimize()
 var optimizer = PerformanceOptimizer()
 optimizer.identify_bottlenecks()
 optimizer.apply_optimizations()
+```
+
+### GPT-OSS Integration
+
+```python
+from tools.gpt_oss.browser_tool import SimpleBrowserTool, ExaBackend
+from tools.gpt_oss.python_tool import PythonTool
+
+# Initialize browser tool
+backend = ExaBackend(source="web")
+browser_tool = SimpleBrowserTool(backend=backend)
+
+# Initialize Python tool
+python_tool = PythonTool()
+
+# Search for information
+results = await browser_tool.search("cognitive computing")
+
+# Execute Python code
+result = await python_tool.execute("import math; print(math.pi)")
 ```
 
 ## Design Principles

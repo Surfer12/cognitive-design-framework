@@ -1,0 +1,23 @@
+# GPT-OSS Tools Dependencies
+
+# Core dependencies
+requests>=2.31.0
+docker>=6.1.0
+asyncio
+
+# Optional: For harmony encoding (if available)
+# openai-harmony>=0.1.0
+
+# Development dependencies
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+
+# Additional packages for enhanced functionality
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+
+# Security and monitoring (for production use)
+psutil>=5.9.0
