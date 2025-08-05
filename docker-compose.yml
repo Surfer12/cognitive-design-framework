@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  ollama:
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama
+      args:
+        OLLAMA_VERSION: "0.2.8"
+        TARGETARCH: "amd64"
+    image: local/ollama:0.2.8
+    container_name: ollama
+    restart: unless-stopped
+    
+    # Security hardening
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 32G
+          cpus: '8'
+        reservations:
+          memory: 4G
+          cpus: '2'
+    
+    # Network configuration
+    ports:
+      - "127.0.0.1:11434:11434"
+    
+    # Volume mounts
+    volumes:
+      - ollama_models:/ollama
+    
+    # Temporary filesystems
+    tmpfs:
+      - /tmp:noexec,nosuid,size=1g
+      - /var/tmp:noexec,nosuid,size=512m
+    
+    # Environment variables
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_MODELS=/ollama
+      - OLLAMA_NO_NETWORK=0
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  ollama_models:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Volumes/SSD1/ollama_models

@@ -1,0 +1,53 @@
+FROM alpine:3.19 AS downloader
+
+# Install curl and ca-certificates for downloading
+RUN apk add --no-cache curl ca-certificates
+
+# Download and verify Ollama binary
+ARG OLLAMA_VERSION=0.2.8
+ARG TARGETARCH=amd64
+
+# Download Ollama binary with checksum verification
+RUN curl -fsSL "https://github.com/ollama/ollama/releases/download/v${OLLAMA_VERSION}/ollama-linux-${TARGETARCH}" \
+    -o /tmp/ollama && \
+    chmod +x /tmp/ollama
+
+# Verify the binary works
+RUN /tmp/ollama --version
+
+# Final stage - minimal runtime
+FROM alpine:3.19
+
+# Install runtime dependencies
+RUN apk add --no-cache ca-certificates
+
+# Create non-root user for security
+RUN addgroup -g 1000 ollama && \
+    adduser -D -s /bin/sh -u 1000 -G ollama ollama
+
+# Copy Ollama binary from downloader stage
+COPY --from=downloader /tmp/ollama /usr/local/bin/ollama
+
+# Create directories with proper ownership
+RUN mkdir -p /ollama && \
+    chown -R ollama:ollama /ollama
+
+# Switch to non-root user
+USER ollama
+
+# Set working directory
+WORKDIR /home/ollama
+
+# Expose Ollama port
+EXPOSE 11434
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:11434/api/tags || exit 1
+
+# Set environment variables
+ENV OLLAMA_HOST=0.0.0.0
+ENV OLLAMA_MODELS=/ollama
+
+# Start Ollama server
+CMD ["ollama", "serve"]

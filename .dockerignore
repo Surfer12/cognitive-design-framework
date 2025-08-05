@@ -1,0 +1,48 @@
+# Git and version control
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+docs/
+
+# IDE and editor files
+.vscode/
+.cursor/
+.DS_Store
+
+# Python files
+*.py
+*.pyc
+__pycache__/
+
+# Mojo files
+*.mojo
+
+# Project files
+pixi.toml
+pixi.lock
+magic.lock
+
+# Test files
+tests/
+test_*
+
+# Examples and demos
+examples/
+*demo*
+
+# Build artifacts
+*.rtf
+*.lock
+
+# Temporary files
+*.tmp
+*.temp
+
+# Keep only Docker-related files
+!Dockerfile.ollama
+!docker-compose.yml
+!setup-ollama.sh
+!README-Ollama.md
