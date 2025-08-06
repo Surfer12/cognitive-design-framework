@@ -1,0 +1,39 @@
+# vLLM with GPT-OSS-120B Requirements
+# Core dependencies
+vllm==0.8.3
+torch==2.6.0
+torchvision==0.21.0
+torchaudio==2.6.0
+
+# vLLM dependencies
+transformers>=4.51.0
+huggingface-hub>=0.30.0
+fastapi>=0.115.0
+openai>=1.52.0
+pydantic>=2.9
+
+# Additional dependencies
+aiohttp
+blake3
+cachetools
+cloudpickle
+einops
+importlib_metadata
+msgspec
+ninja
+numba==0.61
+opencv-python-headless>=4.11.0
+prometheus_client>=0.18.0
+protobuf
+psutil
+py-cpuinfo
+python-json-logger
+pyzmq
+scipy
+sentencepiece
+six>=1.16.0
+tiktoken>=0.6.0
+watchfiles
+
+# API testing
+requests

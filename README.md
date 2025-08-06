@@ -1,150 +1,192 @@
-# 🧠 Meta-Optimized Hybrid Reasoning Framework  
-**by Ryan Oates**  
-**License: Dual — AGPLv3 + Peer Production License (PPL)**  
-**Contact: ryan_oates@my.cuesta.edu**
+# vLLM with GPT-OSS-120B Setup
 
----
+This repository contains a setup for running the GPT-OSS-120B model using vLLM (Very Large Language Model inference engine).
 
-## ✨ Purpose
+## 🚀 Quick Start
 
-This framework is part of an interdisciplinary vision to combine **symbolic rigor**, **neural adaptability**, and **cognitive-aligned reasoning**. It reflects years of integrated work at the intersection of computer science, biopsychology, and meta-epistemology.
+### 1. Environment Setup
 
-It is not just software. It is a **cognitive architecture**, and its use is **ethically bounded**.
+The virtual environment is already set up with all necessary dependencies:
 
----
-
-## 🔐 Licensing Model
-
-This repository is licensed under a **hybrid model** to balance openness, reciprocity, and authorship protection.
-
-### 1. For Commons-Aligned Users (students, researchers, cooperatives)
-Use it under the **Peer Production License (PPL)**. You can:
-- Study, adapt, and share it freely
-- Use it in academic or nonprofit research
-- Collaborate openly within the digital commons
-
-### 2. For Public Use and Transparency
-The AGPLv3 license guarantees:
-- Network-based deployments must share modifications
-- Derivatives must remain open source
-- Attribution is mandatory
-
-### 3. For Commercial or Extractive Use
-You **must not use this work** if you are a:
-- For-profit AI company
-- Venture-backed foundation
-- Closed-source platform
-...unless you **negotiate a commercial license** directly.
-
----
-
-## 📚 Attribution
-
-This framework originated in:
-
-> *Meta-Optimization in Hybrid Theorem Proving: Cognitive-Constrained Reasoning Framework*, Ryan Oates (2025)
-
-DOI: [Insert Zenodo/ArXiv link here]  
-Git commit hash of original release: `a17c3f9...`  
-This project’s cognitive-theoretic roots come from studies in:
-- Flow state modeling
-- Symbolic logic systems
-- Jungian epistemological structures
-
----
-
-## 🤝 Community Contributor Agreement
-
-If you are a student, educator, or aligned research group and want to contribute:
-1. Fork this repo
-2. Acknowledge the author and original framework
-3. Use the “Contributors.md” file to describe your adaptation
-4. Optional: Sign and return the [Community Contributor Agreement (CCA)](link) to join the federated research network
-
----
-
-## 🚫 What You May Not Do
-
-- Integrate this system into closed-source LLM deployments
-- Resell it or offer derivative products without explicit approval
-- Strip author tags or alter authorship metadata
-
----
-
-## 📬 Contact
-
-Want to collaborate, cite properly, or license commercially?  
-Reach out: **ryan_oates@my.cuesta.edu**
-# Cognitive Design Framework
-
-## Overview
-
-A sophisticated, modular framework for implementing cognitive processing systems with autopoietic capabilities, designed to support flexible, emergent learning ecosystems.
-
-## Project Structure
-
-```
-cognitive-design-framework/
-├── core/           # Fundamental cognitive processing components
-├── systems/        # Specific system implementations
-├── tools/          # Utility and optimization tools
-├── docs/           # Comprehensive documentation
-├── examples/       # Usage examples and tutorials
-├── tests/          # Comprehensive test suites
-└── config/         # Configuration management
+```bash
+# Activate the virtual environment
+source vllm_env/bin/activate
 ```
 
-## Key Features
+### 2. Start the vLLM Server
 
-- 🧠 Adaptive Cognitive Processing
-- 🔄 Autopoietic System Design
-- 🔬 Modular and Extensible Architecture
-- 🚀 High-Performance Implementation in Mojo
+Run the server script:
 
-## Quick Start
+```bash
+./run_vllm_server.sh
+```
 
-1. **Prerequisites**
-   - Mojo Programming Language
-   - Python 3.8+
-   - Basic understanding of cognitive systems
+Or manually:
 
-2. **Installation**
-   ```bash
-   # Clone the repository
-   git clone https://github.com/your-org/cognitive-design-framework.git
+```bash
+source vllm_env/bin/activate
+vllm serve "openai/gpt-oss-120b" \
+    --trust-remote-code \
+    --tensor-parallel-size 1 \
+    --gpu-memory-utilization 0.9 \
+    --max-model-len 4096 \
+    --host 0.0.0.0 \
+    --port 8000
+```
 
-   # Navigate to the project
-   cd cognitive-design-framework
+### 3. Test the API
 
-   # Set up virtual environment (optional but recommended)
-   python -m venv venv
-   source venv/bin/activate
-   ```
+#### Using curl:
 
-## Documentation
+```bash
+./test_api.sh
+```
 
-Detailed documentation is available in the `docs/` directory:
-- [Theoretical Foundations](docs/THEORETICAL_FOUNDATIONS.md)
-- [System Architecture](docs/SYSTEM_ARCHITECTURE.md)
-- [Getting Started Guide](docs/GETTING_STARTED.md)
+Or manually:
 
-## Contributing
+```bash
+curl -X POST "http://localhost:8000/v1/chat/completions" \
+    -H "Content-Type: application/json" \
+    --data '{
+        "model": "openai/gpt-oss-120b",
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is the capital of France?"
+            }
+        ],
+        "temperature": 0.7,
+        "max_tokens": 100
+    }'
+```
 
-1. Read our [Contribution Guidelines](CONTRIBUTING.md)
-2. Check open issues
-3. Submit pull requests
+#### Using Python:
 
-## License
+```bash
+source vllm_env/bin/activate
+python test_api.py
+```
 
-[Specify your license, e.g., MIT, Apache 2.0]
+## 📋 Requirements
 
-## Contact
+- Python 3.13
+- Virtual environment with vLLM and dependencies
+- Sufficient RAM (at least 16GB recommended for CPU inference)
+- GPU with CUDA support (optional, for faster inference)
 
-- Project Lead: [Your Name]
-- Email: [contact@example.com]
-- Discussion Forum: [Link to discussion platform]
+## 🔧 Installation Details
 
-## Acknowledgments
+The setup includes:
 
-- Mojo Programming Language Team
-- Cognitive Systems Research Community
+- **vLLM 0.8.3**: High-performance LLM inference engine
+- **PyTorch 2.6.0**: Deep learning framework
+- **Transformers**: Hugging Face transformers library
+- **FastAPI**: Web framework for the API
+- **Other dependencies**: All required packages for vLLM operation
+
+## 📊 Model Information
+
+- **Model**: `openai/gpt-oss-120b`
+- **Parameters**: 120 billion parameters
+- **Context Length**: 4096 tokens (configurable)
+- **API Endpoint**: `http://localhost:8000/v1/chat/completions`
+
+## 🐳 Docker Alternative
+
+If you prefer using Docker, you can run:
+
+```bash
+# Deploy with docker on Linux:
+docker run --runtime nvidia --gpus all \
+    --name my_vllm_container \
+    -v ~/.cache/huggingface:/root/.cache/huggingface \
+    --env "HUGGING_FACE_HUB_TOKEN=<secret>" \
+    -p 8000:8000 \
+    --ipc=host \
+    vllm/vllm-openai:latest \
+    --model openai/gpt-oss-120b
+
+# Load and run the model:
+docker exec -it my_vllm_container bash -c "vllm serve openai/gpt-oss-120b"
+
+# Call the server using curl:
+curl -X POST "http://localhost:8000/v1/chat/completions" \
+    -H "Content-Type: application/json" \
+    --data '{
+        "model": "openai/gpt-oss-120b",
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is the capital of France?"
+            }
+        ]
+    }'
+```
+
+## 🔍 Troubleshooting
+
+### Common Issues:
+
+1. **CUDA not available**: The model will run on CPU, which is slower but functional
+2. **Memory issues**: Reduce `--max-model-len` or `--gpu-memory-utilization`
+3. **Model download issues**: Check internet connection and Hugging Face access
+4. **Port conflicts**: Change the port in the server command
+
+### Performance Tips:
+
+- Use GPU acceleration when available
+- Adjust `tensor_parallel_size` based on available GPUs
+- Monitor memory usage during inference
+- Consider using smaller models for faster inference
+
+## 📝 API Usage Examples
+
+### Basic Chat Completion:
+
+```python
+import requests
+
+response = requests.post("http://localhost:8000/v1/chat/completions", 
+    json={
+        "model": "openai/gpt-oss-120b",
+        "messages": [
+            {"role": "user", "content": "Hello, how are you?"}
+        ],
+        "temperature": 0.7,
+        "max_tokens": 100
+    }
+)
+
+print(response.json()["choices"][0]["message"]["content"])
+```
+
+### Streaming Response:
+
+```python
+import requests
+
+response = requests.post("http://localhost:8000/v1/chat/completions", 
+    json={
+        "model": "openai/gpt-oss-120b",
+        "messages": [
+            {"role": "user", "content": "Tell me a story"}
+        ],
+        "stream": True
+    },
+    stream=True
+)
+
+for line in response.iter_lines():
+    if line:
+        print(line.decode())
+```
+
+## 📚 Additional Resources
+
+- [vLLM Documentation](https://docs.vllm.ai/)
+- [GPT-OSS-120B Model Card](https://huggingface.co/openai/gpt-oss-120b)
+- [OpenAI API Reference](https://platform.openai.com/docs/api-reference)
+
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests!
