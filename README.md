@@ -135,9 +135,9 @@ cognitive-design-framework/
 ## Quick Start
 
 ### Prerequisites
-- Mojo Programming Language (latest version)
 - Python 3.8+
 - Pixi package manager (recommended)
+- Mojo Programming Language (will be installed via setup script)
 
 ### Installation
 ```bash
@@ -145,14 +145,28 @@ cognitive-design-framework/
 git clone https://github.com/your-org/cognitive-design-framework.git
 cd cognitive-design-framework
 
-# Using Pixi (recommended)
+# Install Python dependencies via Pixi
 pixi install
+
+# Install Mojo (one-time setup)
+./scripts/setup_mojo.sh
+
+# Activate the environment
 pixi shell
 
-# Or using Python virtual environment
+# Verify installation
+mojo --version
+```
+
+### Alternative Installation (Python only)
+```bash
+# Using Python virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
+
+# Still need to install Mojo separately
+./scripts/setup_mojo.sh
 ```
 
 ### Basic Usage

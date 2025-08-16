@@ -8,22 +8,43 @@ platforms = ["osx-arm64", "osx-64", "linux-64"]
 
 [dependencies]
 python = ">=3.8"
-mojo = "*"
+# Note: Mojo must be installed separately via Modular CLI
+# See: https://docs.modular.com/mojo/manual/get-started/
 
 [tasks]
+# Development tasks
 test = "python -m pytest tests/"
 test-unit = "python -m pytest tests/unit/"
 test-integration = "python -m pytest tests/integration/"
 test-performance = "python -m pytest tests/performance/"
 analyze = "python tools/analysis/complexity_analysis.py"
 benchmark = "python tools/analysis/performance_benchmark.py"
+
+# Mojo-specific tasks
 format = "mojo format ."
 lint = "mojo check ."
+mojo-test = "mojo test tests/"
+mojo-build = "mojo build main.mojo"
+
+# Setup and installation tasks
+setup-mojo = "bash scripts/setup_mojo.sh"
+check-mojo = "mojo --version || echo 'Mojo not installed. Run: pixi run setup-mojo'"
+install-all = { depends-on = ["setup-mojo"], cmd = "echo 'All dependencies installed!'" }
+
+# Combined development workflow
+dev-setup = { depends-on = ["check-mojo"], cmd = "echo 'Development environment ready'" }
+full-test = { depends-on = ["test", "mojo-test"], cmd = "echo 'All tests completed'" }
 
 [feature.dev.dependencies]
 pytest = "*"
 black = "*"
 mypy = "*"
 
+[feature.mojo.tasks]
+# Mojo-specific development tasks when Mojo is available
+mojo-repl = "mojo"
+mojo-doc = "mojo doc ."
+
 [environments]
 default = ["dev"]
+mojo-dev = ["dev", "mojo"]

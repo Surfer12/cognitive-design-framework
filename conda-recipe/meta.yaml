@@ -1,0 +1,52 @@
+# Custom conda recipe for Mojo wrapper
+# This creates a conda package that installs Mojo via the official method
+
+{% set name = "mojo-wrapper" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: ../scripts/
+
+build:
+  number: 0
+  script: |
+    # Copy installation scripts
+    mkdir -p $PREFIX/bin
+    cp setup_mojo.sh $PREFIX/bin/
+    cp check_mojo.sh $PREFIX/bin/
+    cp post_install.py $PREFIX/bin/
+    
+    # Make scripts executable
+    chmod +x $PREFIX/bin/*.sh
+    chmod +x $PREFIX/bin/*.py
+    
+    # Run post-install setup
+    python $PREFIX/bin/post_install.py
+
+requirements:
+  build:
+    - python >=3.8
+  run:
+    - python >=3.8
+    - curl
+
+test:
+  commands:
+    - check_mojo.sh
+
+about:
+  home: https://github.com/your-org/cognitive-design-framework
+  license: AGPLv3
+  license_file: ../LICENSE
+  summary: Wrapper package for Mojo installation in conda environments
+  description: |
+    This package provides a conda-compatible way to install and manage
+    Mojo within pixi/conda environments for the Cognitive Design Framework.
+
+extra:
+  recipe-maintainers:
+    - ryan_oates
