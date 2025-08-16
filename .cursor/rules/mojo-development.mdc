@@ -1,0 +1,102 @@
+---
+globs: *.mojo
+description: Mojo development patterns and best practices for cognitive framework
+---
+
+# Mojo Development Guide for Cognitive Framework
+
+## 🔧 Core Development Patterns
+
+### Working File Templates
+Use these proven working files as templates:
+- **Basic Structure**: [simple_working_demo.mojo](mdc:simple_working_demo.mojo) - Minimal working pattern
+- **Core Elements**: [core/base/tag_element.mojo](mdc:core/base/tag_element.mojo) - Data structure pattern
+- **Visitor Pattern**: [core/base/visitor.mojo](mdc:core/base/visitor.mojo) - Processing pattern
+
+### Proven Syntax Patterns
+```mojo
+# Struct Definition Pattern (from working files)
+struct CognitiveElement:
+    var name: String
+    var content: String
+    
+    fn __init__(inout self, name: String, content: String):
+        self.name = name
+        self.content = content
+
+# Function Definition Pattern
+fn process_element(element: CognitiveElement) -> String:
+    return "Processing: " + element.name
+```
+
+## 🧠 Consciousness Framework Patterns
+
+### Consciousness Metrics (from working demos)
+```mojo
+# Pattern from consciousness_demo.mojo
+fn calculate_consciousness_score(content: String) -> Float64:
+    var score = 0.0
+    # Implementation based on working examples
+    return min(score, 1.0)
+```
+
+### MECN Framework Integration
+- Reference: [mecn_psi_framework_fixed.mojo](mdc:mecn_psi_framework_fixed.mojo)
+- Use established patterns for Ψ(x) calculations
+- Follow consciousness quantification methods
+
+## 🎯 Development Workflow
+
+### 1. Start with Working Examples
+- Copy patterns from [simple_working_demo.mojo](mdc:simple_working_demo.mojo)
+- Build incrementally on proven structures
+- Test frequently with `pixi run format`
+
+### 2. Use Established Imports
+```mojo
+# Proven import patterns from working files
+from python import Python
+from collections import List
+```
+
+### 3. Follow Package Structure
+- Keep core logic in [core/](mdc:core/) directory
+- Use [systems/](mdc:systems/) for system implementations
+- Place demos in root for easy access
+
+## ⚠️ Common Pitfalls to Avoid
+
+### Syntax Issues (learned from refactoring)
+- Always include parameter names in function signatures
+- Use `inout self` correctly in methods
+- Include return types for all functions
+- Proper indentation (4 spaces, no tabs)
+
+### Import Issues
+- Use relative imports carefully
+- Reference working import patterns
+- Test imports after any structural changes
+
+## 🚀 Performance Patterns
+
+### Consciousness Framework Optimization
+- Reference: [O_n_log_n_VALIDATION_COMPLETE.md](mdc:O_n_log_n_VALIDATION_COMPLETE.md)
+- Use established O(n log n) patterns
+- Follow validated complexity approaches
+
+### Memory Management
+- Follow patterns from working autopoietic systems
+- Use proper struct initialization
+- Manage resources efficiently
+
+## 🔍 Debugging and Validation
+
+### Use Working Files for Reference
+- Compare against [final_working_demo.mojo](mdc:final_working_demo.mojo)
+- Check syntax against proven patterns
+- Validate with existing working examples
+
+### Testing Strategy
+- Use [tests/](mdc:tests/) directory patterns
+- Reference [test_integration.mojo](mdc:test_integration.mojo)
+- Follow established test structures

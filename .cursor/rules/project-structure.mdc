@@ -1,0 +1,53 @@
+---
+alwaysApply: true
+description: Core project structure and navigation guide for cognitive-design-framework
+---
+
+# Cognitive Design Framework - Project Structure Guide
+
+## 🧠 Core Framework Architecture
+
+### Main Framework Components
+- **Core Framework**: [cognitive_framework/](mdc:cognitive_framework/) - Main framework package
+- **Tag Elements**: [core/base/tag_element.mojo](mdc:core/base/tag_element.mojo) - Core data structures
+- **Visitor Pattern**: [core/base/visitor.mojo](mdc:core/base/visitor.mojo) - Processing patterns
+- **Cognitive Bridge**: [core/bridge/cognitive_bridge.mojo](mdc:core/bridge/cognitive_bridge.mojo) - Integration layer
+
+### Consciousness Framework
+- **Simple Framework**: [consciousness_simple.mojo](mdc:consciousness_simple.mojo) - Basic consciousness implementation
+- **Full Framework**: [consciousness_framework.mojo](mdc:consciousness_framework.mojo) - Complete consciousness system
+- **Research Tools**: [consciousness_research.mojo](mdc:consciousness_research.mojo) - Research applications
+- **Demo**: [consciousness_demo.mojo](mdc:consciousness_demo.mojo) - Working demonstration
+
+### MECN (Model Emergent Consciousness Notation)
+- **Framework**: [mecn_psi_framework.mojo](mdc:mecn_psi_framework.mojo) - MECN implementation
+- **Fixed Version**: [mecn_psi_framework_fixed.mojo](mdc:mecn_psi_framework_fixed.mojo) - Stable version
+- **Demo**: [mecn_framework_demo.py](mdc:mecn_framework_demo.py) - Python demonstration
+
+## 🎮 Working Demonstrations
+- **Basic Demo**: [basic_cognitive_demo.mojo](mdc:basic_cognitive_demo.mojo) - Simple framework demo
+- **Simple Working**: [simple_working_demo.mojo](mdc:simple_working_demo.mojo) - Minimal working example
+- **Final Demo**: [final_working_demo.mojo](mdc:final_working_demo.mojo) - Comprehensive demonstration
+- **Project Showcase**: [project_demonstration.mojo](mdc:project_demonstration.mojo) - Complete project demo
+
+## 🏗️ System Components
+- **Autopoietic Systems**: [systems/autopoietic/](mdc:systems/autopoietic/) - Self-maintaining systems
+- **Core Systems**: [src/core/](mdc:src/core/) - Core implementations
+- **Interfaces**: [src/interfaces/](mdc:src/interfaces/) - Public interfaces
+
+## 📚 Documentation Hub
+- **Main README**: [README.md](mdc:README.md) - Project overview
+- **Architecture**: [docs/architecture/](mdc:docs/architecture/) - System architecture
+- **Theoretical**: [THEORETICAL_FOUNDATIONS.md](mdc:THEORETICAL_FOUNDATIONS.md) - Theory background
+- **Progress**: [PROJECT_SUMMARY.md](mdc:PROJECT_SUMMARY.md) - Current status
+
+## 🛠️ Development Environment
+- **Package Config**: [pixi.toml](mdc:pixi.toml) - Pixi configuration
+- **Formatter**: [.mojoformat](mdc:.mojoformat) - Mojo formatting rules
+- **Setup Guide**: [PIXI_SETUP.md](mdc:PIXI_SETUP.md) - Environment setup
+
+## 🎯 Entry Points for Development
+1. Start with [simple_working_demo.mojo](mdc:simple_working_demo.mojo) for basic understanding
+2. Explore [consciousness_demo.mojo](mdc:consciousness_demo.mojo) for consciousness features
+3. Check [project_demonstration.mojo](mdc:project_demonstration.mojo) for complete capabilities
+4. Review [core/base/](mdc:core/base/) for fundamental structures

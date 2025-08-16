@@ -1,0 +1,195 @@
+---
+description: Java integration patterns and reference implementations
+globs: *.java
+---
+
+# Java Integration Guide
+
+## 🔧 Java Reference Implementations
+
+### Core Java Components
+The project includes comprehensive Java reference implementations that serve as patterns for Mojo development:
+
+#### Core Cognitive System
+- **Main Class**: [examples/java_reference/CognitiveCore.java](mdc:examples/java_reference/CognitiveCore.java)
+- **Components**: TagElement, Visitor interface, ProcessingContext, CognitiveBridge
+- **Features**: Thread-safe processing, auto-closeable resources, synchronized operations
+
+#### Autopoietic System Implementation  
+- **System Class**: [examples/java_reference/autopoietic/AutopoieticSystem.java](mdc:examples/java_reference/autopoietic/AutopoieticSystem.java)
+- **Components**: SystemState, ConsciousVisitor, InterventionStrategy
+- **Features**: Self-maintenance, boundary management, conscious observation
+
+#### Visitor Pattern Extensions
+- **Visitors**: [examples/java_reference/visitors/CognitiveVisitors.java](mdc:examples/java_reference/visitors/CognitiveVisitors.java)
+- **Components**: SafetyValidationVisitor, AdaptiveFeedbackVisitor, BoundaryManager
+- **Features**: Validation, adaptive learning, boundary management
+
+## 🎯 Java to Mojo Translation Patterns
+
+### Data Structure Translation
+```java
+// Java Pattern
+class TagElement {
+    private final String name;
+    private final Map<String, String> attributes;
+    private final List<TagElement> children;
+    
+    public TagElement(String name) {
+        this.name = name;
+        this.attributes = new HashMap<>();
+        this.children = new ArrayList<>();
+    }
+}
+```
+
+```mojo
+# Mojo Equivalent
+struct TagElement:
+    var name: String
+    var attributes: Dict[String, String]
+    var children: List[TagElement]
+    
+    fn __init__(inout self, name: String):
+        self.name = name
+        self.attributes = Dict[String, String]()
+        self.children = List[TagElement]()
+```
+
+### Interface Translation
+```java
+// Java Interface
+interface Visitor {
+    void visit(TagElement element);
+    default void beforeVisit(TagElement element) {}
+    default void afterVisit(TagElement element) {}
+}
+```
+
+```mojo
+# Mojo Trait
+trait Visitor:
+    fn visit(inout self, element: TagElement) raises
+    fn before_visit(inout self, element: TagElement) raises:
+        pass
+    fn after_visit(inout self, element: TagElement) raises:
+        pass
+```
+
+## 🧠 Consciousness Integration Patterns
+
+### Java Conscious Visitor Pattern
+```java
+// From AutopoieticSystem.java
+class ConsciousVisitor {
+    private final double observationDepth;
+    private final InterventionStrategy strategy;
+    
+    public void visit(AutopoieticSystem system) {
+        ObservationResult result = observeSystem(system);
+        processObservation(result);
+        if (strategy.shouldIntervene(result)) {
+            performIntervention(system, result);
+        }
+    }
+}
+```
+
+### Mojo Translation
+```mojo
+# Mojo equivalent for conscious visitor
+struct ConsciousVisitor:
+    var observation_depth: Float64
+    var strategy: InterventionStrategy
+    
+    fn visit(inout self, inout system: AutopoieticSystem) raises:
+        var result = self.observe_system(system)
+        self.process_observation(result)
+        if self.strategy.should_intervene(result):
+            self.perform_intervention(system, result)
+```
+
+## 🏗️ Architecture Patterns
+
+### Thread Safety Translation
+```java
+// Java synchronized pattern
+public synchronized void addFeedback(String message) {
+    feedback.append(message).append("\n");
+}
+```
+
+```mojo
+# Mojo thread-safe pattern (using appropriate synchronization)
+fn add_feedback(inout self, message: String) raises:
+    # Use appropriate Mojo synchronization mechanisms
+    self.feedback += message + "\n"
+```
+
+### Resource Management
+```java
+// Java AutoCloseable pattern
+public class CognitiveBridge implements AutoCloseable {
+    @Override
+    public void close() {
+        // Cleanup resources
+    }
+}
+```
+
+```mojo
+# Mojo resource management pattern
+struct CognitiveBridge:
+    fn __del__(owned self):
+        # Cleanup resources
+        pass
+```
+
+## 🔍 Integration Guidelines
+
+### Using Java as Reference
+1. **Study Java implementations** for architecture patterns
+2. **Translate concepts** to Mojo idioms
+3. **Maintain functionality** while adapting to Mojo strengths
+4. **Test equivalence** between Java and Mojo implementations
+
+### Key Java Features to Preserve
+- **Thread safety**: Critical for concurrent processing
+- **Resource management**: Proper cleanup and lifecycle
+- **Interface contracts**: Maintain behavioral contracts
+- **Error handling**: Robust error management patterns
+
+### Mojo Advantages to Leverage
+- **Performance**: Mojo's high-performance capabilities
+- **Memory safety**: Compile-time safety guarantees
+- **Integration**: Seamless Python interop when needed
+- **Modern syntax**: Clean, expressive code patterns
+
+## 📚 Reference Documentation
+
+### Java Implementation Study Guide
+1. **Core Architecture**: [examples/java_reference/CognitiveCore.java](mdc:examples/java_reference/CognitiveCore.java)
+2. **Autopoietic Systems**: [examples/java_reference/autopoietic/AutopoieticSystem.java](mdc:examples/java_reference/autopoietic/AutopoieticSystem.java)
+3. **Visitor Patterns**: [examples/java_reference/visitors/CognitiveVisitors.java](mdc:examples/java_reference/visitors/CognitiveVisitors.java)
+
+### Translation Best Practices
+- **Preserve semantics**: Maintain the same behavior
+- **Adapt to Mojo**: Use Mojo's strengths and idioms
+- **Test thoroughly**: Ensure equivalent functionality
+- **Document differences**: Note any behavioral changes
+
+## 🎯 Development Workflow
+
+### Java-to-Mojo Development Process
+1. **Study Java reference** implementation
+2. **Identify core patterns** and behaviors
+3. **Design Mojo equivalent** using appropriate idioms
+4. **Implement and test** Mojo version
+5. **Validate equivalence** with Java behavior
+6. **Optimize for Mojo** performance characteristics
+
+### Validation Strategy
+- **Functional equivalence**: Same inputs produce same outputs
+- **Performance comparison**: Leverage Mojo's performance advantages
+- **Safety verification**: Ensure Mojo's safety guarantees
+- **Integration testing**: Test with other Mojo components

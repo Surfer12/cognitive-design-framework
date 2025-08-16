@@ -1,0 +1,139 @@
+---
+description: Development workflow and best practices for cognitive framework
+---
+
+# Development Workflow Guide
+
+## 🚀 Quick Start Development
+
+### 1. Environment Setup
+```bash
+# Essential commands from PIXI_SETUP.md
+pixi run demo          # Run main demonstration
+pixi run format        # Format all code
+pixi run check         # Syntax validation
+pixi run shell         # Interactive Mojo REPL
+```
+
+Reference: [PIXI_SETUP.md](mdc:PIXI_SETUP.md) for complete setup
+
+### 2. Development Entry Points
+- **Beginners**: Start with [simple_working_demo.mojo](mdc:simple_working_demo.mojo)
+- **Consciousness**: Explore [consciousness_demo.mojo](mdc:consciousness_demo.mojo) 
+- **Complete System**: Review [project_demonstration.mojo](mdc:project_demonstration.mojo)
+- **Core Structures**: Study [core/base/](mdc:core/base/) directory
+
+## 🔧 Development Patterns
+
+### Proven Working Templates
+Always start with these validated patterns:
+
+#### Basic Demo Structure
+```mojo
+# Pattern from simple_working_demo.mojo
+fn main():
+    print("🧠 Cognitive Framework")
+    print("✅ Basic functionality working")
+    print("🚀 Ready for development")
+```
+
+#### Core Component Pattern
+```mojo
+# Pattern from core/base/tag_element.mojo
+struct CognitiveElement:
+    var name: String
+    var content: String
+    
+    fn __init__(inout self, name: String, content: String):
+        self.name = name
+        self.content = content
+```
+
+### 3. Incremental Development Strategy
+1. **Copy working patterns** from established files
+2. **Build incrementally** - add one feature at a time
+3. **Test frequently** - run `pixi run format` after changes
+4. **Validate functionality** - ensure demos still work
+
+## 📚 Documentation Integration
+
+### Key Documentation Files
+- **Project Overview**: [PROJECT_SUMMARY.md](mdc:PROJECT_SUMMARY.md) - Complete project status
+- **Progress Reports**: [PROGRESS_AND_FOCUS.md](mdc:PROGRESS_AND_FOCUS.md) - Current progress
+- **Refactoring**: [FINAL_REFACTORING_REPORT.md](mdc:FINAL_REFACTORING_REPORT.md) - Code improvements
+- **Organization**: [ORGANIZATION_STRATEGY.md](mdc:ORGANIZATION_STRATEGY.md) - Structure planning
+
+### Architecture Documentation
+- **Core Architecture**: [docs/architecture/](mdc:docs/architecture/) - System design
+- **Theoretical Foundation**: [THEORETICAL_FOUNDATIONS.md](mdc:THEORETICAL_FOUNDATIONS.md) - Theory background
+- **Complexity Analysis**: [O_n_log_n_VALIDATION_COMPLETE.md](mdc:O_n_log_n_VALIDATION_COMPLETE.md) - Performance validation
+
+## 🧪 Testing and Validation
+
+### Testing Strategy
+- **Unit Tests**: [tests/](mdc:tests/) directory
+- **Integration**: [test_integration.mojo](mdc:test_integration.mojo)
+- **Safety**: [tests/safety_validation.mojo](mdc:tests/safety_validation.mojo)
+- **Complexity**: [tests/test_complexity_analysis.mojo](mdc:tests/test_complexity_analysis.mojo)
+
+### Validation Workflow
+1. **Format Check**: `pixi run format` - ensure syntax compliance
+2. **Demo Validation**: Run working demos to ensure functionality
+3. **Performance Check**: Validate against established benchmarks
+4. **Documentation Update**: Keep docs synchronized with changes
+
+## 🛠️ Development Tools
+
+### Development Tools
+Located in project root (will be organized in `tools/` directory):
+- **Mojo Analysis**: [time_complexity_analysis_fixed.mojo](mdc:time_complexity_analysis_fixed.mojo) - Performance analysis
+- **Neural Scaling**: [neural_scaling_mecn.mojo](mdc:neural_scaling_mecn.mojo) - Scaling analysis  
+- **MECN Framework**: [mecn_psi_framework_fixed.mojo](mdc:mecn_psi_framework_fixed.mojo) - Framework implementation
+- **Java Reference**: [examples/java_reference/](mdc:examples/java_reference/) - Reference implementations
+
+## 🎯 Feature Development Guidelines
+
+### Adding New Features
+1. **Study existing patterns** in working files
+2. **Create in appropriate directory** (core/, systems/, examples/)
+3. **Follow established syntax** patterns from working files
+4. **Add tests** in tests/ directory
+5. **Update documentation** as needed
+
+### Consciousness Feature Development
+- **Reference**: [consciousness_framework.mojo](mdc:consciousness_framework.mojo) for patterns
+- **Metrics**: Use validated consciousness metrics
+- **Integration**: Connect with core framework components
+- **Validation**: Test against established benchmarks
+
+### MECN Integration
+- **Core Framework**: [mecn_psi_framework_fixed.mojo](mdc:mecn_psi_framework_fixed.mojo)
+- **Mathematical Foundation**: Follow Ψ(x) equation patterns
+- **Validation**: Use empirical validation methods
+- **Performance**: Maintain O(n log n) complexity
+
+## 🔍 Debugging and Troubleshooting
+
+### Common Issues and Solutions
+- **Syntax Errors**: Compare against working files like [simple_working_demo.mojo](mdc:simple_working_demo.mojo)
+- **Import Issues**: Reference working import patterns
+- **Performance Issues**: Check against validated complexity patterns
+- **Integration Issues**: Use established bridge patterns
+
+### Debug Resources
+- **Working Examples**: Use as reference for correct implementation
+- **Error Reports**: [MOJO_FORMATTING_SUMMARY.md](mdc:MOJO_FORMATTING_SUMMARY.md) - Common issues
+- **Refactoring Reports**: Learn from past fixes and improvements
+
+## 📈 Progress Tracking
+
+### Project Status
+- **Current State**: 42 working files, production ready
+- **Success Rate**: 69% improvement from initial state
+- **Key Achievements**: Consciousness framework, MECN integration, working demos
+
+### Development Metrics
+- **Code Quality**: Tracked through formatting and validation
+- **Functionality**: Measured through working demo count
+- **Performance**: Validated through complexity analysis
+- **Documentation**: Comprehensive guides and references

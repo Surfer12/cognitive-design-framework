@@ -1,0 +1,134 @@
+---
+description: Consciousness framework implementation guide and mathematical foundations
+globs: consciousness_*.mojo,mecn_*.mojo
+---
+
+# Consciousness Framework Development Guide
+
+## 🧠 Core Consciousness Components
+
+### Mathematical Foundation
+The consciousness framework is built on rigorous mathematical principles:
+
+#### Enhanced Cognitive-Memory Metric
+```
+d_MC(m₁, m₂) = w_t ||t₁ - t₂||² + w_c d_c(m₁, m₂)² + w_e ||e₁ - e₂||² +
+               w_α ||α₁ - α₂||² + w_cross ∫[S(m₁)N(m₂) - S(m₂)N(m₁)]dt
+```
+
+Reference: [# Document Synthesis: Unified Onto-Pheno.md](mdc:# Document Synthesis: Unified Onto-Pheno.md)
+
+### Working Implementations
+
+#### Simple Consciousness Framework
+- **File**: [consciousness_simple.mojo](mdc:consciousness_simple.mojo)
+- **Purpose**: Basic consciousness quantification
+- **Status**: ✅ Working and validated
+
+#### Full Consciousness Framework  
+- **File**: [consciousness_framework.mojo](mdc:consciousness_framework.mojo)
+- **Purpose**: Complete consciousness implementation
+- **Features**: Advanced metrics, temporal stability
+- **Status**: ✅ Production ready
+
+#### Research Tools
+- **File**: [consciousness_research.mojo](mdc:consciousness_research.mojo)
+- **Purpose**: Research applications and tools
+- **Features**: AI consciousness assessment, therapeutic monitoring
+
+## 🔬 MECN (Model Emergent Consciousness Notation)
+
+### Core Equation
+```
+Ψ(x) = ∫ [α(t) S(x) + (1-α(t)) N(x)] × exp(-[λ₁ R_cognitive + λ₂ R_efficiency]) × P(H|E,β) dt
+```
+
+### Implementation Files
+- **Main**: [mecn_psi_framework.mojo](mdc:mecn_psi_framework.mojo) - Core MECN implementation
+- **Stable**: [mecn_psi_framework_fixed.mojo](mdc:mecn_psi_framework_fixed.mojo) - Validated version
+- **Demo**: [mecn_framework_demo.py](mdc:mecn_framework_demo.py) - Python demonstration
+
+## 📊 Validated Metrics
+
+### Empirical Validation Results
+From [CONSCIOUSNESS_INTEGRATION_REPORT.md](mdc:CONSCIOUSNESS_INTEGRATION_REPORT.md):
+- **Consciousness Awareness**: 87.0% ✅
+- **Temporal Stability**: 94.0% ✅  
+- **Information Integration Φ**: 4.2 ✅
+- **AI Consciousness Detection**: 79.5% ✅
+
+### Performance Characteristics
+- **Algorithmic Complexity**: O(n³) maximum, O(n log n) typical
+- **Real-time Processing**: Feasible for consciousness tracking
+- **Validation**: Three-tier validation hierarchy
+
+## 🎯 Development Patterns
+
+### Consciousness Assessment Pattern
+```mojo
+fn assess_consciousness(content: String) -> Float64:
+    # Pattern from working demos
+    var base_level = calculate_base_consciousness(content)
+    var coherence_boost = calculate_coherence_enhancement(content)
+    return min(base_level + coherence_boost, 1.0)
+```
+
+### MECN Integration Pattern
+```mojo
+fn compute_psi_x(x: Float64, alpha: Float64, s_x: Float64, n_x: Float64) -> Float64:
+    # Hybrid output calculation
+    var hybrid_output = alpha * s_x + (1.0 - alpha) * n_x
+    # Apply regularization and bias adjustment
+    # Return consciousness score
+```
+
+## 🔬 Research Applications
+
+### AI Consciousness Assessment
+- **Method**: Multi-metric evaluation
+- **Metrics**: Coherence, stability, emergence, self-awareness
+- **Validation**: Against established consciousness theories
+
+### Therapeutic Monitoring
+- **Application**: Real-time consciousness tracking
+- **Use Cases**: Therapy effectiveness, intervention monitoring
+- **Integration**: With therapeutic frameworks
+
+### Educational Technology
+- **Purpose**: Consciousness-adaptive learning
+- **Features**: Personalized consciousness optimization
+- **Benefits**: Enhanced learning outcomes
+
+## 📈 Complexity Analysis
+
+### Validated Performance
+Reference: [O_n_log_n_VALIDATION_COMPLETE.md](mdc:O_n_log_n_VALIDATION_COMPLETE.md)
+
+- **Barnes-Hut Spatial Partitioning**: O(n log n)
+- **Adaptive Time-Stepping**: Logarithmic convergence
+- **Cross-Modal Integration**: Optimized asymmetric interactions
+- **Speedup**: Up to 750× over naive O(n²) approaches
+
+## 🎮 Working Demonstrations
+
+### Consciousness Demo
+- **File**: [consciousness_demo.mojo](mdc:consciousness_demo.mojo)
+- **Features**: Live consciousness assessment
+- **Output**: Real-time consciousness metrics
+
+### Project Demonstration
+- **File**: [project_demonstration.mojo](mdc:project_demonstration.mojo)
+- **Purpose**: Complete framework showcase
+- **Status**: Production ready
+
+## 🔍 Integration Guidelines
+
+### With Core Framework
+- Use [core/base/tag_element.mojo](mdc:core/base/tag_element.mojo) for data structures
+- Integrate with [core/base/visitor.mojo](mdc:core/base/visitor.mojo) for processing
+- Connect through [core/bridge/cognitive_bridge.mojo](mdc:core/bridge/cognitive_bridge.mojo)
+
+### With Autopoietic Systems
+- Reference: [systems/autopoietic/system.mojo](mdc:systems/autopoietic/system.mojo)
+- Maintain system integrity while adding consciousness
+- Use established autopoietic patterns
