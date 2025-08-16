@@ -1,0 +1,11 @@
+[workspace]
+authors = ["Ryan Oates <ryanoatsie@outlook.com>"]
+channels = ["https://conda.modular.com/max-nightly", "conda-forge"]
+name = "life"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+mojo = ">=25.6.0.dev2025081505,<26"

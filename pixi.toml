@@ -3,20 +3,30 @@ name = "cognitive-design-framework"
 version = "0.1.0"
 description = "Meta-Optimized Hybrid Reasoning Framework"
 authors = ["Ryan Oates <ryan_oates@my.cuesta.edu>"]
-channels = ["conda-forge", "modular"]
-platforms = ["osx-arm64", "osx-64", "linux-64"]
+channels = ["https://conda.modular.com/max-nightly", "conda-forge"]
+platforms = ["osx-arm64"]
 
 [dependencies]
 python = ">=3.8"
-# Note: Mojo must be installed separately via Modular CLI
-# See: https://docs.modular.com/mojo/manual/get-started/
+numpy = ">=2.3.2,<3"
+matplotlib = ">=3.10.5,<4"
+mojo = ">=25.6.0.dev2025081505,<26"
+
+[feature.mojo-nightly.tasks]
+install-mojo-nightly = "pixi add --feature mojo-nightly mojo"
+mojo-version = "mojo --version"
+mojo-repl = "mojo"
 
 [tasks]
 # Development tasks
-test = "python -m pytest tests/"
-test-unit = "python -m pytest tests/unit/"
-test-integration = "python -m pytest tests/integration/"
-test-performance = "python -m pytest tests/performance/"
+test = "python -m pytest tests/ -v"
+test-unit = "python -m pytest tests/unit/ -v"
+test-integration = "python -m pytest tests/integration/ -v" 
+test-performance = "python -m pytest tests/performance/ -v"
+test-coverage = "python -m pytest tests/ --cov=core --cov=systems --cov-report=html --cov-report=term"
+test-fast = "python -m pytest tests/ -v -m 'not slow'"
+test-slow = "python -m pytest tests/ -v -m 'slow'"
+test-parallel = "python -m pytest tests/ -v -n auto"
 analyze = "python tools/analysis/complexity_analysis.py"
 benchmark = "python tools/analysis/performance_benchmark.py"
 
@@ -28,17 +38,32 @@ mojo-build = "mojo build main.mojo"
 
 # Setup and installation tasks
 setup-mojo = "bash scripts/setup_mojo.sh"
-check-mojo = "mojo --version || echo 'Mojo not installed. Run: pixi run setup-mojo'"
-install-all = { depends-on = ["setup-mojo"], cmd = "echo 'All dependencies installed!'" }
+setup-mojo-python = "python scripts/install_mojo.py"
+setup-mojo-macos-arm64 = "python scripts/install_mojo_macos_arm64.py"
+setup-mojo-bypass = "bash scripts/bypass_homebrew.sh"
+setup-mojo-cursor = "bash scripts/use_cursor_mojo.sh"
+setup-mojo-max-nightly = "pixi add mojo"
+setup-mojo-debug = "python scripts/debug_mojo_install.py"
+setup-mojo-alt = "bash scripts/install_mojo_alternatives.sh"
+setup-mojo-direct = "bash scripts/install_mojo_alternatives.sh direct"
+setup-mojo-docker = "bash scripts/install_mojo_alternatives.sh docker"
+setup-mojo-manual = "bash scripts/install_mojo_alternatives.sh manual"
+check-mojo = "mojo --version || echo 'Mojo not installed. Try: pixi run setup-mojo-cursor'"
+install-all = { depends-on = ["setup-mojo-cursor"], cmd = "echo 'All dependencies installed!'" }
 
 # Combined development workflow
 dev-setup = { depends-on = ["check-mojo"], cmd = "echo 'Development environment ready'" }
-full-test = { depends-on = ["test", "mojo-test"], cmd = "echo 'All tests completed'" }
+full-test = { depends-on = ["test-fast", "test-integration"], cmd = "echo 'All tests completed'" }
+comprehensive-test = { depends-on = ["test-coverage", "test-performance"], cmd = "echo 'Comprehensive testing completed'" }
 
 [feature.dev.dependencies]
 pytest = "*"
+pytest-cov = "*"
+pytest-xdist = "*"
+pytest-mock = "*"
 black = "*"
 mypy = "*"
+coverage = "*"
 
 [feature.mojo.tasks]
 # Mojo-specific development tasks when Mojo is available
@@ -48,3 +73,4 @@ mojo-doc = "mojo doc ."
 [environments]
 default = ["dev"]
 mojo-dev = ["dev", "mojo"]
+mojo-nightly = ["dev", "mojo-nightly"]

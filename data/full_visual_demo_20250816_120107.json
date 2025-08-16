@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-16T12:01:07.700860",
+  "results": {
+    "data_points": 110,
+    "major_arc_count": 110,
+    "minor_arc_count": 0,
+    "major_minor_ratio": 110.0,
+    "cognitive_zeta_at_1_01": 100.57647199999992,
+    "sieve_retention_rate": 0.7272727272727273,
+    "twin_pairs_found": 23,
+    "cognitive_gaps": 0,
+    "average_gap_size": 0,
+    "max_gap_size": 0
+  }
+}
