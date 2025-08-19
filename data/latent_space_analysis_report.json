@@ -1,0 +1,160 @@
+{
+  "timestamp": "2025-08-16T19:46:00Z",
+  "dataset_summary": {
+    "total_patients": 30,
+    "latent_dimensions": 16,
+    "embedding_dimensions": 2
+  },
+  "mathematical_analysis": {
+    "pca_variance_explained": [
+      0.4031708657020974,
+      0.2343619081933021
+    ],
+    "total_variance_explained": 0.6375327738953995,
+    "cluster_separation_ratio": 1.6646638435204175,
+    "avg_intra_cluster_distance": 0.2184314850426723,
+    "avg_inter_cluster_distance": 0.3636149954370074,
+    "risk_distribution": {
+      "low": 17,
+      "medium": 10,
+      "high": 3
+    },
+    "response_distribution": {
+      "good": 25,
+      "poor": 5,
+      "adverse": 0
+    }
+  },
+  "patient_examples": [
+    {
+      "patient_id": "P001",
+      "risk_category": "medium",
+      "treatment_response": "good",
+      "pca_coordinates": [
+        0.02872212779799853,
+        -0.13118581629319448
+      ],
+      "similar_patients": [
+        {
+          "patient_id": "P005",
+          "distance": 0.03030620146355649,
+          "risk_category": "medium"
+        },
+        {
+          "patient_id": "P024",
+          "distance": 0.034492971095854856,
+          "risk_category": "medium"
+        },
+        {
+          "patient_id": "P003",
+          "distance": 0.04770429106124123,
+          "risk_category": "medium"
+        }
+      ]
+    },
+    {
+      "patient_id": "P002",
+      "risk_category": "low",
+      "treatment_response": "good",
+      "pca_coordinates": [
+        -0.09484742522367705,
+        0.19832446095203032
+      ],
+      "similar_patients": [
+        {
+          "patient_id": "P009",
+          "distance": 0.014840156748109661,
+          "risk_category": "low"
+        },
+        {
+          "patient_id": "P008",
+          "distance": 0.017738340021657657,
+          "risk_category": "low"
+        },
+        {
+          "patient_id": "P007",
+          "distance": 0.02177131767665202,
+          "risk_category": "low"
+        }
+      ]
+    },
+    {
+      "patient_id": "P003",
+      "risk_category": "medium",
+      "treatment_response": "good",
+      "pca_coordinates": [
+        -0.017914408760232585,
+        -0.14122239158103012
+      ],
+      "similar_patients": [
+        {
+          "patient_id": "P001",
+          "distance": 0.04770429106124123,
+          "risk_category": "medium"
+        },
+        {
+          "patient_id": "P005",
+          "distance": 0.06929213598629463,
+          "risk_category": "medium"
+        },
+        {
+          "patient_id": "P024",
+          "distance": 0.07515506724151065,
+          "risk_category": "medium"
+        }
+      ]
+    },
+    {
+      "patient_id": "P004",
+      "risk_category": "low",
+      "treatment_response": "good",
+      "pca_coordinates": [
+        0.23413729724052154,
+        0.04215918871393437
+      ],
+      "similar_patients": [
+        {
+          "patient_id": "P023",
+          "distance": 0.007470472950274097,
+          "risk_category": "low"
+        },
+        {
+          "patient_id": "P014",
+          "distance": 0.033288854843516194,
+          "risk_category": "low"
+        },
+        {
+          "patient_id": "P030",
+          "distance": 0.03863701145610246,
+          "risk_category": "low"
+        }
+      ]
+    },
+    {
+      "patient_id": "P005",
+      "risk_category": "medium",
+      "treatment_response": "good",
+      "pca_coordinates": [
+        0.039890501515918754,
+        -0.10301254393007446
+      ],
+      "similar_patients": [
+        {
+          "patient_id": "P024",
+          "distance": 0.006064664282737204,
+          "risk_category": "medium"
+        },
+        {
+          "patient_id": "P001",
+          "distance": 0.03030620146355649,
+          "risk_category": "medium"
+        },
+        {
+          "patient_id": "P003",
+          "distance": 0.06929213598629463,
+          "risk_category": "medium"
+        }
+      ]
+    }
+  ]
+}
