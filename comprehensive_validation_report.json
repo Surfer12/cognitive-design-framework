@@ -1,0 +1,254 @@
+{
+  "framework": "Cognitive Design Framework",
+  "validation_timestamp": 1756066994.057873,
+  "average_score": 208.75,
+  "total_score": 1670.0,
+  "valid_components": 8,
+  "test_results": {
+    "cognitive_framework/core/base/tag_element.mojo": {
+      "structure": {
+        "exists": true,
+        "size": 201,
+        "lines": 13,
+        "has_struct": true,
+        "has_fn": true,
+        "has_imports": true,
+        "has_comments": false,
+        "content_hash": "15ab7260"
+      },
+      "quality": {
+        "total_lines": 13,
+        "non_empty_lines": 8,
+        "comment_lines": 0,
+        "struct_count": 1,
+        "function_count": 1,
+        "import_count": 1,
+        "has_docstrings": true,
+        "avg_line_length": 14.538461538461538,
+        "complexity_score": 0.2615384615384615,
+        "quality_score": 95.0
+      },
+      "meta": {
+        "file_path": "cognitive_framework/core/base/tag_element.mojo",
+        "file_size": 201,
+        "creation_time": 1756066307.1753228,
+        "modification_time": 1753784318.419597,
+        "compilation_mode": "dynamic",
+        "validation_level": 3,
+        "dependency_count": 2,
+        "efficacy_score": 0.65
+      },
+      "passed": true
+    },
+    "cognitive_framework/core/base/visitor.mojo": {
+      "structure": {
+        "exists": true,
+        "size": 183,
+        "lines": 14,
+        "has_struct": true,
+        "has_fn": true,
+        "has_imports": true,
+        "has_comments": false,
+        "content_hash": "ce37a75e"
+      },
+      "quality": {
+        "total_lines": 14,
+        "non_empty_lines": 8,
+        "comment_lines": 0,
+        "struct_count": 1,
+        "function_count": 2,
+        "import_count": 1,
+        "has_docstrings": true,
+        "avg_line_length": 12.142857142857142,
+        "complexity_score": 0.35,
+        "quality_score": 95.0
+      },
+      "meta": {
+        "file_path": "cognitive_framework/core/base/visitor.mojo",
+        "file_size": 183,
+        "creation_time": 1756066310.169873,
+        "modification_time": 1753784318.4200165,
+        "compilation_mode": "dynamic",
+        "validation_level": 3,
+        "dependency_count": 2,
+        "efficacy_score": 0.65
+      },
+      "passed": true
+    },
+    "cognitive_framework/core/bridge/cognitive_bridge.mojo": {
+      "structure": {
+        "exists": true,
+        "size": 372,
+        "lines": 11,
+        "has_struct": true,
+        "has_fn": true,
+        "has_imports": true,
+        "has_comments": true,
+        "content_hash": "8b936686"
+      },
+      "quality": {
+        "total_lines": 11,
+        "non_empty_lines": 9,
+        "comment_lines": 1,
+        "struct_count": 1,
+        "function_count": 2,
+        "import_count": 3,
+        "has_docstrings": true,
+        "avg_line_length": 32.90909090909091,
+        "complexity_score": 0.36363636363636365,
+        "quality_score": 100.0
+      },
+      "meta": {
+        "file_path": "cognitive_framework/core/bridge/cognitive_bridge.mojo",
+        "file_size": 372,
+        "creation_time": 1756066313.8929627,
+        "modification_time": 1753784112.40839,
+        "compilation_mode": "dynamic",
+        "validation_level": 4,
+        "dependency_count": 6,
+        "efficacy_score": 0.7
+      },
+      "passed": true
+    },
+    "systems/consciousness/consciousness_simple.mojo": {
+      "structure": {
+        "exists": true,
+        "size": 8069,
+        "lines": 217,
+        "has_struct": false,
+        "has_fn": true,
+        "has_imports": true,
+        "has_comments": true,
+        "content_hash": "61a4478e"
+      },
+      "quality": {
+        "total_lines": 217,
+        "non_empty_lines": 171,
+        "comment_lines": 2,
+        "struct_count": 0,
+        "function_count": 10,
+        "import_count": 2,
+        "has_docstrings": true,
+        "avg_line_length": 36.1889400921659,
+        "complexity_score": 1.0,
+        "quality_score": 95.0
+      },
+      "meta": {
+        "file_path": "systems/consciousness/consciousness_simple.mojo",
+        "file_size": 8320,
+        "creation_time": 1755368342.6535401,
+        "modification_time": 1753786811.9286675,
+        "compilation_mode": "dynamic",
+        "validation_level": 7,
+        "dependency_count": 4,
+        "efficacy_score": 0.85
+      },
+      "passed": true
+    },
+    "systems/consciousness/consciousness_framework.mojo": {
+      "structure": {
+        "exists": true,
+        "size": 10023,
+        "lines": 290,
+        "has_struct": true,
+        "has_fn": true,
+        "has_imports": true,
+        "has_comments": true,
+        "content_hash": "e2df228d"
+      },
+      "quality": {
+        "total_lines": 290,
+        "non_empty_lines": 234,
+        "comment_lines": 10,
+        "struct_count": 5,
+        "function_count": 19,
+        "import_count": 2,
+        "has_docstrings": true,
+        "avg_line_length": 33.56551724137931,
+        "complexity_score": 1.0,
+        "quality_score": 100.0
+      },
+      "meta": {
+        "file_path": "systems/consciousness/consciousness_framework.mojo",
+        "file_size": 10099,
+        "creation_time": 1755368342.6531544,
+        "modification_time": 1753786811.927622,
+        "compilation_mode": "dynamic",
+        "validation_level": 9,
+        "dependency_count": 4,
+        "efficacy_score": 0.855
+      },
+      "passed": true
+    },
+    "examples/demos/simple_working_demo.mojo": {
+      "structure": {
+        "exists": true,
+        "size": 422,
+        "lines": 21,
+        "has_struct": false,
+        "has_fn": true,
+        "has_imports": true,
+        "has_comments": false,
+        "content_hash": "0379e86e"
+      },
+      "quality": {
+        "total_lines": 21,
+        "non_empty_lines": 13,
+        "comment_lines": 0,
+        "struct_count": 0,
+        "function_count": 3,
+        "import_count": 1,
+        "has_docstrings": true,
+        "avg_line_length": 19.142857142857142,
+        "complexity_score": 0.4142857142857143,
+        "quality_score": 95.0
+      },
+      "meta": {
+        "file_path": "examples/demos/simple_working_demo.mojo",
+        "file_size": 433,
+        "creation_time": 1755368339.5108414,
+        "modification_time": 1753784559.7374427,
+        "compilation_mode": "dynamic",
+        "validation_level": 2,
+        "dependency_count": 2,
+        "efficacy_score": 0.6
+      },
+      "passed": true
+    },
+    "examples/demos/basic_cognitive_demo.mojo": {
+      "structure": {
+        "exists": true,
+        "size": 188,
+        "lines": 10,
+        "has_struct": false,
+        "has_fn": true,
+        "has_imports": true,
+        "has_comments": false,
+        "content_hash": "caa97378"
+      },
+      "quality": {
+        "total_lines": 10,
+        "non_empty_lines": 6,
+        "comment_lines": 0,
+        "struct_count": 0,
+        "function_count": 1,
+        "import_count": 1,
+        "has_docstrings": true,
+        "avg_line_length": 17.9,
+        "complexity_score": 0.19,
+        "quality_score": 90.0
+      },
+      "meta": {
+        "file_path": "examples/demos/basic_cognitive_demo.mojo",
+        "file_size": 191,
+        "creation_time": 1755368339.5079715,
+        "modification_time": 1753784318.3664458,
+        "compilation_mode": "dynamic",
+        "validation_level": 2,
+        "dependency_count": 2,
+        "efficacy_score": 0.6
+      },
+      "passed": true
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "framework": "Cognitive Design Framework",
+  "test_timestamp": 1756066901.143981,
+  "total_execution_time": 0.009370088577270508,
+  "test_results": {
+    "examples/demos/simple_working_demo.mojo": {
+      "status": "failed",
+      "execution_time": 0.00150299072265625,
+      "error": "[Errno 2] No such file or directory: 'mojo'"
+    },
+    "examples/demos/basic_cognitive_demo.mojo": {
+      "status": "failed",
+      "execution_time": 0.0012547969818115234,
+      "error": "[Errno 2] No such file or directory: 'mojo'"
+    },
+    "examples/demos/consciousness_demo.mojo": {
+      "status": "failed",
+      "execution_time": 0.0010769367218017578,
+      "error": "[Errno 2] No such file or directory: 'mojo'"
+    },
+    "examples/demos/project_demonstration.mojo": {
+      "status": "failed",
+      "execution_time": 0.001055002212524414,
+      "error": "[Errno 2] No such file or directory: 'mojo'"
+    },
+    "systems/consciousness/consciousness_simple.mojo": {
+      "status": "failed",
+      "execution_time": 0.0012731552124023438,
+      "error": "[Errno 2] No such file or directory: 'mojo'"
+    },
+    "systems/consciousness/consciousness_framework.mojo": {
+      "status": "failed",
+      "execution_time": 0.001191854476928711,
+      "error": "[Errno 2] No such file or directory: 'mojo'"
+    },
+    "cognitive_framework/core/base/tag_element.mojo": {
+      "status": "passed",
+      "type": "compilation_check"
+    },
+    "cognitive_framework/core/base/visitor.mojo": {
+      "status": "passed",
+      "type": "compilation_check"
+    },
+    "cognitive_framework/core/bridge/cognitive_bridge.mojo": {
+      "status": "passed",
+      "type": "compilation_check"
+    },
+    "systems/mecn/mecn_psi_framework.mojo": {
+      "status": "passed",
+      "type": "integration_check"
+    },
+    "systems/autopoietic/system.mojo": {
+      "status": "passed",
+      "type": "integration_check"
+    },
+    "systems/interfaces/cognitive_bridge.mojo": {
+      "status": "passed",
+      "type": "integration_check"
+    }
+  },
+  "performance_metrics": {
+    "framework_startup": {
+      "time": 0.001230001449584961,
+      "success": false
+    }
+  },
+  "summary": {
+    "total_tests": 12,
+    "passed": 6,
+    "failed": 6,
+    "not_found": 0
+  }
+}

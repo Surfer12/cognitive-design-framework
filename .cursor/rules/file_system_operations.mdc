@@ -1,0 +1,85 @@
+---
+description: File system operations patterns and best practices for Mojo development
+globs: *.mojo
+alwaysApply: false
+---
+
+# File System Operations Guide
+
+## Core File System Patterns
+
+### Safe Path Handling (from file_system.mojo)
+```mojo
+struct FilePath:
+    var _path: String = ""
+    var _is_absolute: Bool
+
+    fn __init__(inout self, path: String):
+        var is_absolute = path.startswith("/") or path.contains(":")
+        self._path = os_path.abspath(path)
+        self._is_absolute = is_absolute
+```
+
+**Key Patterns:**
+- Always use `FilePath` struct for path operations
+- Automatically detect absolute vs relative paths
+- Use `os_path.abspath()` for normalization
+- Store both raw path and absolute path
+
+### File Operations Structure
+```mojo
+struct FileOperations:
+    fn read_binary(inout self, path: FilePath) -> Bytes:
+        """Read entire file data with explicit path handling."""
+
+    fn write_binary(path: FilePath, content: Bytes):
+        """Write binary content with safe path operations."""
+```
+
+**Best Practices:**
+- Use explicit `FilePath` parameters for all file operations
+- Implement comprehensive error handling
+- Provide both binary and text file operations
+- Include file existence checks before operations
+
+### Directory Traversal
+```mojo
+struct FileTraversal:
+    fn walk(base_path: FilePath) -> List[FilePath]:
+        """Recursively walk directory and return file paths."""
+```
+
+**Safety Guidelines:**
+- Use `os.walk()` for directory traversal
+- Always validate directory existence before traversal
+- Return `FilePath` objects for consistent handling
+- Include filtering options for file types
+
+## Safety Best Practices
+
+### Path Validation
+```mojo
+# Always validate paths before operations
+if not path.exists():
+    return error("Path does not exist")
+
+if not path.is_file():
+    return error("Path is not a file")
+```
+
+### Import Structure
+```mojo
+from python import Python
+import os.path
+import os
+
+# Use Python's os module for robust file operations
+```
+
+## Integration with Cognitive Framework
+
+When working with file operations in cognitive systems:
+- Use safe path handling for data persistence
+- Implement proper error recovery for file I/O
+- Consider asynchronous operations for large files
+- Validate file integrity after operations

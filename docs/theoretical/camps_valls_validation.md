@@ -1,4 +1,4 @@
-# Camps-Valls Paper Validation: Neural Network Ensembles for Cyclosporine
+ # Camps-Valls Paper Validation: Neural Network Ensembles for Cyclosporine
 
 ## 📄 Paper Reference
 

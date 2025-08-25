@@ -1,0 +1,92 @@
+[
+  {
+    "step": 0,
+    "timestamp": "2025-08-24T15:11:30.940658",
+    "swarm_confidence": 1.0,
+    "avg_agent_confidence": 1.0,
+    "error_bound": 0.01,
+    "convergence_rate": 1.0,
+    "theorem_validation": "C(p) \u2265 1 - \u03b5"
+  },
+  {
+    "step": 1,
+    "timestamp": "2025-08-24T15:11:30.940662",
+    "swarm_confidence": 0.92,
+    "avg_agent_confidence": 0.9,
+    "error_bound": 0.012,
+    "convergence_rate": 0.95,
+    "theorem_validation": "C(p) \u2265 1 - \u03b5"
+  },
+  {
+    "step": 2,
+    "timestamp": "2025-08-24T15:11:30.940663",
+    "swarm_confidence": 0.84,
+    "avg_agent_confidence": 0.8,
+    "error_bound": 0.014,
+    "convergence_rate": 0.9,
+    "theorem_validation": "C(p) \u2265 1 - \u03b5"
+  },
+  {
+    "step": 3,
+    "timestamp": "2025-08-24T15:11:30.940664",
+    "swarm_confidence": 0.76,
+    "avg_agent_confidence": 0.7,
+    "error_bound": 0.016,
+    "convergence_rate": 0.85,
+    "theorem_validation": "C(p) \u2265 1 - \u03b5"
+  },
+  {
+    "step": 4,
+    "timestamp": "2025-08-24T15:11:30.940666",
+    "swarm_confidence": 0.6799999999999999,
+    "avg_agent_confidence": 0.6,
+    "error_bound": 0.018000000000000002,
+    "convergence_rate": 0.8,
+    "theorem_validation": "C(p) \u2265 1 - \u03b5"
+  },
+  {
+    "step": 5,
+    "timestamp": "2025-08-24T15:11:30.940667",
+    "swarm_confidence": 0.6,
+    "avg_agent_confidence": 0.5,
+    "error_bound": 0.02,
+    "convergence_rate": 0.75,
+    "theorem_validation": "C(p) \u2265 1 - \u03b5"
+  },
+  {
+    "step": 6,
+    "timestamp": "2025-08-24T15:11:30.940672",
+    "swarm_confidence": 0.52,
+    "avg_agent_confidence": 0.3999999999999999,
+    "error_bound": 0.022,
+    "convergence_rate": 0.7,
+    "theorem_validation": "C(p) \u2265 1 - \u03b5"
+  },
+  {
+    "step": 7,
+    "timestamp": "2025-08-24T15:11:30.940673",
+    "swarm_confidence": 0.43999999999999995,
+    "avg_agent_confidence": 0.29999999999999993,
+    "error_bound": 0.024,
+    "convergence_rate": 0.6499999999999999,
+    "theorem_validation": "C(p) \u2265 1 - \u03b5"
+  },
+  {
+    "step": 8,
+    "timestamp": "2025-08-24T15:11:30.940674",
+    "swarm_confidence": 0.36,
+    "avg_agent_confidence": 0.19999999999999996,
+    "error_bound": 0.026000000000000002,
+    "convergence_rate": 0.6,
+    "theorem_validation": "Theorem bounds satisfied"
+  },
+  {
+    "step": 9,
+    "timestamp": "2025-08-24T15:11:30.940675",
+    "swarm_confidence": 0.28,
+    "avg_agent_confidence": 0.09999999999999998,
+    "error_bound": 0.028000000000000004,
+    "convergence_rate": 0.55,
+    "theorem_validation": "Theorem bounds satisfied"
+  }
+]

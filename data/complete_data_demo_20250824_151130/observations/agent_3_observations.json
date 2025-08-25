@@ -1,0 +1,5 @@
+{"timestamp": "2025-08-24T15:11:30.939845", "step": 0, "agent_id": 3, "observation": {"position": 2.3, "velocity": 0.0013, "confidence": 1.0, "energy": 8.45e-07, "chaos_measure": 0.15000000000000002}}
+{"timestamp": "2025-08-24T15:11:30.940123", "step": 1, "agent_id": 3, "observation": {"position": 2.3099999999999996, "velocity": 0.0013, "confidence": 0.8, "energy": 8.45e-07, "chaos_measure": 0.25}}
+{"timestamp": "2025-08-24T15:11:30.940297", "step": 2, "agent_id": 3, "observation": {"position": 2.32, "velocity": 0.0013, "confidence": 0.6, "energy": 8.45e-07, "chaos_measure": 0.35000000000000003}}
+{"timestamp": "2025-08-24T15:11:30.940432", "step": 3, "agent_id": 3, "observation": {"position": 2.3299999999999996, "velocity": 0.0013, "confidence": 0.3999999999999999, "energy": 8.45e-07, "chaos_measure": 0.45000000000000007}}
+{"timestamp": "2025-08-24T15:11:30.940596", "step": 4, "agent_id": 3, "observation": {"position": 2.34, "velocity": 0.0013, "confidence": 0.19999999999999996, "energy": 8.45e-07, "chaos_measure": 0.55}}

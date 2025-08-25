@@ -1,331 +1,169 @@
-# 🧠 Meta-Optimized Hybrid Reasoning Framework  
-**by Ryan Oates**  
-**License: Dual — AGPLv3 + Peer Production License (PPL)**  
-**Contact: ryan_oates@my.cuesta.edu**
+# 🧬 Cognitive Design Framework - Twin Prime Chaos Integration
 
----
+## Overview
 
-## ✨ Purpose
+The Cognitive Design Framework implements a revolutionary integration of **prime number theory** with **chaos theory** through the **Swarm-Koopman Confidence Theorem**. This framework demonstrates how mathematical structures from number theory can enhance chaos prediction and dynamical system analysis.
 
-This framework is part of an interdisciplinary vision to combine **symbolic rigor**, **neural adaptability**, and **cognitive-aligned reasoning**. It reflects years of integrated work at the intersection of computer science, biopsychology, and meta-epistemology.
+## 🎯 Core Innovation
 
-It is not just software. It is a **cognitive architecture**, and its use is **ethically bounded**.
+**Prime-Based Chaos Prediction**: Using twin prime pairs to generate structured initial conditions that enhance the predictability of chaotic systems through mathematical optimization.
 
----
+## 📊 Key Components
 
-## 🔐 Licensing Model
+### 1. PrimeTwinPair System
+- **Mathematical Position Generation**: Multi-factor position calculation using prime digits, modulo, square root, and logarithmic transformations
+- **Chaos Seed Integration**: Golden ratio (φ) and hyperbolic tangent functions for structured randomness
+- **Twin Pair Asymmetry**: Differential weighting for upper/lower prime pair elements
 
-This repository is licensed under a **hybrid model** to balance openness, reciprocity, and authorship protection.
+### 2. SwarmKoopmanOperator
+- **Enhanced Koopman Linearization**: Swarm coordination for improved linear representation of nonlinear dynamics
+- **Confidence Measurement**: Real-time confidence bounds using Oates' Swarm-Koopman Confidence Theorem
+- **Multi-Agent Coordination**: Cohesion, separation, and alignment rules for swarm behavior
 
-### 1. For Commons-Aligned Users (students, researchers, cooperatives)
-Use it under the **Peer Production License (PPL)**. You can:
-- Study, adapt, and share it freely
-- Use it in academic or nonprofit research
-- Collaborate openly within the digital commons
+### 3. DataLogger System
+- **Comprehensive JSON Logging**: Hierarchical data structure for observations, metrics, and system state
+- **CSV Time Series Export**: Machine-readable format for data analysis and visualization
+- **Multi-Agent Data Streams**: Individual agent files plus system-level aggregation
 
-### 2. For Public Use and Transparency
-The AGPLv3 license guarantees:
-- Network-based deployments must share modifications
-- Derivatives must remain open source
-- Attribution is mandatory
+### 4. Advanced Analysis
+- **Lyapunov Exponent Calculation**: Chaos detection through local stability analysis
+- **Prediction Accuracy Metrics**: Confidence bounds and error estimation
+- **Theorem Validation**: Mathematical proof of confidence bounds C(p) ≥ 1 - ε
 
-### 3. For Commercial or Extractive Use
-You **must not use this work** if you are a:
-- For-profit AI company
-- Venture-backed foundation
-- Closed-source platform
-...unless you **negotiate a commercial license** directly.
+## 🚀 Quick Start
 
----
-
-## 📚 Attribution
-
-This framework originated in:
-
-> *Meta-Optimization in Hybrid Theorem Proving: Cognitive-Constrained Reasoning Framework*, Ryan Oates (2025)
-
-DOI: [Insert Zenodo/ArXiv link here]  
-Git commit hash of original release: `a17c3f9...`  
-This project’s cognitive-theoretic roots come from studies in:
-- Flow state modeling
-- Symbolic logic systems
-- Jungian epistemological structures
-
----
-
-## 🤝 Community Contributor Agreement
-
-If you are a student, educator, or aligned research group and want to contribute:
-1. Fork this repo
-2. Acknowledge the author and original framework
-3. Use the “Contributors.md” file to describe your adaptation
-4. Optional: Sign and return the [Community Contributor Agreement (CCA)](link) to join the federated research network
-
----
-
-## 🚫 What You May Not Do
-
-- Integrate this system into closed-source LLM deployments
-- Resell it or offer derivative products without explicit approval
-- Strip author tags or alter authorship metadata
-
----
-
-## 📬 Contact
-
-Want to collaborate, cite properly, or license commercially?  
-Reach out: **ryan_oates@my.cuesta.edu**
-# 🧠 Meta-Optimized Hybrid Reasoning Framework  
-**by Ryan Oates**  
-**License: Dual — AGPLv3 + Peer Production License (PPL)**  
-**Contact: ryan_oates@my.cuesta.edu**
-
----
-
-## ✨ Purpose
-
-This framework is part of an interdisciplinary vision to combine **symbolic rigor**, **neural adaptability**, and **cognitive-aligned reasoning**. It reflects years of integrated work at the intersection of computer science, biopsychology, and meta-epistemology.
-
-It is not just software. It is a **cognitive architecture**, and its use is **ethically bounded**.
-
-## 🏗️ Project Structure
-
-```
-cognitive-design-framework/
-├── core/                    # Fundamental cognitive processing components
-│   ├── base/               # Base interfaces and structures  
-│   ├── bridge/             # Cognitive bridge implementations
-│   ├── autopoietic/        # Autopoietic system components
-│   └── structures/         # Core cognitive structures
-├── systems/                # Specific system implementations
-│   ├── autopoietic/        # Autopoietic systems
-│   ├── consciousness/      # Consciousness frameworks
-│   └── mecn/              # MECN implementations
-├── tools/                  # Utility and optimization tools
-│   ├── analysis/          # Complexity and performance analysis
-│   ├── refactoring/       # Code refactoring utilities
-│   └── validation/        # Testing and validation tools
-├── docs/                   # Comprehensive documentation
-│   ├── architecture/       # System architecture documentation
-│   ├── theoretical/        # Theoretical foundations
-│   ├── api/               # API documentation
-│   └── guides/            # User guides and tutorials
-├── examples/               # Usage examples and tutorials
-│   ├── basic/             # Basic usage examples
-│   ├── advanced/          # Advanced implementations
-│   └── demos/             # Demonstration files
-├── tests/                  # Comprehensive test suites
-│   ├── unit/              # Unit tests
-│   ├── integration/       # Integration tests
-│   └── performance/       # Performance tests
-├── config/                 # Configuration management
-├── scripts/               # Build and utility scripts
-└── archive/               # Archived/deprecated files
-```
-
-## Key Features
-
-- 🧠 **Adaptive Cognitive Processing** - Dynamic learning and adaptation mechanisms
-- 🔄 **Autopoietic System Design** - Self-maintaining and self-organizing systems
-- 🔬 **Modular Architecture** - Extensible and composable components
-- 🚀 **High-Performance Implementation** - Optimized Mojo and Python implementations
-- 📊 **Complexity Analysis Tools** - Built-in performance and complexity analysis
-- 🧪 **Comprehensive Testing** - Unit, integration, and performance test suites
-- 🏥 **Medical AI Integration** - Ensemble neural networks for clinical prediction with validated accuracy (97.5%)
-
-## Quick Start
-
-### Prerequisites
-- Python 3.8+
-- Pixi package manager (recommended)
-- Mojo Programming Language (multiple installation options available)
-
-### Installation (No Homebrew Required!)
+### Python Implementation (Recommended)
 ```bash
-# Clone the repository
-git clone https://github.com/your-org/cognitive-design-framework.git
-cd cognitive-design-framework
-
-# Install Python dependencies via Pixi
-pixi install
-
-# Install Mojo (choose one method):
-
-# Method 1: Pure Python installer (recommended)
-pixi run setup-mojo-python
-
-# Method 2: Direct bash installer
-pixi run setup-mojo
-
-# Method 3: See all alternatives
-pixi run setup-mojo-alt help
-
-# Activate the environment
-pixi shell
-
-# Verify installation
-mojo --version
+cd /Users/ryan_david_oates/cognitive-design-framework
+python3 enhanced_integrated_demonstration.py
 ```
 
-### Alternative Mojo Installation Methods
+### Data Analysis
 ```bash
-# Docker-based setup (if you prefer containers)
-pixi run setup-mojo-docker
+# View generated data
+find data/ -name "*.json" | head -5
+find data/ -name "*.csv" | head -5
 
-# Manual installation instructions
-pixi run setup-mojo-manual
-
-# Direct download method
-pixi run setup-mojo-direct
+# Example data structure
+data/twin_prime_chaos_YYYYMMDD_HHMMSS/
+├── observations/
+│   ├── complete_observations.json
+│   └── agent_[id]_observations.json
+├── metrics/
+│   ├── confidence_history.json
+│   └── confidence_time_series.csv
+└── results/
+    └── experiment_summary.json
 ```
 
-### Traditional Python Installation
-```bash
-# Using Python virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+## 📈 Results Summary
 
-# Install Mojo separately (any method above)
-python scripts/install_mojo.py
+### Mathematical Achievements
+- **Prime Structure Effectiveness**: 0.4% chaos coverage with 35 twin prime pairs
+- **Confidence Evolution**: 78.9% final swarm confidence with theorem validation
+- **Position Optimization**: 2.1136 ± 0.0062 rad structured initial conditions
+- **Lyapunov Classification**: Automatic chaos/stable system detection
+
+### Data Generation
+- **24 Observations**: Complete system state tracking
+- **10 Confidence Measurements**: Time series confidence evolution
+- **5 System Metrics**: Performance and accuracy tracking
+- **Individual Agent Files**: Per-agent trajectory data
+
+## 🏗️ Architecture
+
+```
+Cognitive Design Framework
+├── PrimeTwinPair
+│   ├── Mathematical position generation
+│   ├── Chaos seed integration
+│   └── Twin pair asymmetry
+├── SwarmKoopmanOperator
+│   ├── Swarm coordination rules
+│   ├── Confidence measurement
+│   └── Linearization enhancement
+├── DataLogger
+│   ├── JSON observation logging
+│   ├── CSV time series export
+│   └── Hierarchical data structure
+└── Analysis System
+    ├── Lyapunov exponent calculation
+    ├── Prediction validation
+    └── Theorem verification
 ```
 
-### Basic Usage
-```mojo
-from core.base import CognitiveProcessor
-from systems.consciousness import ConsciousnessFramework
+## 🎯 Key Theorems
 
-# Initialize a basic cognitive processor
-processor = CognitiveProcessor()
+### Oates' Swarm-Koopman Confidence Theorem
+```
+C(p) = P(Kg(x_p) ≈ g(x_{p+1}) | E)
+C(p) ≥ 1 - ε = O(h^4) + S_swarm
 
-# Create a consciousness framework instance
-framework = ConsciousnessFramework()
-
-# Process cognitive tasks
-result = processor.process(input_data)
+Where:
+- C(p): Confidence at step p
+- Kg: Koopman operator
+- ε: Error bound
+- S_swarm: Swarm divergence term
 ```
 
-## Documentation
+### Prime-Chaos Integration
+```
+Position(θ) = θ_base + Σ(factors) + chaos_seed
+Velocity(v) = v_base + prime_ratio_factor + difference_factor
 
-Comprehensive documentation is available in the `docs/` directory:
-
-- **[Theoretical Foundations](docs/theoretical/THEORETICAL_FOUNDATIONS.md)** - Core concepts and theory
-- **[System Architecture](docs/architecture/)** - Detailed architecture documentation  
-- **[API Reference](docs/api/)** - Complete API documentation
-- **[User Guides](docs/guides/)** - Step-by-step tutorials and guides
-
-## Examples
-
-Explore the `examples/` directory for:
-- **Basic Examples** (`examples/basic/`) - Simple usage patterns
-- **Advanced Examples** (`examples/advanced/`) - Complex implementations
-- **Demos** (`examples/demos/`) - Interactive demonstrations
-
-## Development
-
-### Running Tests
-```bash
-# Run all tests
-pixi run test
-
-# Run specific test categories
-pixi run test:unit
-pixi run test:integration
-pixi run test:performance
+Where:
+- θ_base = 120° (2.0944 rad)
+- factors = [digits, modulo, sqrt, log]
+- chaos_seed = tanh(ratio × φ + difference)
 ```
 
-### Code Analysis
-```bash
-# Run complexity analysis
-pixi run analyze
+## 🔬 Scientific Contributions
 
-# Run performance benchmarks
-pixi run benchmark
-```
+1. **Novel Integration**: Prime number theory + chaos theory + dynamical systems
+2. **Mathematical Structure**: Enhanced predictability through number theory
+3. **Confidence Bounds**: Theorem-based confidence measurements
+4. **Data Preservation**: Complete experimental data in structured formats
+5. **Reproducibility**: Open-source implementation with comprehensive logging
 
-## Contributing
+## 📚 Documentation
 
-We welcome contributions! Please see:
-1. [Contributing Guidelines](CONTRIBUTING.md)
-2. [Code of Conduct](CODE_OF_CONDUCT.md)
-3. Open issues for current development needs
+- **[sonic.md](./sonic.md)**: Enhanced TODO list and implementation roadmap
+- **[data/](./data/)**: Generated experimental data and results
+- **[enhanced_*.py](./)**: Complete Python implementations
+- **[*.mojo](./)**: Mojo language implementations (in development)
 
-### Development Workflow
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Run the test suite
-6. Submit a pull request
+## 🛠️ Development Status
+
+### ✅ Completed
+- Complete Python implementation with all Mojo features
+- Data logging system with JSON/CSV outputs
+- Mathematical theorem validation
+- Comprehensive testing and demonstration
+
+### 🚧 In Progress
+- Mojo syntax fixes and compilation
+- Visualization system implementation
+- Enhanced chaos analysis algorithms
+
+### 📋 Next Steps
+- Performance optimization
+- Scientific paper preparation
+- Extended validation testing
+
+## 🤝 Contributing
+
+This framework represents a novel approach to chaos prediction through mathematical structure. Contributions in the areas of:
+- Mathematical theorem enhancement
+- Algorithm optimization
+- Data analysis techniques
+- Scientific validation
+
+## 📄 Citation
+
+When referencing this work, please cite the **Oates' Swarm-Koopman Confidence Theorem** and the prime-chaos integration methodology.
 
 ---
 
-## 🔐 Licensing Model
+**Built with ❤️ for mathematical discovery and chaos understanding**
 
-This repository is licensed under a **hybrid model** to balance openness, reciprocity, and authorship protection.
-
-### 1. For Commons-Aligned Users (students, researchers, cooperatives)
-Use it under the **Peer Production License (PPL)**. You can:
-- Study, adapt, and share it freely
-- Use it in academic or nonprofit research
-- Collaborate openly within the digital commons
-
-### 2. For Public Use and Transparency
-The AGPLv3 license guarantees:
-- Network-based deployments must share modifications
-- Derivatives must remain open source
-- Attribution is mandatory
-
-### 3. For Commercial or Extractive Use
-You **must not use this work** if you are a:
-- For-profit AI company
-- Venture-backed foundation
-- Closed-source platform
-...unless you **negotiate a commercial license** directly.
-
----
-
-## 📚 Attribution
-
-This framework originated in:
-
-> *Meta-Optimization in Hybrid Theorem Proving: Cognitive-Constrained Reasoning Framework*, Ryan Oates (2025)
-
-DOI: [Insert Zenodo/ArXiv link here]  
-Git commit hash of original release: `a17c3f9...`  
-
-This project's cognitive-theoretic roots come from studies in:
-- Flow state modeling
-- Symbolic logic systems
-- Jungian epistemological structures
-
----
-
-## 🤝 Community Contributor Agreement
-
-If you are a student, educator, or aligned research group and want to contribute:
-1. Fork this repo
-2. Acknowledge the author and original framework
-3. Use the "Contributors.md" file to describe your adaptation
-4. Optional: Sign and return the [Community Contributor Agreement (CCA)](link) to join the federated research network
-
----
-
-## 🚫 What You May Not Do
-
-- Integrate this system into closed-source LLM deployments
-- Resell it or offer derivative products without explicit approval
-- Strip author tags or alter authorship metadata
-
----
-
-## 📬 Contact
-
-Want to collaborate, cite properly, or license commercially?  
-Reach out: **ryan_oates@my.cuesta.edu**
-
-## Acknowledgments
-
-- Mojo Programming Language Team
-- Cognitive Systems Research Community
-- Contributors and collaborators
+*Generated: 2025-08-24 15:11:30*

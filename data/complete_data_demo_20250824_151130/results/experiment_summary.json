@@ -1,0 +1,18 @@
+{
+  "experiment_name": "complete_data_demo",
+  "timestamp": "20250824_151130",
+  "data_directory": "data/complete_data_demo_20250824_151130",
+  "summary_stats": {
+    "total_observations": 24,
+    "total_metrics": 5,
+    "total_confidence_entries": 10,
+    "unique_agents": 4
+  },
+  "data_files_created": [
+    "data/complete_data_demo_20250824_151130/observations/complete_observations.json",
+    "data/complete_data_demo_20250824_151130/observations/observations.csv",
+    "data/complete_data_demo_20250824_151130/metrics/system_metrics.json",
+    "data/complete_data_demo_20250824_151130/metrics/confidence_history.json",
+    "data/complete_data_demo_20250824_151130/metrics/confidence_time_series.csv"
+  ]
+}

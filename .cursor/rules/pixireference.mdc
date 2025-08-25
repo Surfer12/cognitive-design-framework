@@ -1,20 +1,14 @@
 ---
-description:
-globs:
+description: Pixi configuration and development environment reference
+globs: pixi.toml,*.toml
 alwaysApply: false
 ---
-Below is a **single-page reference document** for the `pixi.toml` structure used in the **cognitive-design-framework** repository.  
-Copy-paste it into `docs/PIXI_TOML_REFERENCE.md` (or keep it open in a split pane) and you’ll never have to guess a task or dependency again.
 
----
+# Pixi Configuration and Development Environment Guide
 
-# `pixi.toml` Quick-Reference  
-**Project:** `cognitive-design-framework`  
-**Purpose:** One-stop cheat-sheet for every Pixi task, dependency, and extension point.
+## 📦 Project Configuration
 
----
-
-## 1  Project Block
+### Core Project Settings
 ```toml
 [project]
 name        = "cognitive-design-framework"
@@ -25,65 +19,201 @@ channels    = ["conda-forge", "https://conda.modular.com/max"]
 platforms   = ["osx-arm64"]
 ```
 
----
-
-## 2  Dependencies
-| Name     | Range            | What it gives you |
-|----------|------------------|-------------------|
-| `max`    | `>=25.4.0,<26`   | Mojo compiler & std-lib |
+### Essential Dependencies
+| Name     | Range            | Purpose |
+|----------|------------------|---------|
+| `max`    | `>=25.4.0,<26`   | Mojo compiler & standard library |
 | `modular`| `>=25.4.0,<26`   | Modular CLI tools |
 
----
+## 🛠️ Development Tasks
 
-## 3  Tasks (run with `pixi run <task>`)
-| Task        | Command / Script                          | Typical use |
-|-------------|-------------------------------------------|-------------|
-| `demo`      | `mojo run basic_demo.mojo`                | Quick smoke-test |
-| `bootstrap` | `python bootstrap.py`                     | Heal empty `.mojo` stubs |
-| `test`      | `mojo test`                               | Run unit tests |
-| `dev`       | `mojo run basic_demo.mojo`                | Iterative dev loop |
-| `build`     | `mojo build`                              | Compile to binary |
-| `format`    | `mojo format .`                           | Auto-format all `.mojo` |
-| `check`     | `mojo check .`                            | Static analysis |
-| `shell`     | `mojo`                                    | Interactive REPL |
-| `info`      | `pixi info`                               | Show env details |
-| `tasks`     | `pixi task list`                          | List all tasks |
+### Core Commands (run with `pixi run <task>`)
+| Task        | Command / Script              | Purpose |
+|-------------|-------------------------------|---------|
+| `demo`      | `mojo run basic_demo.mojo`    | Quick smoke-test |
+| `bootstrap` | `python bootstrap.py`         | Heal empty `.mojo` stubs |
+| `test`      | `mojo test`                   | Run unit tests |
+| `dev`       | `mojo run basic_demo.mojo`    | Iterative development loop |
+| `build`     | `mojo build`                  | Compile to binary |
+| `format`    | `mojo format .`               | Auto-format all `.mojo` files |
+| `check`     | `mojo check .`                | Static analysis |
+| `shell`     | `mojo`                        | Interactive Mojo REPL |
+| `info`      | `pixi info`                   | Show environment details |
+| `tasks`     | `pixi task list`              | List all available tasks |
 
----
+## ⚙️ Task Configuration
 
-## 4  Adding New Tasks (copy-paste template)
+### Adding New Tasks
 ```toml
 [tasks.my_new_task]
 cmd         = "mojo run path/to/new_demo.mojo"
 description = "One-line explanation of what this does"
 ```
 
----
+### Task Dependencies
+```toml
+[tasks.complex_task]
+depends_on = ["format", "check"]
+cmd = "mojo run complex_demo.mojo"
+```
 
-## 5  Adding New Dependencies
+## 📚 Dependency Management
+
+### Adding New Dependencies
 ```toml
 [dependencies]
 numpy = ">=1.24"
+pandas = ">=2.0"
 ```
 
----
+### Development Dependencies
+```toml
+[dev-dependencies]
+pytest = ">=7.0"
+black = ">=22.0"
+```
 
-## 6  Environment Variables (optional)
+## 🌍 Environment Configuration
+
+### Environment Variables
 ```toml
 [env]
 MOJO_LOG_LEVEL = "debug"
+PYTHONPATH = "src"
 ```
 
----
+### Platform-Specific Settings
+```toml
+[target.osx-arm64]
+dependencies = { numpy = ">=1.24" }
+```
 
-## 7  One-Command Cheat-Sheet
+## 🚀 Quick Start Workflow
+
+### Development Setup
 ```bash
-pixi run bootstrap   # fix stubs
-pixi run format      # auto-format
-pixi run test        # run tests
-pixi run demo        # quick demo
+# Install environment
+pixi install
+
+# Format code
+pixi run format
+
+# Run tests
+pixi run test
+
+# Quick demo
+pixi run demo
 ```
 
----
+### Common Development Cycle
+1. **Edit code** in your preferred editor
+2. **Format** with `pixi run format`
+3. **Check syntax** with `pixi run check`
+4. **Run demo** with `pixi run demo`
+5. **Test** with `pixi run test`
 
-**End of reference.**
+## 🔧 Advanced Configuration
+
+### Custom Channels
+```toml
+[project]
+channels = [
+    "conda-forge",
+    "https://conda.modular.com/max",
+    "pytorch"
+]
+```
+
+### Feature Flags
+```toml
+[feature.dev.dependencies]
+pytest = ">=7.0"
+coverage = ">=7.0"
+```
+
+### Task Groups
+```toml
+[tasks.lint]
+depends_on = ["format", "check"]
+
+[tasks.test-all]
+depends_on = ["test", "test-integration"]
+```
+
+## 📊 Environment Information
+
+### Getting Environment Info
+```bash
+# Show current environment
+pixi info
+
+# List all tasks
+pixi task list
+
+# Show dependency tree
+pixi tree
+```
+
+### Environment Activation
+```bash
+# Activate environment
+pixi shell
+
+# Run command in environment
+pixi run --command "mojo --version"
+```
+
+## 🔍 Troubleshooting
+
+### Common Issues
+- **Task not found**: Check `pixi task list` for available tasks
+- **Dependency conflicts**: Run `pixi install --force` to rebuild
+- **Environment issues**: Try `pixi clean` to reset environment
+- **Permission errors**: Ensure proper permissions for installation directory
+
+### Debugging Commands
+```bash
+# Show detailed environment info
+pixi info --verbose
+
+# Check environment consistency
+pixi validate
+
+# Update lockfile
+pixi update
+```
+
+## 📈 Performance Optimization
+
+### Lock File Management
+```bash
+# Update specific dependencies
+pixi update numpy
+
+# Rebuild environment
+pixi install --force-reinstall
+```
+
+### Caching Strategies
+- Use `pixi shell` for multiple commands
+- Keep environments in consistent state
+- Regularly update lock files
+- Use specific dependency versions when possible
+
+## 🎯 Best Practices
+
+### Environment Management
+1. **Pin versions** for reproducible builds
+2. **Use descriptive task names** for clarity
+3. **Document complex tasks** with descriptions
+4. **Group related tasks** with dependencies
+5. **Test environments** across platforms when possible
+
+### Development Workflow
+1. **Format code** before committing
+2. **Run tests** after changes
+3. **Update lock files** when dependencies change
+4. **Document new tasks** in team documentation
+5. **Use consistent naming** conventions
+
+This reference provides comprehensive guidance for working with Pixi in the cognitive-design-framework project, covering everything from basic setup to advanced configuration patterns.

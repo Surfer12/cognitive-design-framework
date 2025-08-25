@@ -1,0 +1,272 @@
+---
+description: Terminal workflow and command patterns from cognitive framework development
+alwaysApply: false
+---
+
+# Terminal Workflow and Development Insights
+
+## 💻 Essential Terminal Commands
+
+### Pixi Environment Management
+```bash
+# Core development workflow
+pixi run demo          # Quick smoke test with basic_demo.mojo
+pixi run format        # Auto-format all .mojo files
+pixi run check         # Static analysis and syntax validation
+pixi run shell         # Interactive Mojo REPL environment
+
+# Information and debugging
+pixi info              # Show environment details
+pixi task list         # List all available tasks
+pixi tree              # Show dependency tree
+```
+
+### Mojo Development Commands
+```bash
+# File execution and validation
+mojo run simple_working_demo.mojo    # Execute working demo
+mojo format .                        # Format all Mojo files
+mojo check .                         # Syntax and type checking
+
+# Interactive development
+mojo                                  # Start Mojo REPL
+```
+
+### File System Operations
+```bash
+# Project organization
+mkdir -p .cursor/rules               # Create directory structure
+cd /Users/ryan_david_oates/cognitive-design-framework  # Navigate to project
+
+# File management
+ls -la *.md                          # List markdown files with details
+find . -name "*.mojo" -type f       # Find all Mojo files
+```
+
+## �� Development Workflow Patterns
+
+### 1. Incremental Development Strategy
+```bash
+# Always start with working templates
+cp simple_working_demo.mojo new_feature.mojo
+mojo format new_feature.mojo
+mojo run new_feature.mojo
+```
+
+### 2. Validation Pipeline
+```bash
+# Format → Check → Test → Demo cycle
+pixi run format
+pixi run check
+pixi run test
+pixi run demo
+```
+
+### 3. File Organization
+```bash
+# Maintain project structure
+├── core/                    # Core framework components
+├── systems/                 # System implementations
+├── examples/               # Working demonstrations
+├── tests/                  # Test suites
+├── data/                   # Generated data and logs
+└── docs/                   # Documentation
+```
+
+## 📊 Data Management and Logging
+
+### JSONL and CSV Output Patterns
+```bash
+# Data directory structure
+mkdir -p data/complete_data_demo_$(date +%Y%m%d_%H%M%S)/{observations,metrics,results}
+
+# File organization
+data/
+├── complete_data_demo_YYYYMMDD_HHMMSS/
+│   ├── observations/
+│   │   ├── complete_observations.json
+│   │   ├── observations.csv
+│   │   └── agent_[id]_observations.json
+│   ├── metrics/
+│   │   ├── system_metrics.json
+│   │   ├── confidence_history.json
+│   │   └── confidence_time_series.csv
+│   └── results/
+│       └── experiment_summary.json
+```
+
+### Python Data Processing
+```bash
+# Generate comprehensive reports
+python enhanced_integrated_demonstration.py
+python data_logging_demo.py
+python verify_complete_system.py
+```
+
+## 🧠 Mathematical Framework Integration
+
+### Prime-Based Chaos Initialization
+```python
+# Twin prime chaos patterns
+twin_pairs = generate_twin_prime_pairs(num_pairs=35)
+normalized_initial_conditions = generate_chaos_ready_initial_conditions(
+    num_agents=10,
+    twin_pairs=twin_pairs
+)
+```
+
+### Koopman Operator Implementation
+```python
+# Swarm-Koopman confidence theorem
+swarm_koopman = SwarmKoopmanOperator(
+    observables=observables,
+    eigenfunctions=eigenfunctions,
+    swarm_agents=swarm_agents
+)
+confidence = swarm_koopman.compute_swarm_confidence_measure()
+```
+
+## 🚀 Advanced Features Implementation
+
+### Observer Pattern for Data Collection
+```python
+# Comprehensive observation system
+observer = EnhancedObserver(
+    data_logger=DataLogger(),
+    confidence_tracker=ConfidenceTracker(),
+    visualization_manager=VisualizationManager()
+)
+```
+
+### Visualization Pipeline
+```python
+# Multi-format visualization
+fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+plot_confidence_evolution(axes[0,0])
+plot_chaos_analysis(axes[0,1])
+plot_agent_trajectories(axes[1,0])
+plot_system_metrics(axes[1,1])
+plt.tight_layout()
+plt.savefig('comprehensive_analysis.png', dpi=300, bbox_inches='tight')
+```
+
+## 📈 Performance Optimization
+
+### Memory Management
+```python
+# Efficient data structures
+from collections import defaultdict, deque
+import numpy as np
+
+# Use numpy arrays for numerical data
+positions = np.zeros((num_agents, 2))
+velocities = np.random.normal(0, 0.001, (num_agents, 2))
+```
+
+### Algorithm Selection
+```python
+# Choose algorithms based on problem size
+if num_agents < 100:
+    # Direct computation for small problems
+    confidence = direct_confidence_calculation()
+elif num_agents < 1000:
+    # Optimized O(n log n) for medium problems
+    confidence = optimized_confidence_calculation()
+else:
+    # Scalable algorithms for large problems
+    confidence = scalable_confidence_calculation()
+```
+
+## 🔍 Debugging and Troubleshooting
+
+### Common Issue Resolution
+```bash
+# Check Mojo syntax errors
+mojo check specific_file.mojo
+
+# Validate Python syntax
+python -m py_compile script.py
+
+# Check file permissions
+ls -la problematic_file
+chmod +x executable_file
+```
+
+### Error Pattern Recognition
+- **SyntaxError**: Check for missing parameter names in function signatures
+- **ImportError**: Verify file paths and import statements
+- **TypeError**: Ensure consistent type usage across components
+- **MemoryError**: Implement data streaming for large datasets
+
+## 🎯 Project Management Insights
+
+### Documentation Strategy
+```bash
+# Generate comprehensive documentation
+echo "📚 DOCUMENTATION FILES:" > docs_status.txt
+ls -la *.md | tail -5 >> docs_status.txt
+cat docs_status.txt
+```
+
+### Version Control Patterns
+- **Incremental commits**: Make small, focused changes
+- **Descriptive messages**: Explain what and why, not just what
+- **Branch strategy**: Feature branches for new functionality
+- **Regular backups**: Commit frequently to avoid data loss
+
+### Quality Assurance
+```bash
+# Comprehensive validation
+pixi run format && pixi run check && pixi run test
+python verify_complete_system.py
+```
+
+## 📚 Learning and Adaptation
+
+### Pattern Recognition
+- **Copy successful patterns**: Use working files as templates
+- **Incremental improvement**: Build on proven implementations
+- **Error-driven learning**: Learn from mistakes and fix patterns
+- **Documentation feedback**: Update docs based on development experience
+
+### Tool Mastery
+- **Pixi workflows**: Environment and task management
+- **Mojo patterns**: Language-specific best practices
+- **Python integration**: Seamless interop for complex features
+- **Data visualization**: Comprehensive analysis and reporting
+
+## 🚀 Next Steps and Planning
+
+### Immediate Priorities
+1. **Mojo Implementation**: Fix syntax errors and enable high-performance version
+2. **Visualization System**: Add matplotlib plots for confidence evolution
+3. **Enhanced Analysis**: Implement multi-scale Lyapunov exponent calculations
+4. **Prediction Validation**: Add NODE-RK4 and Euler exact form comparisons
+
+### Long-term Goals
+- **Scientific Publication**: Complete mathematical paper
+- **GPU Acceleration**: Performance optimization for large-scale simulations
+- **Extended Applications**: Weather prediction, financial analysis, engineering
+- **Community Building**: Open source contributions and collaboration
+
+## 💡 Key Insights from Development
+
+### Technical Learnings
+- **Mojo-Python Interop**: Python excels for complex features, Mojo for performance
+- **Mathematical Rigor**: Twin primes and chaos theory integration works
+- **Data Architecture**: Hierarchical logging with JSON/CSV provides flexibility
+- **Visualization**: Matplotlib enables comprehensive analysis presentation
+
+### Process Learnings
+- **Incremental Development**: Start simple, build complexity gradually
+- **Pattern Reuse**: Copy successful implementations as starting points
+- **Documentation**: Comprehensive docs enable better development
+- **Testing**: Validate at each step to catch issues early
+
+### Project Management
+- **Structured Organization**: Clear directory structure aids navigation
+- **Version Control**: Git enables experimentation and rollback
+- **Environment Management**: Pixi provides reproducible development
+- **Task Tracking**: TODO lists and progress tracking maintain momentum
+
+This rule captures the practical insights and patterns that emerged from developing the cognitive-design-framework, providing a comprehensive guide for efficient development workflows and best practices.

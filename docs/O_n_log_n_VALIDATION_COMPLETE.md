@@ -29,7 +29,7 @@ w_cross ∫[S(m₁)N(m₂) - S(m₂)N(m₁)]dt
 **Complexity Breakdown:**
 - **Symbolic processing S(m)**: O(n) operations for n symbolic elements
 - **Neural processing N(m)**: O(n) operations for n neural activations  
-- **Non-commutative interactions**: S(m₁)N(m₂) ≠ S(m₂)N(m₁)
+- **Non-commutative interactions**: S (m₁)N(m₂) ≠ S(m₂)N(m₁)
 - **Naive enumeration**: O(n²) pairwise comparisons
 - **Optimized with sorting + spatial partition**: **O(n log n)**
 

@@ -1,0 +1,298 @@
+[
+  {
+    "timestamp": "2025-08-24T15:11:30.938800",
+    "step": 0,
+    "agent_id": -1,
+    "observation": {
+      "prime_pair": "(3,5)",
+      "ratio": 1.6666666666666667,
+      "difference": 2,
+      "position_lower": 2.1243999999999996,
+      "position_upper": 2.1443999999999996,
+      "angle_lower_deg": 121.71915399759206,
+      "angle_upper_deg": 122.86506958785371
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939017",
+    "step": 0,
+    "agent_id": -1,
+    "observation": {
+      "prime_pair": "(5,7)",
+      "ratio": 1.4,
+      "difference": 2,
+      "position_lower": 2.1443999999999996,
+      "position_upper": 2.1643999999999997,
+      "angle_lower_deg": 122.86506958785371,
+      "angle_upper_deg": 124.01098517811536
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939350",
+    "step": 0,
+    "agent_id": -1,
+    "observation": {
+      "prime_pair": "(11,13)",
+      "ratio": 1.1818181818181819,
+      "difference": 2,
+      "position_lower": 2.1043999999999996,
+      "position_upper": 2.1243999999999996,
+      "angle_lower_deg": 120.57323840733042,
+      "angle_upper_deg": 121.71915399759206
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939498",
+    "step": 0,
+    "agent_id": -1,
+    "observation": {
+      "prime_pair": "(17,19)",
+      "ratio": 1.1176470588235294,
+      "difference": 2,
+      "position_lower": 2.1643999999999997,
+      "position_upper": 2.1843999999999997,
+      "angle_lower_deg": 124.01098517811536,
+      "angle_upper_deg": 125.15690076837701
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939569",
+    "step": 0,
+    "agent_id": 0,
+    "observation": {
+      "position": 2.0,
+      "velocity": 0.001,
+      "confidence": 1.0,
+      "energy": 5e-07,
+      "chaos_measure": 0.0
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939684",
+    "step": 0,
+    "agent_id": 1,
+    "observation": {
+      "position": 2.1,
+      "velocity": 0.0011,
+      "confidence": 1.0,
+      "energy": 6.05e-07,
+      "chaos_measure": 0.05
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939771",
+    "step": 0,
+    "agent_id": 2,
+    "observation": {
+      "position": 2.2,
+      "velocity": 0.0012000000000000001,
+      "confidence": 1.0,
+      "energy": 7.200000000000001e-07,
+      "chaos_measure": 0.1
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939845",
+    "step": 0,
+    "agent_id": 3,
+    "observation": {
+      "position": 2.3,
+      "velocity": 0.0013,
+      "confidence": 1.0,
+      "energy": 8.45e-07,
+      "chaos_measure": 0.15000000000000002
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939923",
+    "step": 1,
+    "agent_id": 0,
+    "observation": {
+      "position": 2.01,
+      "velocity": 0.001,
+      "confidence": 0.8,
+      "energy": 5e-07,
+      "chaos_measure": 0.1
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.939960",
+    "step": 1,
+    "agent_id": 1,
+    "observation": {
+      "position": 2.11,
+      "velocity": 0.0011,
+      "confidence": 0.8,
+      "energy": 6.05e-07,
+      "chaos_measure": 0.15000000000000002
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940016",
+    "step": 1,
+    "agent_id": 2,
+    "observation": {
+      "position": 2.21,
+      "velocity": 0.0012000000000000001,
+      "confidence": 0.8,
+      "energy": 7.200000000000001e-07,
+      "chaos_measure": 0.2
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940123",
+    "step": 1,
+    "agent_id": 3,
+    "observation": {
+      "position": 2.3099999999999996,
+      "velocity": 0.0013,
+      "confidence": 0.8,
+      "energy": 8.45e-07,
+      "chaos_measure": 0.25
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940179",
+    "step": 2,
+    "agent_id": 0,
+    "observation": {
+      "position": 2.02,
+      "velocity": 0.001,
+      "confidence": 0.6,
+      "energy": 5e-07,
+      "chaos_measure": 0.2
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940222",
+    "step": 2,
+    "agent_id": 1,
+    "observation": {
+      "position": 2.12,
+      "velocity": 0.0011,
+      "confidence": 0.6,
+      "energy": 6.05e-07,
+      "chaos_measure": 0.25
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940259",
+    "step": 2,
+    "agent_id": 2,
+    "observation": {
+      "position": 2.22,
+      "velocity": 0.0012000000000000001,
+      "confidence": 0.6,
+      "energy": 7.200000000000001e-07,
+      "chaos_measure": 0.30000000000000004
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940297",
+    "step": 2,
+    "agent_id": 3,
+    "observation": {
+      "position": 2.32,
+      "velocity": 0.0013,
+      "confidence": 0.6,
+      "energy": 8.45e-07,
+      "chaos_measure": 0.35000000000000003
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940330",
+    "step": 3,
+    "agent_id": 0,
+    "observation": {
+      "position": 2.03,
+      "velocity": 0.001,
+      "confidence": 0.3999999999999999,
+      "energy": 5e-07,
+      "chaos_measure": 0.30000000000000004
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940366",
+    "step": 3,
+    "agent_id": 1,
+    "observation": {
+      "position": 2.13,
+      "velocity": 0.0011,
+      "confidence": 0.3999999999999999,
+      "energy": 6.05e-07,
+      "chaos_measure": 0.35000000000000003
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940400",
+    "step": 3,
+    "agent_id": 2,
+    "observation": {
+      "position": 2.23,
+      "velocity": 0.0012000000000000001,
+      "confidence": 0.3999999999999999,
+      "energy": 7.200000000000001e-07,
+      "chaos_measure": 0.4
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940432",
+    "step": 3,
+    "agent_id": 3,
+    "observation": {
+      "position": 2.3299999999999996,
+      "velocity": 0.0013,
+      "confidence": 0.3999999999999999,
+      "energy": 8.45e-07,
+      "chaos_measure": 0.45000000000000007
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940464",
+    "step": 4,
+    "agent_id": 0,
+    "observation": {
+      "position": 2.04,
+      "velocity": 0.001,
+      "confidence": 0.19999999999999996,
+      "energy": 5e-07,
+      "chaos_measure": 0.4
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940496",
+    "step": 4,
+    "agent_id": 1,
+    "observation": {
+      "position": 2.14,
+      "velocity": 0.0011,
+      "confidence": 0.19999999999999996,
+      "energy": 6.05e-07,
+      "chaos_measure": 0.45
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940529",
+    "step": 4,
+    "agent_id": 2,
+    "observation": {
+      "position": 2.24,
+      "velocity": 0.0012000000000000001,
+      "confidence": 0.19999999999999996,
+      "energy": 7.200000000000001e-07,
+      "chaos_measure": 0.5
+    }
+  },
+  {
+    "timestamp": "2025-08-24T15:11:30.940596",
+    "step": 4,
+    "agent_id": 3,
+    "observation": {
+      "position": 2.34,
+      "velocity": 0.0013,
+      "confidence": 0.19999999999999996,
+      "energy": 8.45e-07,
+      "chaos_measure": 0.55
+    }
+  }
+]
